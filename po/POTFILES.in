@@ -1,0 +1,6 @@
+data/com.vixalien.audio-player.desktop.in
+data/com.vixalien.audio-player.appdata.xml.in
+data/com.vixalien.audio-player.gschema.xml
+data/window.ui
+src/main.ts
+src/window.ts

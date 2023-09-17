@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=audio-player
+Exec=com.vixalien.audio-player
+Icon=com.vixalien.audio-player
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
