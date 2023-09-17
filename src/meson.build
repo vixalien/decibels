@@ -1,6 +1,7 @@
 gnome = import('gnome')
 
 sources = files(
+  'application.ts',
   'main.ts',
   'window.ts',
 )
