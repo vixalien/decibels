@@ -19,7 +19,8 @@
     "--device=dri",
     "--socket=wayland",
     "--socket=fallback-x11",
-    "--env=GJS_DISABLE_JIT=1"
+    "--env=GJS_DISABLE_JIT=1",
+    "--socket=pulseaudio"
   ],
   "cleanup": [
     "/include",
