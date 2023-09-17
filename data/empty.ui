@@ -13,7 +13,7 @@
               <object class="GtkButton">
                 <property name="label">_Open…</property>
                 <property name="use-underline">True</property>
-                <property name="action-name">win.open</property>
+                <property name="action-name">win.open-file</property>
                 <property name="can-shrink">True</property>
                 <property name="halign">center</property>
                 <style>

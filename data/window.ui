@@ -24,7 +24,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkStack">
+              <object class="GtkStack" id="stack">
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">empty</property>
@@ -37,7 +37,7 @@
                   <object class="GtkStackPage">
                     <property name="name">error</property>
                     <property name="child">
-                      <object class="APErrorState" />
+                      <object class="APErrorState" id="error" />
                     </property>
                   </object>
                 </child>

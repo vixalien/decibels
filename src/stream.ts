@@ -18,7 +18,7 @@ type GTypeArrayToTypeArray<Y extends readonly GObject.GType[]> = {
   [K in keyof Y]: GTypeToType<Y[K]>;
 };
 
-class MuzikaPlaySignalAdapter extends GObject.Object {
+class APPlaySignalAdapter extends GObject.Object {
   private static events = {
     "buffering": [GObject.TYPE_INT],
     "duration-changed": [GObject.TYPE_INT],
@@ -37,7 +37,7 @@ class MuzikaPlaySignalAdapter extends GObject.Object {
 
   static {
     GObject.registerClass({
-      GTypeName: "MuzikaPlaySignalAdapter",
+      GTypeName: "APPlaySignalAdapter",
       Signals: Object.fromEntries(
         Object.entries(this.events)
           .map(([name, types]) => [
@@ -148,8 +148,8 @@ class MuzikaPlaySignalAdapter extends GObject.Object {
   }
 
   private emit_message<
-    Name extends keyof typeof MuzikaPlaySignalAdapter["events"],
-    Types extends typeof MuzikaPlaySignalAdapter["events"][Name],
+    Name extends keyof typeof APPlaySignalAdapter["events"],
+    Types extends typeof APPlaySignalAdapter["events"][Name],
   >(
     name: Name,
     args: GTypeArrayToTypeArray<Types>,
@@ -158,10 +158,10 @@ class MuzikaPlaySignalAdapter extends GObject.Object {
   }
 }
 
-export class MuzikaMediaStream extends Gtk.MediaStream {
+export class APMediaStream extends Gtk.MediaStream {
   static {
     GObject.registerClass({
-      GTypeName: "MuzikaMediaStream",
+      GTypeName: "APMediaStream",
       Properties: {
         buffering: GObject.param_spec_boolean(
           "is-buffering",
@@ -199,7 +199,7 @@ export class MuzikaMediaStream extends Gtk.MediaStream {
     GstPlay.Play.config_set_seek_accurate(play_config, true);
     this._play.set_config(play_config);
 
-    const adapter = new MuzikaPlaySignalAdapter(this._play);
+    const adapter = new APPlaySignalAdapter(this._play);
 
     adapter.connect("buffering", this.buffering_cb.bind(this));
     adapter.connect("end-of-stream", this.eos_cb.bind(this));
@@ -367,27 +367,11 @@ export class MuzikaMediaStream extends Gtk.MediaStream {
   //   return state >= Gst.State.READY;
   // }
 
-  // property: seekable
-
-  // first try to refresh URI when an error occurs
-
-  protected refreshed_uri = false;
-
-  protected async refresh_uri(): Promise<void> {
-    this.refreshed_uri = true;
-  }
-
   // FUNCTIONS
 
   // error functions
 
   gerror(error: GLib.Error): void {
-    if (this.refreshed_uri === false) {
-      this.refresh_uri();
-
-      return;
-    }
-
     this._error = error;
     this.notify("error");
 
@@ -498,8 +482,6 @@ export class MuzikaMediaStream extends Gtk.MediaStream {
   ): void {
     this._media_info = info;
 
-    this.refreshed_uri = false;
-
     if (!this.prepared) {
       this.stream_prepared(
         info.get_number_of_audio_streams() > 0,
@@ -525,7 +507,7 @@ export class MuzikaMediaStream extends Gtk.MediaStream {
     this.update(timestamp / Gst.USECOND);
   }
 
-  protected set_uri(uri: string): void {
+  set_uri(uri: string): void {
     this._play.uri = uri;
   }
 
