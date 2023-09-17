@@ -9,8 +9,11 @@ declare const pkg: {
 };
 
 declare module console {
-  export function error(obj: object, others?: object[]): void;
-  export function error(msg: string, subsitutions?: any[]): void;
+  export function error(...args: any[]): void;
+  export function log(...args: any[]): void;
+  export function warn(...args: any[]): void;
+  export function info(...args: any[]): void;
+  export function debug(...args: any[]): void;
 }
 
 declare interface String {
