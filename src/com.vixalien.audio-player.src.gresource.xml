@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/com/vixalien/audio-player/js">
     <file>application.js</file>
+    <file>empty.js</file>
     <file>main.js</file>
     <file>window.js</file>
   </gresource>

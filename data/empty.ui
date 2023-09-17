@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="APEmptyState" parent="AdwBin">
+    <child>
+      <object class="AdwStatusPage" id="statusPage">
+        <property name="icon-name">com.vixalien.audio-player-symbolic</property>
+        <property name="title" translatable="yes">Open an Audio File</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label">_Open…</property>
+                <property name="use-underline">True</property>
+                <property name="action-name">win.open</property>
+                <property name="can-shrink">True</property>
+                <property name="halign">center</property>
+                <style>
+                  <class name="pill"/>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

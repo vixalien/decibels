@@ -4,6 +4,10 @@ import GLib from "gi://GLib";
 import GObject from "gi://GObject";
 import Gtk from "gi://Gtk?version=4.0";
 
+import { APEmptyState } from "./empty.js";
+
+APEmptyState;
+
 export class Window extends Adw.ApplicationWindow {
   private _toastOverlay!: Adw.ToastOverlay;
 
