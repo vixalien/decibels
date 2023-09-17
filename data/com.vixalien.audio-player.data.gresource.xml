@@ -2,7 +2,11 @@
 <gresources>
   <gresource prefix="/com/vixalien/audio-player">
     <file preprocess="xml-stripblanks">empty.ui</file>
+    <file preprocess="xml-stripblanks">error.ui</file>
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+  </gresource>
+  <gresource prefix="/com/vixalien/audio-player/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks" alias="warning-symbolic.svg">icons/warning-symbolic.svg</file>
   </gresource>
 </gresources>

@@ -33,6 +33,14 @@
                     </property>
                   </object>
                 </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">error</property>
+                    <property name="child">
+                      <object class="APErrorState" />
+                    </property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

@@ -5,8 +5,10 @@ import GObject from "gi://GObject";
 import Gtk from "gi://Gtk?version=4.0";
 
 import { APEmptyState } from "./empty.js";
+import { APErrorState } from "./error.js";
 
 APEmptyState;
+APErrorState;
 
 export class Window extends Adw.ApplicationWindow {
   private _toastOverlay!: Adw.ToastOverlay;
