@@ -4,6 +4,7 @@
     <file>application.js</file>
     <file>empty.js</file>
     <file>error.js</file>
+    <file>header.js</file>
     <file>main.js</file>
     <file>player.js</file>
     <file>stream.js</file>

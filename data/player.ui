@@ -14,8 +14,10 @@
           </object>
         </child>
         <child>
-          <object class="GtkBox">
-            <property name="orientation">1</property>
+          <object class="AdwToolbarView">
+            <child type="top">
+              <object class="APHeaderBar" id="headerbar"></object>
+            </child>
             <child>
               <object class="GtkBox" id="scale">
                 <property name="vexpand">true</property>
@@ -60,11 +62,11 @@
                 </child>
               </object>
             </child>
-            <child>
+            <child type="bottom">
               <object class="GtkCenterBox" id="controls">
                 <property name="margin-start">6</property>
                 <property name="margin-end">6</property>
-                <property name="margin-bottom">12</property>
+                <property name="margin-bottom">6</property>
                 <style>
                   <class name="controls"/>
                   <class name="toolbar"/>

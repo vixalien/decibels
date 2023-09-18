@@ -4,6 +4,7 @@ sources = files(
   'application.ts',
   'empty.ts',
   'error.ts',
+  'header.ts',
   'main.ts',
   'player.ts',
   'stream.ts',

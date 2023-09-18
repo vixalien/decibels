@@ -6,11 +6,14 @@ import Gtk from "gi://Gtk?version=4.0";
 
 import { APMediaStream } from "./stream.js";
 
+import { APHeaderBar } from "./header.js";
 import { APEmptyState } from "./empty.js";
 import { APErrorState } from "./error.js";
 import { APPlayerState } from "./player.js";
 
 Gio._promisify(Gtk.FileDialog.prototype, "open", "open_finish");
+
+APHeaderBar;
 
 // make sure that GObject registers these first
 APEmptyState;
@@ -75,6 +78,20 @@ export class Window extends Adw.ApplicationWindow {
 
     this.insert_action_group("player", this.stream.get_action_group());
 
+    this.stream.bind_property(
+      "title",
+      this._player,
+      "title",
+      GObject.BindingFlags.DEFAULT,
+    );
+
+    this.stream.bind_property(
+      "title",
+      this._error,
+      "title",
+      GObject.BindingFlags.DEFAULT,
+    );
+
     const filters = Gio.ListStore.new(Gtk.FileFilter.$gtype);
     filters.append(
       new Gtk.FileFilter({
@@ -99,8 +116,13 @@ export class Window extends Adw.ApplicationWindow {
     ]);
   }
 
-  load(uri: string) {
+  load_uri(uri: string) {
     this.stream.set_uri(uri);
+    this.stream.play();
+  }
+
+  load_file(file: Gio.File) {
+    this.stream.set_file(file);
     this.stream.play();
   }
 
@@ -108,7 +130,7 @@ export class Window extends Adw.ApplicationWindow {
     (this.file_dialog.open(this, null) as unknown as Promise<Gio.File>)
       .then((file) => {
         if (file) {
-          this.load(file.get_uri());
+          this.load_file(file);
           this.show_stack_page("player");
         } else {
           this.show_error(

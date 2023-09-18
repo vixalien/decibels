@@ -3,6 +3,7 @@ import Gtk from "gi://Gtk?version=4.0";
 import GObject from "gi://GObject";
 
 import { Window } from "./window.js";
+import { APHeaderBar } from "./header.js";
 
 export class APPlayerState extends Adw.Bin {
   private _scale_adjustment!: Gtk.Adjustment;
@@ -10,6 +11,7 @@ export class APPlayerState extends Adw.Bin {
   private _duration_label!: Gtk.Label;
   private _volume_button!: Gtk.VolumeButton;
   private _playback_image!: Gtk.Image;
+  private _headerbar!: APHeaderBar;
 
   static {
     GObject.registerClass(
@@ -22,7 +24,17 @@ export class APPlayerState extends Adw.Bin {
           "duration_label",
           "volume_button",
           "playback_image",
+          "headerbar",
         ],
+        Properties: {
+          title: GObject.param_spec_string(
+            "title",
+            "Title",
+            "The title of the header bar",
+            null,
+            GObject.ParamFlags.READWRITE,
+          ),
+        },
       },
       this,
     );
@@ -30,6 +42,14 @@ export class APPlayerState extends Adw.Bin {
 
   constructor(params?: Partial<Adw.Bin.ConstructorProperties>) {
     super(params);
+  }
+
+  get title() {
+    return this._headerbar.title;
+  }
+
+  set title(title: string | null) {
+    this._headerbar.title = title;
   }
 
   private initialize_player() {

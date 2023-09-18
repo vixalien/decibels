@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="APHeaderBar" parent="AdwBin">
+    <child>
+      <object class="AdwHeaderBar" id="header_bar">
+        <child type="start">
+          <object class="GtkMenuButton">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="menu-model">primary_menu</property>
+            <property name="primary">true</property>
+            <property name="tooltip-text" translatable="true">Main Menu</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="true">Open…</attribute>
+        <attribute name="action">win.open-file</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="true">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="true">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="true">_About Audio Player</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

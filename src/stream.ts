@@ -5,6 +5,7 @@ import GLib from "gi://GLib";
 import GstPlay from "gi://GstPlay";
 import GstAudio from "gi://GstAudio";
 import Gio from "gi://Gio";
+import GstPbUtils from "gi://GstPbutils";
 
 import { AddActionEntries } from "./window";
 
@@ -189,12 +190,40 @@ export class APMediaStream extends Gtk.MediaStream {
           1.0,
           GObject.ParamFlags.READWRITE,
         ),
+        file: GObject.param_spec_object(
+          "file",
+          "File",
+          "The file currently being played by this stream",
+          Gio.File.$gtype,
+          GObject.ParamFlags.READABLE,
+        ),
+        tags: GObject.param_spec_boxed(
+          "tags",
+          "Tags",
+          "The tags of the currently playing track",
+          Gst.TagList.$gtype,
+          GObject.ParamFlags.READABLE,
+        ),
+        title: GObject.param_spec_string(
+          "title",
+          "Title",
+          "The title of the currently playing song",
+          null,
+          GObject.ParamFlags.READWRITE,
+        ),
       },
     }, this);
   }
 
+  private discoverer: GstPbUtils.Discoverer;
+
   constructor() {
     super();
+
+    this.discoverer = GstPbUtils.Discoverer.new(GLib.MAXINT32);
+    this.discoverer.connect("discovered", (_source, info) => {
+      this.tags = info.get_tags();
+    });
 
     this._play = new GstPlay.Play();
 
@@ -248,6 +277,66 @@ export class APMediaStream extends Gtk.MediaStream {
   protected _play: GstPlay.Play;
 
   // PROPERTIES
+
+  // property: file
+
+  protected _file: Gio.File | null = null;
+
+  get file() {
+    return this._file;
+  }
+
+  private set file(file: Gio.File | null) {
+    this._file = file;
+    this.notify("file");
+    this.notify("title");
+  }
+
+  // property: title
+
+  protected _title: string | null = null;
+
+  get title() {
+    const tag_title = this.tags?.get_string("title");
+
+    if (tag_title && tag_title[0] && tag_title[1]) {
+      return tag_title[1];
+    }
+
+    const file_info = this.file?.query_info(
+      Gio.FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+      Gio.FileQueryInfoFlags.NONE,
+      null,
+    );
+    const file_name = file_info?.get_attribute_string(
+      Gio.FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+    );
+
+    if (file_name) {
+      return file_name;
+    }
+
+    return this._play.uri ?? _("Unknown File");
+  }
+
+  private set title(title: string | null) {
+    this._title = title;
+    this.notify("title");
+  }
+
+  // property: tags
+
+  protected _tags: Gst.TagList | null = null;
+
+  get tags() {
+    return this._tags;
+  }
+
+  private set tags(tags: Gst.TagList | null) {
+    this._tags = tags;
+    this.notify("tags");
+    this.notify("title");
+  }
 
   // property: media-info
 
@@ -467,8 +556,30 @@ export class APMediaStream extends Gtk.MediaStream {
     this.update(timestamp / Gst.USECOND);
   }
 
+  private reset_tags() {
+    this.tags = null;
+    this.discoverer.stop();
+    this.discoverer.start();
+  }
+
   set_uri(uri: string): void {
+    this.reset_tags();
+
+    this.file = null;
     this._play.uri = uri;
+
+    this.discoverer.discover_uri_async(uri);
+  }
+
+  set_file(file: Gio.File): void {
+    this.reset_tags();
+
+    const uri = file.get_uri();
+
+    this.file = file;
+    this._play.uri = uri;
+
+    this.discoverer.discover_uri_async(uri);
   }
 
   stop() {
