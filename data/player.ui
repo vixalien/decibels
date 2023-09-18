@@ -72,6 +72,8 @@
                 <property name="spacing">12</property>
                 <child>
                   <object class="GtkButton">
+                    <property name="action-name">player.skip-seconds</property>
+                    <property name="action-target">-30</property>
                     <property name="icon-name">skip-backwards-30-symbolic</property>
                     <property name="valign">3</property>
                     <style>
@@ -81,6 +83,8 @@
                 </child>
                 <child>
                   <object class="GtkButton">
+                    <property name="action-name">player.skip-seconds</property>
+                    <property name="action-target">-10</property>
                     <property name="icon-name">skip-backwards-10-symbolic</property>
                     <property name="valign">3</property>
                     <style>
@@ -106,6 +110,8 @@
                 </child>
                 <child>
                   <object class="GtkButton">
+                    <property name="action-name">player.skip-seconds</property>
+                    <property name="action-target">10</property>
                     <property name="icon-name">skip-forward-10-symbolic</property>
                     <property name="valign">3</property>
                     <style>
@@ -115,6 +121,8 @@
                 </child>
                 <child>
                   <object class="GtkButton">
+                    <property name="action-name">player.skip-seconds</property>
+                    <property name="action-target">30</property>
                     <property name="icon-name">skip-forward-30-symbolic</property>
                     <property name="valign">3</property>
                     <style>

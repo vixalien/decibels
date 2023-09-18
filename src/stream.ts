@@ -504,11 +504,11 @@ export class APMediaStream extends Gtk.MediaStream {
         },
       },
       {
-        name: "seek",
+        name: "skip-seconds",
         parameter_type: "i",
         activate: (_source, param) => {
           if (param) {
-            this.seek(param.get_int32());
+            this.seek(this.timestamp + param.get_int32() * Gst.MSECOND);
           }
         },
       },
