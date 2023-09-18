@@ -499,6 +499,8 @@ export class APMediaStream extends Gtk.MediaStream {
           this.seekable,
           this.duration,
         );
+
+        this.play();
       }
     }
   }
@@ -532,6 +534,8 @@ export class APMediaStream extends Gtk.MediaStream {
         info.is_seekable(),
         this._play.get_duration() / Gst.USECOND,
       );
+
+      this.play();
     }
   }
 
