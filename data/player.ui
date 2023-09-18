@@ -28,7 +28,6 @@
                 <property name="margin-end">12</property>
                 <child>
                   <object class="GtkLabel" id="timestamp_label">
-                    <property name="label">00:01</property>
                     <style>
                       <class name="caption"/>
                       <class name="numeric"/>
@@ -37,7 +36,6 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="duration_label">
-                    <property name="label">10:01</property>
                     <property name="hexpand">true</property>
                     <property name="halign">2</property>
                     <style>
@@ -52,6 +50,9 @@
         </child>
         <child>
           <object class="GtkCenterBox" id="controls">
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-bottom">12</property>
             <style>
               <class name="controls"/>
               <class name="toolbar"/>
