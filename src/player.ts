@@ -100,6 +100,19 @@ export class APPlayerState extends Adw.Bin {
     );
   }
 
+  private scale_change_value_cb(
+    _scale: Gtk.Scale,
+    _scroll: Gtk.ScrollType,
+    value: number,
+  ) {
+    const window = this.get_root() as Window;
+    const stream = window?.stream;
+
+    if (!stream) return;
+
+    stream.seek(value);
+  }
+
   vfunc_root(): void {
     super.vfunc_root();
 
