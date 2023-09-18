@@ -123,8 +123,7 @@
               </object>
             </child>
             <child type="end">
-              <object class="GtkButton">
-                <property name="icon-name">multimedia-volume-control-symbolic</property>
+              <object class="GtkVolumeButton" id="volume_button">
                 <property name="valign">3</property>
                 <style>
                   <class name="circular"/>

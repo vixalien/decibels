@@ -8,6 +8,7 @@ export class APPlayerState extends Adw.Bin {
   private _scale_adjustment!: Gtk.Adjustment;
   private _timestamp_label!: Gtk.Label;
   private _duration_label!: Gtk.Label;
+  private _volume_button!: Gtk.VolumeButton;
 
   static {
     GObject.registerClass(
@@ -18,6 +19,7 @@ export class APPlayerState extends Adw.Bin {
           "scale_adjustment",
           "timestamp_label",
           "duration_label",
+          "volume_button",
         ],
       },
       this,
@@ -69,6 +71,13 @@ export class APPlayerState extends Adw.Bin {
         return [true, micro_to_string(from)];
       },
       null,
+    );
+
+    window.stream.bind_property(
+      "cubic-volume",
+      this._volume_button,
+      "value",
+      GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.BIDIRECTIONAL,
     );
   }
 
