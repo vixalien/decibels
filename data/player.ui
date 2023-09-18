@@ -89,8 +89,9 @@
                 </child>
                 <child>
                   <object class="GtkButton">
+                    <property name="action-name">player.play-pause</property>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkImage" id="playback_image">
                         <property name="icon-name">media-playback-pause-symbolic</property>
                         <property name="pixel-size">24</property>
                       </object>

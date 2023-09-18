@@ -73,6 +73,8 @@ export class Window extends Adw.ApplicationWindow {
 
     this.stream = new APMediaStream();
 
+    this.insert_action_group("player", this.stream.get_action_group());
+
     const filters = Gio.ListStore.new(Gtk.FileFilter.$gtype);
     filters.append(
       new Gtk.FileFilter({

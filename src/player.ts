@@ -9,6 +9,7 @@ export class APPlayerState extends Adw.Bin {
   private _timestamp_label!: Gtk.Label;
   private _duration_label!: Gtk.Label;
   private _volume_button!: Gtk.VolumeButton;
+  private _playback_image!: Gtk.Image;
 
   static {
     GObject.registerClass(
@@ -20,6 +21,7 @@ export class APPlayerState extends Adw.Bin {
           "timestamp_label",
           "duration_label",
           "volume_button",
+          "playback_image",
         ],
       },
       this,
@@ -78,6 +80,23 @@ export class APPlayerState extends Adw.Bin {
       this._volume_button,
       "value",
       GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.BIDIRECTIONAL,
+    );
+
+    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    window.stream.bind_property_full(
+      "playing",
+      this._playback_image,
+      "icon-name",
+      GObject.BindingFlags.SYNC_CREATE,
+      (_binding, from: boolean) => {
+        return [
+          true,
+          from
+            ? "media-playback-pause-symbolic"
+            : "media-playback-start-symbolic",
+        ];
+      },
+      null,
     );
   }
 

@@ -4,6 +4,9 @@ import Gst from "gi://Gst";
 import GLib from "gi://GLib";
 import GstPlay from "gi://GstPlay";
 import GstAudio from "gi://GstAudio";
+import Gio from "gi://Gio";
+
+import { AddActionEntries } from "./window";
 
 if (!Gst.is_initialized()) {
   GLib.setenv("GST_PLAY_USE_PLAYBIN3", "1", false);
@@ -472,6 +475,46 @@ export class APMediaStream extends Gtk.MediaStream {
     this._play.stop();
 
     this.notify("timestamp");
+  }
+
+  get_action_group() {
+    const action_group = Gio.SimpleActionGroup.new();
+
+    (action_group.add_action_entries as AddActionEntries)([
+      {
+        name: "play",
+        activate: () => {
+          this.play();
+        },
+      },
+      {
+        name: "pause",
+        activate: () => {
+          this.play();
+        },
+      },
+      {
+        name: "play-pause",
+        activate: () => {
+          if (this.playing) {
+            this.pause();
+          } else {
+            this.play();
+          }
+        },
+      },
+      {
+        name: "seek",
+        parameter_type: "i",
+        activate: (_source, param) => {
+          if (param) {
+            this.seek(param.get_int32());
+          }
+        },
+      },
+    ]);
+
+    return action_group;
   }
 }
 
