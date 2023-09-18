@@ -212,6 +212,11 @@ export class APMediaStream extends Gtk.MediaStream {
           GObject.ParamFlags.READWRITE,
         ),
       },
+      Signals: {
+        "error": {
+          param_types: [GLib.Error.$gtype],
+        },
+      },
     }, this);
   }
 
@@ -417,25 +422,14 @@ export class APMediaStream extends Gtk.MediaStream {
     this._error = error;
     this.notify("error");
 
-    console.error(
-      "error during playback",
-      error.toString(),
-      error.code,
-      error.domain,
-      error.message,
-    );
-
-    console.error(
-      "error name",
-      GstPlay.play_error_get_name(error as GstPlay.PlayError),
-    );
-
     // TODO: cancel pending seeks
     this._play.stop();
 
     if (this.prepared) {
       this.stream_unprepared();
     }
+
+    this.emit("error", error);
   }
 
   // seek

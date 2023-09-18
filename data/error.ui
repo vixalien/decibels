@@ -19,7 +19,7 @@
                   <object class="GtkButton">
                     <property name="label">_Try Again…</property>
                     <property name="use-underline">true</property>
-                    <property name="action-name">win.try-again</property>
+                    <property name="action-name">win.open-file</property>
                     <property name="can-shrink">True</property>
                     <property name="halign">3</property>
                     <style>

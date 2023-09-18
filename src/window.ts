@@ -92,6 +92,18 @@ export class Window extends Adw.ApplicationWindow {
       GObject.BindingFlags.DEFAULT,
     );
 
+    this.stream.connect("error", (_source, error) => {
+      console.error(
+        "error during playback",
+        error.toString(),
+        error.code,
+        error.domain,
+        error.message,
+      );
+
+      this.show_error(_("File Cannot Be Played"), error);
+    });
+
     const filters = Gio.ListStore.new(Gtk.FileFilter.$gtype);
     filters.append(
       new Gtk.FileFilter({
