@@ -8,12 +8,14 @@ import { APMediaStream } from "./stream.js";
 
 import { APEmptyState } from "./empty.js";
 import { APErrorState } from "./error.js";
+import { APPlayerState } from "./player.js";
 
 Gio._promisify(Gtk.FileDialog.prototype, "open", "open_finish");
 
 // make sure that GObject registers these first
 APEmptyState;
 APErrorState;
+APPlayerState;
 
 export type ActionEntry = {
   name: string;
@@ -35,15 +37,25 @@ export class Window extends Adw.ApplicationWindow {
   private _toastOverlay!: Adw.ToastOverlay;
   private _stack!: Gtk.Stack;
   private _error!: APErrorState;
+  private _player!: APPlayerState;
 
-  private stream: APMediaStream;
+  stream: APMediaStream;
   private file_dialog: Gtk.FileDialog;
 
   static {
     GObject.registerClass(
       {
         Template: "resource:///com/vixalien/audio-player/window.ui",
-        InternalChildren: ["toastOverlay", "stack", "error"],
+        InternalChildren: ["toastOverlay", "stack", "error", "player"],
+        Properties: {
+          "stream": GObject.param_spec_object(
+            "stream",
+            "Stream",
+            "The APMediaStream currently playing",
+            APMediaStream.$gtype,
+            GObject.ParamFlags.READWRITE,
+          ),
+        },
       },
       this,
     );
@@ -95,6 +107,7 @@ export class Window extends Adw.ApplicationWindow {
       .then((file) => {
         if (file) {
           this.load(file.get_uri());
+          this.show_stack_page("player");
         } else {
           this.show_error(
             _("File Cannot Be Played"),
@@ -113,7 +126,7 @@ export class Window extends Adw.ApplicationWindow {
       });
   }
 
-  private show_stack_page(page: "empty" | "error") {
+  private show_stack_page(page: "empty" | "error" | "player") {
     this._stack.visible_child_name = page;
   }
 

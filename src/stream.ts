@@ -244,10 +244,6 @@ export class APMediaStream extends Gtk.MediaStream {
 
   protected _play: GstPlay.Play;
 
-  get timestamp() {
-    return super.timestamp;
-  }
-
   // PROPERTIES
 
   // property: media-info
@@ -263,14 +259,6 @@ export class APMediaStream extends Gtk.MediaStream {
     this.notify("media-info");
   }
 
-  // property: state
-
-  private _state = GstPlay.PlayState.STOPPED;
-
-  get state() {
-    return this._state;
-  }
-
   // property: buffering
 
   protected _is_buffering = false;
@@ -281,7 +269,7 @@ export class APMediaStream extends Gtk.MediaStream {
 
   // property: duration
 
-  get duration() {
+  get_duration() {
     if (!this._play.media_info) return 0;
 
     return this._play.media_info.get_duration() / Gst.USECOND;
@@ -405,8 +393,6 @@ export class APMediaStream extends Gtk.MediaStream {
     _play: GstPlay.Play,
     state: GstPlay.PlayState,
   ): void {
-    this._state = state;
-
     if (state == GstPlay.PlayState.BUFFERING) {
       this._is_buffering = true;
       this.notify("is-buffering");
@@ -458,7 +444,7 @@ export class APMediaStream extends Gtk.MediaStream {
         info.get_number_of_audio_streams() > 0,
         info.get_number_of_video_streams() > 0,
         info.is_seekable(),
-        this._play.get_duration(),
+        this._play.get_duration() / Gst.USECOND,
       );
     }
   }

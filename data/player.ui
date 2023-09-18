@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="APPlayerState" parent="AdwBin">
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">1</property>
+        <child>
+          <object class="GtkBox" id="scale">
+            <property name="vexpand">true</property>
+            <property name="valign">3</property>
+            <property name="orientation">1</property>
+            <child>
+              <object class="GtkScale">
+                <property name="hexpand">true</property>
+                <property name="adjustment">
+                  <object class="GtkAdjustment" id="scale_adjustment">
+                    <property name="upper">1</property>
+                    <property name="lower">0</property>
+                    <property name="value">0</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="labels">
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <child>
+                  <object class="GtkLabel" id="timestamp_label">
+                    <property name="label">00:01</property>
+                    <style>
+                      <class name="caption"/>
+                      <class name="numeric"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="duration_label">
+                    <property name="label">10:01</property>
+                    <property name="hexpand">true</property>
+                    <property name="halign">2</property>
+                    <style>
+                      <class name="caption"/>
+                      <class name="numeric"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCenterBox" id="controls">
+            <style>
+              <class name="controls"/>
+              <class name="toolbar"/>
+            </style>
+            <child type="start">
+              <object class="GtkButton">
+                <property name="icon-name">playback-speed-symbolic</property>
+                <property name="valign">3</property>
+                <style>
+                  <class name="circular"/>
+                </style>
+              </object>
+            </child>
+            <child type="center">
+              <object class="GtkBox">
+                <property name="spacing">12</property>
+                <child>
+                  <object class="GtkButton">
+                    <property name="icon-name">skip-backwards-30-symbolic</property>
+                    <property name="valign">3</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="icon-name">skip-backwards-10-symbolic</property>
+                    <property name="valign">3</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <child>
+                      <object class="GtkImage">
+                        <property name="icon-name">media-playback-pause-symbolic</property>
+                        <property name="pixel-size">24</property>
+                      </object>
+                    </child>
+                    <style>
+                      <class name="large-button"/>
+                      <class name="circular"/>
+                      <class name="opaque"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="icon-name">skip-forward-10-symbolic</property>
+                    <property name="valign">3</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="icon-name">skip-forward-30-symbolic</property>
+                    <property name="valign">3</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton">
+                <property name="icon-name">multimedia-volume-control-symbolic</property>
+                <property name="valign">3</property>
+                <style>
+                  <class name="circular"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

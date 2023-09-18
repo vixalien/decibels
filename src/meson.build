@@ -5,6 +5,7 @@ sources = files(
   'empty.ts',
   'error.ts',
   'main.ts',
+  'player.ts',
   'stream.ts',
   'window.ts',
 )

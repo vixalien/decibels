@@ -41,6 +41,14 @@
                     </property>
                   </object>
                 </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">player</property>
+                    <property name="child">
+                      <object class="APPlayerState" id="player" />
+                    </property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
