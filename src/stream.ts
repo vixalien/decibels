@@ -184,7 +184,7 @@ export class APMediaStream extends Gtk.MediaStream {
           0.0,
           1.0,
           1.0,
-          GObject.ParamFlags.READABLE,
+          GObject.ParamFlags.READWRITE,
         ),
       },
     }, this);
@@ -230,16 +230,6 @@ export class APMediaStream extends Gtk.MediaStream {
     this._play.pipeline.set_property("video-sink", sink);
   }
 
-  get volume(): number {
-    return this._play.volume;
-  }
-
-  set volume(volume: number) {
-    this._play.volume = volume;
-    this.notify("volume");
-    this.notify("cubic-volume");
-  }
-
   // cubic volume
 
   get cubic_volume() {
@@ -248,15 +238,6 @@ export class APMediaStream extends Gtk.MediaStream {
 
   set cubic_volume(value: number) {
     this.volume = get_linear_volume(value);
-  }
-
-  get muted(): boolean {
-    return this._play.mute;
-  }
-
-  set muted(muted: boolean) {
-    this._play.mute = muted;
-    this.notify("muted");
   }
 
   // UTILS
@@ -330,34 +311,15 @@ export class APMediaStream extends Gtk.MediaStream {
     return this._play.media_info.get_number_of_video_streams() > 0;
   }
 
-  // property: playing
-
-  protected _playing = false;
-
-  get playing() {
-    return this._playing;
+  vfunc_play(): boolean {
+    this._play.play();
+    return true;
   }
 
-  set playing(value) {
-    if (value) {
-      this._play.play();
-    } else {
-      this._play.pause();
-    }
-
-    this._playing = value;
-    this.notify("playing");
+  vfunc_pause(): boolean {
+    this._play.pause();
+    return true;
   }
-
-  play() {
-    this.playing = true;
-  }
-
-  pause() {
-    this.playing = false;
-  }
-
-  // property: playing
 
   // get prepared() {
   //   const state = this.get_state();
@@ -394,8 +356,6 @@ export class APMediaStream extends Gtk.MediaStream {
     if (this.prepared) {
       this.stream_unprepared();
     }
-
-    this._playing = false;
   }
 
   // seek
@@ -403,6 +363,12 @@ export class APMediaStream extends Gtk.MediaStream {
   vfunc_seek(timestamp: number): void {
     this.update(timestamp);
     this._play.seek(Math.trunc(timestamp * Gst.USECOND));
+  }
+
+  vfunc_update_audio(muted: boolean, volume: number): void {
+    this._play.mute = muted;
+    this._play.volume = volume;
+    this.notify("cubic-volume");
   }
 
   // handlers
@@ -470,6 +436,11 @@ export class APMediaStream extends Gtk.MediaStream {
   }
 
   protected eos_cb(_play: GstPlay.Play): void {
+    if (this.loop) {
+      this.seek(0);
+      this.play();
+    }
+
     if (this.prepared) {
       this.stream_ended();
       this.stream_unprepared();
