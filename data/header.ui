@@ -24,10 +24,6 @@
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="true">_Preferences</attribute>
-        <attribute name="action">app.preferences</attribute>
-      </item>
-      <item>
         <attribute name="label" translatable="true">_Keyboard Shortcuts</attribute>
         <attribute name="action">win.show-help-overlay</attribute>
       </item>
