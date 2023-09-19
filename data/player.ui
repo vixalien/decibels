@@ -19,24 +19,25 @@
               <object class="APHeaderBar" id="headerbar"></object>
             </child>
             <child>
-              <object class="GtkBox">
-                <property name="vexpand">true</property>
-                <property name="orientation">1</property>
+              <object class="AdwClamp">
+                <property name="orientation">vertical</property>
+                <property name="maximum-size">400</property>
+                <property name="tightening-threshold">300</property>
                 <child>
-                  <object class="AdwClamp">
-                    <property name="orientation">vertical</property>
-                    <property name="maximum-size">400</property>
-                    <property name="tightening-threshold">300</property>
-                    <child>
-                      <object class="APWaveForm" id="waveform">
-                        <signal name="position-changed" handler="waveform_position_changed_cb"/>
-                        <property name="vexpand">true</property>
-                      </object>
-                    </child>
+                  <object class="APWaveForm" id="waveform">
+                    <signal name="position-changed" handler="waveform_position_changed_cb"/>
+                    <property name="vexpand">true</property>
                   </object>
                 </child>
+              </object>
+            </child>
+            <child type="bottom">
+              <object class="GtkBox">
+                <property name="orientation">1</property>
                 <child>
                   <object class="GtkScale" id="scale">
+                    <property name="margin-start">6</property>
+                    <property name="margin-end">6</property>
                     <property name="hexpand">true</property>
                     <signal name="change-value" handler="scale_change_value_cb"/>
                     <property name="adjustment">
@@ -50,8 +51,8 @@
                 </child>
                 <child>
                   <object class="GtkBox" id="labels">
-                    <property name="margin-start">12</property>
-                    <property name="margin-end">12</property>
+                    <property name="margin-start">18</property>
+                    <property name="margin-end">18</property>
                     <child>
                       <object class="GtkLabel" id="timestamp_label">
                         <style>
@@ -76,9 +77,6 @@
             </child>
             <child type="bottom">
               <object class="GtkCenterBox" id="controls">
-                <property name="margin-start">6</property>
-                <property name="margin-end">6</property>
-                <property name="margin-bottom">6</property>
                 <style>
                   <class name="controls"/>
                   <class name="toolbar"/>
