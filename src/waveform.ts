@@ -299,7 +299,7 @@ export class APPeaksGenerator extends GObject.Object {
 
           this.loadedPeaks.length = 0;
 
-          pipeline?.set_state(Gst.State.PAUSED);
+          pipeline?.set_state(Gst.State.NULL);
           break;
       }
     });
