@@ -61,4 +61,15 @@ data_res = gnome.compile_resources(
   dependencies: appstream_file,
 )
 
+service_conf = configuration_data()
+service_conf.set('application_id', application_id)
+service_conf.set('bindir', get_option('prefix') / get_option('bindir'))
+configure_file(
+  input: 'com.vixalien.decibels.service.in',
+  output: '@0@.service'.format(application_id),
+  configuration: service_conf,
+  install: true,
+  install_dir: get_option('datadir') / 'dbus-1/services',
+)
+
 subdir('icons')

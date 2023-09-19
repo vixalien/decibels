@@ -15,7 +15,7 @@ export class Application extends Adw.Application {
   constructor() {
     super({
       application_id: "com.vixalien.decibels",
-      flags: Gio.ApplicationFlags.DEFAULT_FLAGS,
+      flags: Gio.ApplicationFlags.HANDLES_OPEN,
     });
 
     const quit_action = new Gio.SimpleAction({ name: "quit" });
@@ -41,11 +41,25 @@ export class Application extends Adw.Application {
     Gio._promisify(Gtk.UriLauncher.prototype, "launch", "launch_finish");
   }
 
-  public vfunc_activate(): void {
+  private present_main_window(): void {
     if (!this.window) {
       this.window = new Window({ application: this });
     }
 
     this.window.present();
+  }
+
+  vfunc_activate(): void {
+    this.present_main_window();
+  }
+
+  vfunc_open(files: Gio.FilePrototype[], hint: string): void {
+    this.present_main_window();
+
+    const window = this.get_active_window();
+
+    if (window && window instanceof Window && files.length > 0) {
+      window.load_file(files[0]);
+    }
   }
 }

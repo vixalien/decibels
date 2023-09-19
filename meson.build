@@ -14,6 +14,8 @@ gjs_console = gjs_dep.get_variable(pkgconfig: 'gjs_console')
 
 tsc = find_program('tsc', required: true)
 
+application_id = 'com.vixalien.decibels'
+
 subdir('data')
 subdir('src')
 subdir('po')
