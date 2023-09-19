@@ -1,5 +1,5 @@
 {
-  "id": "com.vixalien.audio-player",
+  "id": "com.vixalien.decibels",
   "runtime": "org.gnome.Platform",
   "runtime-version": "master",
   "sdk": "org.gnome.Sdk",
@@ -13,7 +13,7 @@
   "build-options": {
     "append-path": "/usr/lib/sdk/node18/bin:/usr/lib/sdk/typescript/bin"
   },
-  "command": "com.vixalien.audio-player",
+  "command": "com.vixalien.decibels",
   "finish-args": [
     "--share=ipc",
     "--device=dri",
@@ -35,7 +35,7 @@
   ],
   "modules": [
     {
-      "name": "audio-player",
+      "name": "decibels",
       "buildsystem": "meson",
       "sources": [
         {

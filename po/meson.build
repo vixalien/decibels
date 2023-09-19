@@ -1,1 +1,1 @@
-i18n.gettext('audio-player', preset: 'glib')
+i18n.gettext('decibels', preset: 'glib')

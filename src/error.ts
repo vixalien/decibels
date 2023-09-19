@@ -12,7 +12,7 @@ export class APErrorState extends Adw.Bin {
     GObject.registerClass(
       {
         GTypeName: "APErrorState",
-        Template: "resource:///com/vixalien/audio-player/error.ui",
+        Template: "resource:///com/vixalien/decibels/error.ui",
         InternalChildren: ["statusPage", "headerbar"],
         Properties: {
           title: GObject.param_spec_string(

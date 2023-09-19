@@ -32,7 +32,7 @@
         <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="true">_About Audio Player</attribute>
+        <attribute name="label" translatable="true">_About Decibels</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>

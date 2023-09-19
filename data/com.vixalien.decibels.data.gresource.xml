@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/vixalien/audio-player">
+  <gresource prefix="/com/vixalien/decibels">
     <file preprocess="xml-stripblanks">empty.ui</file>
     <file preprocess="xml-stripblanks">error.ui</file>
     <file preprocess="xml-stripblanks">header.ui</file>
     <file preprocess="xml-stripblanks">player.ui</file>
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
-    <file preprocess="xml-stripblanks">com.vixalien.audio-player.metainfo.xml</file>
+    <file preprocess="xml-stripblanks">com.vixalien.decibels.metainfo.xml</file>
     <file>style.css</file>
   </gresource>
-  <gresource prefix="/com/vixalien/audio-player/icons/scalable/actions/">
+  <gresource prefix="/com/vixalien/decibels/icons/scalable/actions/">
     <file preprocess="xml-stripblanks" alias="playback-speed-symbolic.svg">icons/playback-speed-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="skip-backwards-10-symbolic.svg">icons/skip-backwards-10-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="skip-backwards-30-symbolic.svg">icons/skip-backwards-30-symbolic.svg</file>

@@ -1,9 +1,9 @@
 {
-  "name": "audio-player",
+  "name": "decibels",
   "version": "0.1.0",
   "description": "Template for writing GNOME applications in TypeScript",
   "main": "src/main.ts",
-  "repository": "https://github.com/vixalien/audio-player",
+  "repository": "https://github.com/vixalien/decibels",
   "author": "Angelo Verlain <geoangercola@gmail.com>",
   "license": "MIT",
   "dependencies": {

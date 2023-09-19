@@ -24,8 +24,8 @@ typescript = custom_target(
 )
 
 src_res = gnome.compile_resources(
-  'com.vixalien.audio-player.src',
-  'com.vixalien.audio-player.src.gresource.xml',
+  'com.vixalien.decibels.src',
+  'com.vixalien.decibels.src.gresource.xml',
   dependencies: typescript,
   source_dir: tsc_out,
   gresource_bundle: true,
@@ -40,11 +40,11 @@ bin_conf.set('PACKAGE_NAME', meson.project_name())
 bin_conf.set('prefix', get_option('prefix'))
 bin_conf.set('libdir', join_paths(get_option('prefix'), get_option('libdir')))
 bin_conf.set('datadir', join_paths(get_option('prefix'), get_option('datadir')))
-bin_conf.set('resource_path', '/com/vixalien/audio-player')
+bin_conf.set('resource_path', '/com/vixalien/decibels')
 
 app_launcher = configure_file(
-  input: 'com.vixalien.audio-player.in',
-  output: 'com.vixalien.audio-player',
+  input: 'com.vixalien.decibels.in',
+  output: 'com.vixalien.decibels',
   configuration: bin_conf,
   install: true,
   install_dir: get_option('bindir')

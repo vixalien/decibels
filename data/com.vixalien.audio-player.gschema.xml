@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="audio-player">
-	<schema id="com.vixalien.audio-player" path="/com/vixalien/audio-player/">
-	</schema>
-</schemalist>

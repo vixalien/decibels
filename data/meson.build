@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-        input: 'com.vixalien.audio-player.desktop.in',
-       output: 'com.vixalien.audio-player.desktop',
+        input: 'com.vixalien.decibels.desktop.in',
+       output: 'com.vixalien.decibels.desktop',
          type: 'desktop',
        po_dir: '../po',
       install: true,
@@ -13,8 +13,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-        input: 'com.vixalien.audio-player.metainfo.xml.in',
-       output: 'com.vixalien.audio-player.metainfo.xml',
+        input: 'com.vixalien.decibels.metainfo.xml.in',
+       output: 'com.vixalien.decibels.metainfo.xml',
        po_dir: '../po',
       install: true,
   install_dir: join_paths(get_option('datadir'), 'metainfo')
@@ -25,7 +25,7 @@ if appstream_util.found()
   test('Validate appstream file', appstream_util, args: ['validate', '--nonet', appstream_file])
 endif
 
-gsettings_schema = 'com.vixalien.audio-player.gschema.xml'
+gsettings_schema = 'com.vixalien.decibels.gschema.xml'
 
 local_schemas = configure_file(
   copy: true,
@@ -53,8 +53,8 @@ if compile_schemas.found()
 endif
 
 data_res = gnome.compile_resources(
-  'com.vixalien.audio-player.data',
-  'com.vixalien.audio-player.data.gresource.xml',
+  'com.vixalien.decibels.data',
+  'com.vixalien.decibels.data.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,

@@ -14,7 +14,7 @@ export class Application extends Adw.Application {
 
   constructor() {
     super({
-      application_id: "com.vixalien.audio-player",
+      application_id: "com.vixalien.decibels",
       flags: Gio.ApplicationFlags.DEFAULT_FLAGS,
     });
 
@@ -29,7 +29,7 @@ export class Application extends Adw.Application {
     const show_about_action = new Gio.SimpleAction({ name: "about" });
     show_about_action.connect("activate", () => {
       const aboutWindow = Adw.AboutWindow.new_from_appdata(
-        "/com/vixalien/audio-player/com.vixalien.audio-player.metainfo.xml",
+        "/com/vixalien/decibels/com.vixalien.decibels.metainfo.xml",
         null,
       );
 

@@ -1,4 +1,4 @@
-application_id = 'com.vixalien.audio-player'
+application_id = 'com.vixalien.decibels'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

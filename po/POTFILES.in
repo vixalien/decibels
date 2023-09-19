@@ -1,6 +1,6 @@
-data/com.vixalien.audio-player.desktop.in
-data/com.vixalien.audio-player.appdata.xml.in
-data/com.vixalien.audio-player.gschema.xml
+data/com.vixalien.decibels.desktop.in
+data/com.vixalien.decibels.appdata.xml.in
+data/com.vixalien.decibels.gschema.xml
 data/window.ui
 src/application.ts
 src/window.ts

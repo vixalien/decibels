@@ -6,7 +6,7 @@
     <property name="default-height">400</property>
     <property name="width-request">300</property>
     <property name="height-request">260</property>
-    <property name="title" translatable="true">Audio Player</property>
+    <property name="title" translatable="true">Decibels</property>
     <property name="content">
       <object class="AdwToastOverlay" id="toastOverlay">
         <property name="child">

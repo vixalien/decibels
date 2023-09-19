@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2023 Angelo Verlain -->
 <component type="desktop">
-  <id>com.vixalien.audio-player</id>
-  <name>Audio Player</name>
+  <id>com.vixalien.decibels</id>
+  <name>Decibels</name>
   <summary>Use this template to build your GNOME + Typescript application</summary>
   <!-- IMPORTANT: Change these to match the actual license of your app-->
   <metadata_license>CC0-1.0</metadata_license>
@@ -15,11 +15,11 @@
   <screenshots>
     <screenshot type="default">
       <image>
-        https://github.com/vixalien/audio-player/raw/HEAD/data/screenshots/screenshot-1.png</image>
+        https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-1.png</image>
     </screenshot>
     <screenshot>
       <image>
-        https://github.com/vixalien/audio-player/raw/HEAD/data/screenshots/screenshot-2.png</image>
+        https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-2.png</image>
     </screenshot>
   </screenshots>
   <!-- IMPORTANT: Use https://hughsie.github.io/oars/generate.html to generate before publishing

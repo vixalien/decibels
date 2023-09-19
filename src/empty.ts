@@ -6,7 +6,7 @@ export class APEmptyState extends Adw.Bin {
     GObject.registerClass(
       {
         GTypeName: "APEmptyState",
-        Template: "resource:///com/vixalien/audio-player/empty.ui",
+        Template: "resource:///com/vixalien/decibels/empty.ui",
       },
       this,
     );

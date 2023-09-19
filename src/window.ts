@@ -48,7 +48,7 @@ export class Window extends Adw.ApplicationWindow {
   static {
     GObject.registerClass(
       {
-        Template: "resource:///com/vixalien/audio-player/window.ui",
+        Template: "resource:///com/vixalien/decibels/window.ui",
         InternalChildren: ["toastOverlay", "stack", "error", "player"],
         Properties: {
           "stream": GObject.param_spec_object(

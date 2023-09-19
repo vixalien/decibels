@@ -9,7 +9,7 @@
         </child>
         <child>
           <object class="AdwStatusPage" id="statusPage">
-            <property name="icon-name">com.vixalien.audio-player-symbolic</property>
+            <property name="icon-name">com.vixalien.decibels-symbolic</property>
             <property name="title" translatable="true">Open an Audio File</property>
             <child>
               <object class="GtkBox">
