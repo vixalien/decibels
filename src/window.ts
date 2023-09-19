@@ -10,6 +10,7 @@ import { APHeaderBar } from "./header.js";
 import { APEmptyState } from "./empty.js";
 import { APErrorState } from "./error.js";
 import { APPlayerState } from "./player.js";
+import { MPRIS } from "./mpris.js";
 
 Gio._promisify(Gtk.FileDialog.prototype, "open", "open_finish");
 
@@ -43,7 +44,9 @@ export class Window extends Adw.ApplicationWindow {
   private _player!: APPlayerState;
 
   stream: APMediaStream;
+
   private file_dialog: Gtk.FileDialog;
+  private mpris: MPRIS;
 
   static {
     GObject.registerClass(
@@ -91,6 +94,8 @@ export class Window extends Adw.ApplicationWindow {
       "title",
       GObject.BindingFlags.DEFAULT,
     );
+
+    this.mpris = new MPRIS(this.stream);
 
     this.stream.connect("error", (_source, error) => {
       console.error(

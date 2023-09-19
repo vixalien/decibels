@@ -6,6 +6,7 @@ sources = files(
   'error.ts',
   'header.ts',
   'main.ts',
+  'mpris.ts',
   'player.ts',
   'stream.ts',
   'waveform.ts',

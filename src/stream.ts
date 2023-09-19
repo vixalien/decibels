@@ -593,6 +593,10 @@ export class APMediaStream extends Gtk.MediaStream {
     this.peaks_generator.generate_peaks_async(uri);
   }
 
+  get_uri() {
+    return this._play.uri;
+  }
+
   set_file(file: Gio.File): void {
     this.reset();
 
@@ -606,7 +610,8 @@ export class APMediaStream extends Gtk.MediaStream {
   }
 
   stop() {
-    this._play.stop();
+    this._play.seek(0);
+    this.pause();
 
     this.notify("timestamp");
   }

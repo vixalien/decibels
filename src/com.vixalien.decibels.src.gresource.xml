@@ -6,6 +6,7 @@
     <file>error.js</file>
     <file>header.js</file>
     <file>main.js</file>
+    <file>mpris.js</file>
     <file>player.js</file>
     <file>stream.js</file>
     <file>waveform.js</file>
