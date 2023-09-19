@@ -131,11 +131,13 @@ export class Window extends Adw.ApplicationWindow {
   load_uri(uri: string) {
     this.stream.set_uri(uri);
     this.stream.play();
+    this.show_stack_page("player");
   }
 
   load_file(file: Gio.File) {
     this.stream.set_file(file);
     this.stream.play();
+    this.show_stack_page("player");
   }
 
   open_file() {
@@ -143,7 +145,6 @@ export class Window extends Adw.ApplicationWindow {
       .then((file) => {
         if (file) {
           this.load_file(file);
-          this.show_stack_page("player");
         } else {
           this.show_error(
             _("File Cannot Be Played"),
