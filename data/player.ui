@@ -127,7 +127,7 @@
                         <style>
                           <class name="large-button"/>
                           <class name="circular"/>
-                          <class name="opaque"/>
+                          <class name="raised"/>
                         </style>
                       </object>
                     </child>
