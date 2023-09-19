@@ -81,6 +81,7 @@ export class APWaveForm extends Gtk.DrawingArea {
     this.dragGesture.connect("drag-begin", this.dragBegin.bind(this));
     this.dragGesture.connect("drag-update", this.dragUpdate.bind(this));
     this.dragGesture.connect("drag-end", this.dragEnd.bind(this));
+    this.add_controller(this.dragGesture);
 
     this.hcId = Adw.StyleManager.get_default().connect(
       "notify::high-contrast",
