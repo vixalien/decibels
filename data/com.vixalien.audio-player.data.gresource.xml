@@ -7,6 +7,7 @@
     <file preprocess="xml-stripblanks">player.ui</file>
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
+    <file preprocess="xml-stripblanks">com.vixalien.audio-player.metainfo.xml</file>
     <file>style.css</file>
   </gresource>
   <gresource prefix="/com/vixalien/audio-player/icons/scalable/actions/">

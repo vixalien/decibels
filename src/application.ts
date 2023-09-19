@@ -28,15 +28,10 @@ export class Application extends Adw.Application {
 
     const show_about_action = new Gio.SimpleAction({ name: "about" });
     show_about_action.connect("activate", () => {
-      const aboutWindow = new Adw.AboutWindow({
-        transient_for: this.active_window,
-        application_name: _("Audio Player"),
-        application_icon: "com.vixalien.audio-player",
-        developer_name: "Angelo Verlain",
-        version: "0.1",
-        developers: ["Angelo Verlain <geoangercola@gmail.com>"],
-        copyright: "© 2023 Angelo Verlain",
-      });
+      const aboutWindow = Adw.AboutWindow.new_from_appdata(
+        "/com/vixalien/audio-player/com.vixalien.audio-player.metainfo.xml",
+        null,
+      );
 
       aboutWindow.present();
     });
