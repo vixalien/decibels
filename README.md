@@ -12,4 +12,6 @@ Coming Soon
 
 ### From Nightly Flatpak
 
-Download latest artifact [from here](TODO:InsertLinkHere).
+Download latest artifact [from here][artifact].
+
+[artifact]: https://github.com/vixalien/decibels/actions/workflows/build-nightly.yml
