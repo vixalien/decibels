@@ -8,6 +8,7 @@
     <file>main.js</file>
     <file>player.js</file>
     <file>stream.js</file>
+    <file>waveform.js</file>
     <file>window.js</file>
   </gresource>
 </gresources>

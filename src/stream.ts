@@ -7,7 +7,8 @@ import GstAudio from "gi://GstAudio";
 import Gio from "gi://Gio";
 import GstPbUtils from "gi://GstPbutils";
 
-import { AddActionEntries } from "./window";
+import type { AddActionEntries } from "./window.js";
+import { APPeaksGenerator } from "./waveform.js";
 
 if (!Gst.is_initialized()) {
   GLib.setenv("GST_PLAY_USE_PLAYBIN3", "1", false);
@@ -211,16 +212,28 @@ export class APMediaStream extends Gtk.MediaStream {
           null,
           GObject.ParamFlags.READWRITE,
         ),
+        peaks: GObject.param_spec_variant(
+          "peaks",
+          "Peaks",
+          "The peaks of the currently playing song",
+          new GLib.VariantType("as"),
+          null,
+          GObject.ParamFlags.READWRITE,
+        ),
       },
       Signals: {
         "error": {
           param_types: [GLib.Error.$gtype],
+        },
+        "peaks-generated": {
+          param_types: [(Object as any).$gtype],
         },
       },
     }, this);
   }
 
   private discoverer: GstPbUtils.Discoverer;
+  private peaks_generator: APPeaksGenerator;
 
   constructor() {
     super();
@@ -229,6 +242,14 @@ export class APMediaStream extends Gtk.MediaStream {
     this.discoverer.connect("discovered", (_source, info) => {
       this.tags = info.get_tags();
     });
+
+    this.peaks_generator = new APPeaksGenerator();
+    this.peaks_generator.connect(
+      "peaks-generated",
+      (_generator: APPeaksGenerator, peaks: number[]) => {
+        this.emit("peaks-generated", peaks);
+      },
+    );
 
     this._play = new GstPlay.Play();
 
@@ -554,23 +575,27 @@ export class APMediaStream extends Gtk.MediaStream {
     this.update(timestamp / Gst.USECOND);
   }
 
-  private reset_tags() {
+  private reset() {
     this.tags = null;
     this.discoverer.stop();
     this.discoverer.start();
+
+    this.peaks_generator.stop();
+    this.peaks_generator.start();
   }
 
   set_uri(uri: string): void {
-    this.reset_tags();
+    this.reset();
 
     this.file = null;
     this._play.uri = uri;
 
     this.discoverer.discover_uri_async(uri);
+    this.peaks_generator.generate_peaks_async(uri);
   }
 
   set_file(file: Gio.File): void {
-    this.reset_tags();
+    this.reset();
 
     const uri = file.get_uri();
 
@@ -578,6 +603,7 @@ export class APMediaStream extends Gtk.MediaStream {
     this._play.uri = uri;
 
     this.discoverer.discover_uri_async(uri);
+    this.peaks_generator.generate_peaks_async(uri);
   }
 
   stop() {

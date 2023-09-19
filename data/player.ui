@@ -19,12 +19,17 @@
               <object class="APHeaderBar" id="headerbar"></object>
             </child>
             <child>
-              <object class="GtkBox" id="scale">
+              <object class="GtkBox">
                 <property name="vexpand">true</property>
-                <property name="valign">3</property>
                 <property name="orientation">1</property>
                 <child>
-                  <object class="GtkScale">
+                  <object class="APWaveForm" id="waveform">
+                    <signal name="position-changed" handler="waveform_position_changed_cb"/>
+                    <property name="vexpand">true</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scale">
                     <property name="hexpand">true</property>
                     <signal name="change-value" handler="scale_change_value_cb"/>
                     <property name="adjustment">

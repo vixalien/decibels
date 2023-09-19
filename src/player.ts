@@ -4,6 +4,7 @@ import GObject from "gi://GObject";
 
 import { Window } from "./window.js";
 import { APHeaderBar } from "./header.js";
+import { APWaveForm } from "./waveform.js";
 
 export class APPlayerState extends Adw.Bin {
   private _scale_adjustment!: Gtk.Adjustment;
@@ -12,6 +13,8 @@ export class APPlayerState extends Adw.Bin {
   private _volume_button!: Gtk.VolumeButton;
   private _playback_image!: Gtk.Image;
   private _headerbar!: APHeaderBar;
+  private _waveform!: APWaveForm;
+  private _scale!: Gtk.Scale;
 
   static {
     GObject.registerClass(
@@ -25,6 +28,8 @@ export class APPlayerState extends Adw.Bin {
           "volume_button",
           "playback_image",
           "headerbar",
+          "waveform",
+          "scale",
         ],
         Properties: {
           title: GObject.param_spec_string(
@@ -57,6 +62,11 @@ export class APPlayerState extends Adw.Bin {
 
     if (!window || !(window instanceof Window)) return;
 
+    window.stream.connect("peaks-generated", (_stream, peaks: number[]) => {
+      this._waveform.peaks = peaks;
+      this._waveform.peak = 0;
+    });
+
     window.stream.bind_property(
       "duration",
       this._scale_adjustment,
@@ -76,11 +86,20 @@ export class APPlayerState extends Adw.Bin {
       null,
     );
 
-    window.stream.bind_property(
+    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    window.stream.bind_property_full(
       "timestamp",
       this._scale_adjustment,
       "value",
       GObject.BindingFlags.SYNC_CREATE,
+      (_binding, from: number) => {
+        if ((this._scale.get_state_flags() & Gtk.StateFlags.ACTIVE) != 0) {
+          return [false, null];
+        }
+
+        return [true, window.stream.timestamp];
+      },
+      null,
     );
 
     // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
@@ -118,6 +137,25 @@ export class APPlayerState extends Adw.Bin {
       },
       null,
     );
+
+    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    window.stream.bind_property_full(
+      "timestamp",
+      this._waveform,
+      "position",
+      GObject.BindingFlags.SYNC_CREATE,
+      (_binding, from: number) => {
+        if ((this._waveform.get_state_flags() & Gtk.StateFlags.ACTIVE) != 0) {
+          return [false, null];
+        }
+
+        return [
+          true,
+          Math.max(Math.min(from / window.stream.duration || 0, 1), 0),
+        ];
+      },
+      null,
+    );
   }
 
   private scale_change_value_cb(
@@ -131,6 +169,18 @@ export class APPlayerState extends Adw.Bin {
     if (!stream) return;
 
     stream.seek(value);
+  }
+
+  private waveform_position_changed_cb(
+    _scale: Gtk.Scale,
+    value: number,
+  ) {
+    const window = this.get_root() as Window;
+    const stream = window?.stream;
+
+    if (!stream) return;
+
+    stream.seek(value * stream.duration);
   }
 
   vfunc_root(): void {

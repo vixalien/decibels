@@ -8,6 +8,7 @@ sources = files(
   'main.ts',
   'player.ts',
   'stream.ts',
+  'waveform.ts',
   'window.ts',
 )
 

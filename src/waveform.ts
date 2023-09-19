@@ -25,6 +25,8 @@ import Adw from "gi://Adw";
 import GObject from "gi://GObject";
 import Gdk from "gi://Gdk?version=4.0";
 import Gtk from "gi://Gtk?version=4.0";
+import Gst from "gi://Gst";
+
 // @ts-expect-error This module doesn't import nicely
 import Cairo from "cairo";
 
@@ -35,7 +37,7 @@ export enum WaveType {
 
 const GUTTER = 4;
 
-export class WaveForm extends Gtk.DrawingArea {
+export class APWaveForm extends Gtk.DrawingArea {
   private _peaks: number[];
   private _position: number;
   private dragGesture?: Gtk.GestureDrag;
@@ -47,6 +49,7 @@ export class WaveForm extends Gtk.DrawingArea {
   static {
     GObject.registerClass(
       {
+        GTypeName: "APWaveForm",
         Properties: {
           position: GObject.ParamSpec.float(
             "position",
@@ -80,12 +83,12 @@ export class WaveForm extends Gtk.DrawingArea {
 
   constructor(
     params: Partial<Gtk.DrawingArea.ConstructorProperties> | undefined,
-    type: WaveType,
+    // type: WaveType,
   ) {
     super(params);
     this._peaks = [];
     this._position = 0;
-    this.waveType = type;
+    this.waveType = WaveType.Player;
 
     if (this.waveType === WaveType.Player) {
       this.dragGesture = Gtk.GestureDrag.new();
@@ -123,7 +126,7 @@ export class WaveForm extends Gtk.DrawingArea {
   }
 
   private drawFunc(superDa: Gtk.DrawingArea, ctx: Cairo.Context) {
-    const da = superDa as WaveForm;
+    const da = superDa as APWaveForm;
     const maxHeight = da.get_allocated_height();
     const vertiCenter = maxHeight / 2;
     const horizCenter = da.get_allocated_width() / 2;
@@ -190,7 +193,7 @@ export class WaveForm extends Gtk.DrawingArea {
   }
 
   public set peaks(p: number[]) {
-    this._peaks = p;
+    this._peaks = [...p];
     this.queue_draw();
   }
 
@@ -228,5 +231,85 @@ export class WaveForm extends Gtk.DrawingArea {
     Adw.StyleManager.get_default().disconnect(this.hcId);
     this._peaks.length = 0;
     this.queue_draw();
+  }
+}
+
+export class APPeaksGenerator extends GObject.Object {
+  private pipeline: Gst.Bin;
+  private loadedPeaks: number[] = [];
+
+  static {
+    GObject.registerClass({
+      GTypeName: "APPeaksGenerator",
+      Signals: {
+        "peaks-generated": {
+          param_types: [(Object as any).$gtype],
+        },
+      },
+    }, this);
+  }
+
+  constructor() {
+    super();
+
+    this.pipeline = Gst.parse_launch(
+      "uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! level name=level ! fakesink name=faked",
+    ) as Gst.Bin;
+
+    const fakesink = this.pipeline.get_by_name("faked");
+    fakesink?.set_property("qos", false);
+    fakesink?.set_property("sync", false);
+
+    const bus = this.pipeline.get_bus();
+    bus?.add_signal_watch();
+
+    bus?.connect("message", (_bus: Gst.Bus, message: Gst.Message) => {
+      switch (message.type) {
+        case Gst.MessageType.ELEMENT: {
+          const s = message.get_structure();
+          if (s && s.has_name("level")) {
+            const peakVal = s.get_value(
+              "peak",
+            ) as unknown as GObject.ValueArray;
+
+            if (peakVal) {
+              const peak = peakVal.get_nth(0) as number;
+              this.loadedPeaks.push(Math.pow(10, peak / 20));
+            }
+          }
+          break;
+        }
+        case Gst.MessageType.EOS:
+          if (this.started) {
+            this.emit("peaks-generated", this.loadedPeaks);
+          }
+
+          this.loadedPeaks.length = 0;
+
+          this.pipeline?.set_state(Gst.State.NULL);
+          break;
+      }
+    });
+  }
+
+  private started = false;
+
+  start() {
+    this.started = true;
+    this.loadedPeaks.length = 0;
+  }
+
+  stop() {
+    this.started = false;
+    this.loadedPeaks.length = 0;
+
+    this.pipeline.set_state(Gst.State.NULL);
+  }
+
+  generate_peaks_async(uri: string): void {
+    const uridecodebin = this.pipeline.get_by_name("uridecodebin");
+    uridecodebin?.set_property("uri", uri);
+
+    this.pipeline.set_state(Gst.State.PLAYING);
   }
 }
