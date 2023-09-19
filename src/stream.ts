@@ -580,8 +580,7 @@ export class APMediaStream extends Gtk.MediaStream {
     this.discoverer.stop();
     this.discoverer.start();
 
-    this.peaks_generator.stop();
-    this.peaks_generator.start();
+    this.peaks_generator.restart();
   }
 
   set_uri(uri: string): void {

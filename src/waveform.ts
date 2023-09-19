@@ -235,7 +235,6 @@ export class APWaveForm extends Gtk.DrawingArea {
 }
 
 export class APPeaksGenerator extends GObject.Object {
-  private pipeline: Gst.Bin;
   private loadedPeaks: number[] = [];
 
   static {
@@ -251,16 +250,30 @@ export class APPeaksGenerator extends GObject.Object {
 
   constructor() {
     super();
+  }
 
-    this.pipeline = Gst.parse_launch(
+  private started = false;
+
+  restart() {
+    this.started = true;
+    this.loadedPeaks.length = 0;
+  }
+
+  generate_peaks_async(uri: string): void {
+    const pipeline = Gst.parse_launch(
       "uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! level name=level ! fakesink name=faked",
     ) as Gst.Bin;
 
-    const fakesink = this.pipeline.get_by_name("faked");
+    const fakesink = pipeline.get_by_name("faked");
     fakesink?.set_property("qos", false);
     fakesink?.set_property("sync", false);
 
-    const bus = this.pipeline.get_bus();
+    const uridecodebin = pipeline.get_by_name("uridecodebin");
+    uridecodebin?.set_property("uri", uri);
+
+    pipeline.set_state(Gst.State.PLAYING);
+
+    const bus = pipeline.get_bus();
     bus?.add_signal_watch();
 
     bus?.connect("message", (_bus: Gst.Bus, message: Gst.Message) => {
@@ -286,30 +299,9 @@ export class APPeaksGenerator extends GObject.Object {
 
           this.loadedPeaks.length = 0;
 
-          this.pipeline?.set_state(Gst.State.NULL);
+          pipeline?.set_state(Gst.State.PAUSED);
           break;
       }
     });
-  }
-
-  private started = false;
-
-  start() {
-    this.started = true;
-    this.loadedPeaks.length = 0;
-  }
-
-  stop() {
-    this.started = false;
-    this.loadedPeaks.length = 0;
-
-    this.pipeline.set_state(Gst.State.NULL);
-  }
-
-  generate_peaks_async(uri: string): void {
-    const uridecodebin = this.pipeline.get_by_name("uridecodebin");
-    uridecodebin?.set_property("uri", uri);
-
-    this.pipeline.set_state(Gst.State.PLAYING);
   }
 }
