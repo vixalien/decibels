@@ -23,9 +23,16 @@
                 <property name="vexpand">true</property>
                 <property name="orientation">1</property>
                 <child>
-                  <object class="APWaveForm" id="waveform">
-                    <signal name="position-changed" handler="waveform_position_changed_cb"/>
-                    <property name="vexpand">true</property>
+                  <object class="AdwClamp">
+                    <property name="orientation">vertical</property>
+                    <property name="maximum-size">400</property>
+                    <property name="tightening-threshold">300</property>
+                    <child>
+                      <object class="APWaveForm" id="waveform">
+                        <signal name="position-changed" handler="waveform_position_changed_cb"/>
+                        <property name="vexpand">true</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <child>
