@@ -1,5 +1,7 @@
 # Decibels
 
+> Note: This app is still in development, and may not be stable.
+
 Play audio files.
 
 ![The main view of Decibels.](./data/screenshots/screenshot-1.png)
@@ -13,5 +15,14 @@ Coming Soon
 ### From Nightly Flatpak
 
 Download latest artifact [from here][artifact].
+
+## TODO
+
+- [ ] changing playback speed
+
+## Links
+
+- [Audio Player app: issue by Allan Day](https://gitlab.gnome.org/Teams/Design/app-mockups/-/issues/96)
+- [Audio Player mockups](https://gitlab.gnome.org/Teams/Design/app-mockups/-/blob/master/audio-player/audio-player.png?ref_type=heads)
 
 [artifact]: https://github.com/vixalien/decibels/actions/workflows/build-nightly.yml
