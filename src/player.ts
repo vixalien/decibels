@@ -64,7 +64,6 @@ export class APPlayerState extends Adw.Bin {
 
     window.stream.connect("peaks-generated", (_stream, peaks: number[]) => {
       this._waveform.peaks = peaks;
-      this._waveform.peak = 0;
     });
 
     window.stream.bind_property(

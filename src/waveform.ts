@@ -44,8 +44,6 @@ export class APWaveForm extends Gtk.DrawingArea {
   private hcId: number;
   private lastX?: number;
 
-  private waveType: WaveType;
-
   static {
     GObject.registerClass(
       {
@@ -55,16 +53,6 @@ export class APWaveForm extends Gtk.DrawingArea {
             "position",
             "Waveform position",
             "Waveform position",
-            GObject.ParamFlags.READWRITE |
-              GObject.ParamFlags.CONSTRUCT,
-            0.0,
-            1.0,
-            0.0,
-          ),
-          peak: GObject.ParamSpec.float(
-            "peak",
-            "Waveform current peak",
-            "Waveform current peak in float [0, 1]",
             GObject.ParamFlags.READWRITE |
               GObject.ParamFlags.CONSTRUCT,
             0.0,
@@ -88,15 +76,11 @@ export class APWaveForm extends Gtk.DrawingArea {
     super(params);
     this._peaks = [];
     this._position = 0;
-    this.waveType = WaveType.Player;
 
-    if (this.waveType === WaveType.Player) {
-      this.dragGesture = Gtk.GestureDrag.new();
-      this.dragGesture.connect("drag-begin", this.dragBegin.bind(this));
-      this.dragGesture.connect("drag-update", this.dragUpdate.bind(this));
-      this.dragGesture.connect("drag-end", this.dragEnd.bind(this));
-      this.add_controller(this.dragGesture);
-    }
+    this.dragGesture = Gtk.GestureDrag.new();
+    this.dragGesture.connect("drag-begin", this.dragBegin.bind(this));
+    this.dragGesture.connect("drag-update", this.dragUpdate.bind(this));
+    this.dragGesture.connect("drag-end", this.dragEnd.bind(this));
 
     this.hcId = Adw.StyleManager.get_default().connect(
       "notify::high-contrast",
@@ -138,9 +122,7 @@ export class APWaveForm extends Gtk.DrawingArea {
 
     const rightColor = styleContext.lookup_color("dimmed_color")[1];
 
-    const dividerName = da.waveType === WaveType.Player
-      ? "accent_color"
-      : "destructive_color";
+    const dividerName = "accent_color";
     const lookupColor = styleContext.lookup_color(dividerName);
     const ok = lookupColor[0];
     let dividerColor = lookupColor[1];
@@ -164,9 +146,11 @@ export class APWaveForm extends Gtk.DrawingArea {
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 
     da._peaks.forEach((peak) => {
-      if (da.waveType === WaveType.Player && pointer > horizCenter) {
+      if (pointer > horizCenter) {
         da.setSourceRGBA(ctx, rightColor);
-      } else da.setSourceRGBA(ctx, leftColor);
+      } else {
+        da.setSourceRGBA(ctx, leftColor);
+      }
 
       /* eslint-disable @typescript-eslint/no-unsafe-call */
       /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -176,20 +160,8 @@ export class APWaveForm extends Gtk.DrawingArea {
       /* eslint-enable @typescript-eslint/no-unsafe-call */
       /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 
-      if (da.waveType === WaveType.Player) pointer += GUTTER;
-      else pointer -= GUTTER;
+      pointer += GUTTER;
     });
-  }
-
-  public set peak(p: number) {
-    if (this._peaks) {
-      if (this._peaks.length > this.get_allocated_width() / (2 * GUTTER)) {
-        this._peaks.pop();
-      }
-
-      this._peaks.unshift(p.toFixed(2));
-      this.queue_draw();
-    }
   }
 
   public set peaks(p: number[]) {
