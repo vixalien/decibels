@@ -154,9 +154,6 @@
                 <child type="end">
                   <object class="GtkVolumeButton" id="volume_button">
                     <property name="valign">3</property>
-                    <style>
-                      <class name="circular"/>
-                    </style>
                   </object>
                 </child>
               </object>
