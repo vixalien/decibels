@@ -6,6 +6,8 @@ Play audio files.
 
 ![The main view of Decibels.](./data/screenshots/screenshot-1.png)
 
+![Decibels in dark mode and on a mobile.](./data/screenshots/screenshot-2.png)
+
 ## Installing
 
 ### Flathub
