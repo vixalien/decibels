@@ -3,14 +3,19 @@
 <component type="desktop">
   <id>com.vixalien.decibels</id>
   <name>Decibels</name>
-  <summary>Use this template to build your GNOME + Typescript application</summary>
-  <!-- IMPORTANT: Change these to match the actual license of your app-->
+  <summary>Play audio files</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <developer_name>Angelo Verlain</developer_name>
   <update_contact>geoangercola@gmail.com</update_contact>
   <description>
-    <p>Use this template to build your GNOME + Typescript application.</p>
+    <p>Play audio files</p>
+    <p>Current features:</p>
+		<ul>
+			<li>Shows the waveform of the track</li>
+			<li>Adjust playback speed</li>
+			<li>Easy seek controls</li>
+		</ul>
   </description>
   <screenshots>
     <screenshot type="default">
@@ -22,11 +27,27 @@
         https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-2.png</image>
     </screenshot>
   </screenshots>
-  <!-- IMPORTANT: Use https://hughsie.github.io/oars/generate.html to generate before publishing
-  your app -->
   <content_rating type="oars-1.1" />
   <releases>
-    <release version="0.1" date="2023-06-15" />
+    <release version="0.1.0" date="2023-09-20">
+      <description>
+				<p>Initial Release</p>
+			</description>
+    </release>
   </releases>
-  <url type="homepage">https://gitlab.gnome.org</url>
+  <url type="homepage">https://github.com/vixalien/decibels</url>
+	<url type="bugtracker">https://github.com/vixalien/decibels/issues</url>
+  <custom>
+		<value key="Purism::form_factor">workstation</value>
+		<value key="Purism::form_factor">mobile</value>
+	</custom>
+	<requires>
+		<display_length compare="ge">360</display_length>
+	</requires>
+	<recommends>
+		<control>pointing</control>
+		<control>keyboard</control>
+		<control>touch</control>
+		<control>tablet</control>
+	</recommends>
 </component>
