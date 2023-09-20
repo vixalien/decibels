@@ -4,6 +4,6 @@
   padding: 12px;
 }
 
-scalebutton.circular button {
+scalebutton.circular > button {
   border-radius: 9999px;
 }
