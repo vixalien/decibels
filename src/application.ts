@@ -36,6 +36,7 @@ export class Application extends Adw.Application {
         "/com/vixalien/decibels/com.vixalien.decibels.metainfo.xml",
         "0.1.0",
       );
+      aboutWindow.set_designers(["kramo https://kramo.hu"]);
 
       aboutWindow.present();
     });
