@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/vixalien/decibels">
+    <file preprocess="xml-stripblanks">com.vixalien.decibels.metainfo.xml</file>
+
+    <file>style.css</file>
+
     <file preprocess="xml-stripblanks">empty.ui</file>
     <file preprocess="xml-stripblanks">error.ui</file>
     <file preprocess="xml-stripblanks">header.ui</file>
@@ -8,15 +12,11 @@
     <file preprocess="xml-stripblanks">playback-rate-button.ui</file>
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
-    <file preprocess="xml-stripblanks">com.vixalien.decibels.metainfo.xml</file>
-    <file>style.css</file>
-  </gresource>
-  <gresource prefix="/com/vixalien/decibels/icons/scalable/actions/">
-    <file preprocess="xml-stripblanks" alias="playback-speed-symbolic.svg">icons/playback-speed-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" alias="skip-backwards-10-symbolic.svg">icons/skip-backwards-10-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" alias="skip-backwards-30-symbolic.svg">icons/skip-backwards-30-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" alias="skip-forward-10-symbolic.svg">icons/skip-forward-10-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" alias="skip-forward-30-symbolic.svg">icons/skip-forward-30-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" alias="warning-symbolic.svg">icons/warning-symbolic.svg</file>
+
+    <file preprocess="xml-stripblanks">icons/scalable/actions/skip-backwards-10-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/actions/skip-backwards-30-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/actions/skip-forward-10-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/actions/skip-forward-30-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/actions/warning-symbolic.svg</file>
   </gresource>
 </gresources>
