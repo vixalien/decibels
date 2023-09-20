@@ -38,7 +38,6 @@ export type ActionEntry = {
 export type AddActionEntries = (entries: ActionEntry[]) => void;
 
 export class Window extends Adw.ApplicationWindow {
-  private _toastOverlay!: Adw.ToastOverlay;
   private _stack!: Gtk.Stack;
   private _error!: APErrorState;
   private _player!: APPlayerState;
@@ -52,7 +51,7 @@ export class Window extends Adw.ApplicationWindow {
     GObject.registerClass(
       {
         Template: "resource:///com/vixalien/decibels/window.ui",
-        InternalChildren: ["toastOverlay", "stack", "error", "player"],
+        InternalChildren: ["stack", "error", "player"],
         Properties: {
           "stream": GObject.param_spec_object(
             "stream",
