@@ -20,5 +20,10 @@
   "scripts": {
     "build": "tsc --strict",
     "typecheck": "tsc --strict --noEmit"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "all"
   }
 }

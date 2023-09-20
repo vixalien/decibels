@@ -54,7 +54,7 @@ export class Window extends Adw.ApplicationWindow {
         Template: "resource:///com/vixalien/decibels/window.ui",
         InternalChildren: ["stack", "error", "player"],
         Properties: {
-          "stream": GObject.param_spec_object(
+          stream: GObject.param_spec_object(
             "stream",
             "Stream",
             "The APMediaStream currently playing",
@@ -164,7 +164,8 @@ export class Window extends Adw.ApplicationWindow {
             _("The file could not be accessed"),
           );
         }
-      }).catch((error) => {
+      })
+      .catch((error) => {
         if (
           error instanceof Gtk.DialogError &&
           error.code === Gtk.DialogError.DISMISSED

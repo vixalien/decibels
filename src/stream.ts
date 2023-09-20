@@ -16,7 +16,8 @@ if (!Gst.is_initialized()) {
   Gst.init(null);
 }
 
-type GTypeToType<Y extends GObject.GType> = Y extends GObject.GType<infer T> ? T
+type GTypeToType<Y extends GObject.GType> = Y extends GObject.GType<infer T>
+  ? T
   : never;
 
 type GTypeArrayToTypeArray<Y extends readonly GObject.GType[]> = {
@@ -25,10 +26,10 @@ type GTypeArrayToTypeArray<Y extends readonly GObject.GType[]> = {
 
 class APPlaySignalAdapter extends GObject.Object {
   private static events = {
-    "buffering": [GObject.TYPE_INT],
+    buffering: [GObject.TYPE_INT],
     "duration-changed": [GObject.TYPE_INT],
     "end-of-stream": [],
-    "error": [GLib.Error.$gtype, Gst.Structure.$gtype],
+    error: [GLib.Error.$gtype, Gst.Structure.$gtype],
     "media-info-updated": [GstPlay.PlayMediaInfo.$gtype],
     "mute-changed": [GObject.TYPE_BOOLEAN],
     "position-updated": [GObject.TYPE_DOUBLE],
@@ -37,22 +38,24 @@ class APPlaySignalAdapter extends GObject.Object {
     "uri-loaded": [GObject.TYPE_STRING],
     "video-dimensions-changed": [GObject.TYPE_INT, GObject.TYPE_INT],
     "volume-changed": [GObject.TYPE_INT],
-    "warning": [GLib.Error.$gtype, Gst.Structure.$gtype],
+    warning: [GLib.Error.$gtype, Gst.Structure.$gtype],
   } as const;
 
   static {
-    GObject.registerClass({
-      GTypeName: "APPlaySignalAdapter",
-      Signals: Object.fromEntries(
-        Object.entries(this.events)
-          .map(([name, types]) => [
+    GObject.registerClass(
+      {
+        GTypeName: "APPlaySignalAdapter",
+        Signals: Object.fromEntries(
+          Object.entries(this.events).map(([name, types]) => [
             name,
             {
               param_types: types,
             },
           ]),
-      ),
-    }, this);
+        ),
+      },
+      this,
+    );
   }
   private _play: GstPlay.Play;
 
@@ -153,81 +156,81 @@ class APPlaySignalAdapter extends GObject.Object {
   }
 
   private emit_message<
-    Name extends keyof typeof APPlaySignalAdapter["events"],
-    Types extends typeof APPlaySignalAdapter["events"][Name],
-  >(
-    name: Name,
-    args: GTypeArrayToTypeArray<Types>,
-  ) {
-    this.emit(name as string, ...args as GTypeToType<Types[number]>[]);
+    Name extends keyof (typeof APPlaySignalAdapter)["events"],
+    Types extends (typeof APPlaySignalAdapter)["events"][Name],
+  >(name: Name, args: GTypeArrayToTypeArray<Types>) {
+    this.emit(name as string, ...(args as GTypeToType<Types[number]>[]));
   }
 }
 
 export class APMediaStream extends Gtk.MediaStream {
   static {
-    GObject.registerClass({
-      GTypeName: "APMediaStream",
-      Properties: {
-        buffering: GObject.param_spec_boolean(
-          "is-buffering",
-          "Is Buffering",
-          "Whether the player is buffering",
-          false,
-          GObject.ParamFlags.READABLE,
-        ),
-        media_info: GObject.param_spec_object(
-          "media-info",
-          "Media Info",
-          "The media info",
-          GstPlay.PlayMediaInfo.$gtype,
-          GObject.ParamFlags.READABLE,
-        ),
-        cubic_volume: GObject.param_spec_double(
-          "cubic-volume",
-          "Cubic Volume",
-          "The volume that is suitable for display",
-          0.0,
-          1.0,
-          1.0,
-          GObject.ParamFlags.READWRITE,
-        ),
-        file: GObject.param_spec_object(
-          "file",
-          "File",
-          "The file currently being played by this stream",
-          Gio.File.$gtype,
-          GObject.ParamFlags.READABLE,
-        ),
-        tags: GObject.param_spec_boxed(
-          "tags",
-          "Tags",
-          "The tags of the currently playing track",
-          Gst.TagList.$gtype,
-          GObject.ParamFlags.READABLE,
-        ),
-        title: GObject.param_spec_string(
-          "title",
-          "Title",
-          "The title of the currently playing song",
-          null,
-          GObject.ParamFlags.READWRITE,
-        ),
-        rate: GObject.param_spec_double(
-          "rate",
-          "Playback rate",
-          "The rate at which the media is played back at",
-          0.5,
-          3.0,
-          1.0,
-          GObject.ParamFlags.READWRITE,
-        ),
-      },
-      Signals: {
-        "error": {
-          param_types: [GLib.Error.$gtype],
+    GObject.registerClass(
+      {
+        GTypeName: "APMediaStream",
+        Properties: {
+          buffering: GObject.param_spec_boolean(
+            "is-buffering",
+            "Is Buffering",
+            "Whether the player is buffering",
+            false,
+            GObject.ParamFlags.READABLE,
+          ),
+          media_info: GObject.param_spec_object(
+            "media-info",
+            "Media Info",
+            "The media info",
+            GstPlay.PlayMediaInfo.$gtype,
+            GObject.ParamFlags.READABLE,
+          ),
+          cubic_volume: GObject.param_spec_double(
+            "cubic-volume",
+            "Cubic Volume",
+            "The volume that is suitable for display",
+            0.0,
+            1.0,
+            1.0,
+            GObject.ParamFlags.READWRITE,
+          ),
+          file: GObject.param_spec_object(
+            "file",
+            "File",
+            "The file currently being played by this stream",
+            Gio.File.$gtype,
+            GObject.ParamFlags.READABLE,
+          ),
+          tags: GObject.param_spec_boxed(
+            "tags",
+            "Tags",
+            "The tags of the currently playing track",
+            Gst.TagList.$gtype,
+            GObject.ParamFlags.READABLE,
+          ),
+          title: GObject.param_spec_string(
+            "title",
+            "Title",
+            "The title of the currently playing song",
+            null,
+            GObject.ParamFlags.READWRITE,
+          ),
+          rate: GObject.param_spec_double(
+            "rate",
+            "Playback rate",
+            "The rate at which the media is played back at",
+            0.5,
+            3.0,
+            1.0,
+            GObject.ParamFlags.READWRITE,
+          ),
+        },
+        Signals: {
+          error: {
+            param_types: [GLib.Error.$gtype],
+          },
         },
       },
-    }, this);
+      this,
+    );
   }
 
   private discoverer: GstPbUtils.Discoverer;
@@ -246,8 +249,7 @@ export class APMediaStream extends Gtk.MediaStream {
         if (duration > 0) {
           this.peaks_generator.peaks = new Array(
             Math.ceil(duration / APPeaksGenerator.INTERVAL),
-          )
-            .fill(0);
+          ).fill(0);
         }
       }
     });
@@ -277,12 +279,9 @@ export class APMediaStream extends Gtk.MediaStream {
     adapter.connect("volume-changed", this.volume_changed_cb.bind(this));
     adapter.connect("mute-changed", this.mute_changed_cb.bind(this));
     adapter.connect("seek-done", this.seek_done_cb.bind(this));
-    adapter.connect(
-      "warning",
-      (_object, error: GLib.Error) => {
-        console.warn("player warning", error.code, error.message);
-      },
-    );
+    adapter.connect("warning", (_object, error: GLib.Error) => {
+      console.warn("player warning", error.code, error.message);
+    });
 
     const sink = Gst.ElementFactory.make("fakesink", "sink");
 

@@ -176,10 +176,7 @@ export class APPlayerState extends Adw.Bin {
     stream.seek(value);
   }
 
-  private waveform_position_changed_cb(
-    _scale: Gtk.Scale,
-    value: number,
-  ) {
+  private waveform_position_changed_cb(_scale: Gtk.Scale, value: number) {
     const window = this.get_root() as Window;
     const stream = window?.stream;
 

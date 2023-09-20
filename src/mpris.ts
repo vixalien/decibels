@@ -93,10 +93,7 @@ const MPRIS_XML = `
 export class DBusInterface {
   connection!: Gio.DBusConnection;
 
-  constructor(
-    private name: string,
-    private path: string,
-  ) {
+  constructor(private name: string, private path: string) {
     Gio.bus_get(Gio.BusType.SESSION, null)
       .then(this.got_bus.bind(this))
       .catch((e: GLib.Error) => {
@@ -126,8 +123,7 @@ export class DBusInterface {
       for (const method of iface.methods) {
         this.method_outargs.set(
           method.name,
-          `(` + method.out_args.map((arg) => arg.signature).join("") +
-            `)`,
+          `(` + method.out_args.map((arg) => arg.signature).join("") + `)`,
         );
 
         this.method_inargs.set(
@@ -174,9 +170,7 @@ export class DBusInterface {
       }
     });
 
-    const method_snake_name = DBusInterface._camel_to_snake(
-      method_name,
-    );
+    const method_snake_name = DBusInterface._camel_to_snake(method_name);
 
     let result;
 
@@ -258,14 +252,11 @@ export class MPRIS extends DBusInterface {
       this._on_repeat_mode_changed.bind(this),
     );
 
-    this.stream.connect(
-      "notify::seeking",
-      () => {
-        if (!this.stream.seeking) {
-          this._on_seek_finished(this as any, this.stream.timestamp);
-        }
-      },
-    );
+    this.stream.connect("notify::seeking", () => {
+      if (!this.stream.seeking) {
+        this._on_seek_finished(this as any, this.stream.timestamp);
+      }
+    });
   }
 
   _get_playback_status() {
@@ -359,12 +350,10 @@ export class MPRIS extends DBusInterface {
   }
 
   /** Skips to the next track in the tracklist */
-  _next() {
-  }
+  _next() {}
 
   /** Skips to the previous track in the tracklist */
-  _previous() {
-  }
+  _previous() {}
 
   /** Pauses playback */
   _pause() {
@@ -444,12 +433,9 @@ export class MPRIS extends DBusInterface {
    */
   _seeked(position: number) {
     // TODO: this doesn't work for some reason
-    this._dbus_emit_signal(
-      "Seeked",
-      {
-        Position: position,
-      },
-    );
+    this._dbus_emit_signal("Seeked", {
+      Position: position,
+    });
   }
 
   _get<Property extends keyof ReturnType<typeof this._get_all>>(
@@ -562,9 +548,9 @@ export class MPRIS extends DBusInterface {
     invalidated_properties: string[],
   ) {
     this._dbus_emit_signal("PropertiesChanged", {
-      "interface_name": interface_name,
-      "changed_properties": changed_properties,
-      "invalidated_properties": invalidated_properties,
+      interface_name: interface_name,
+      changed_properties: changed_properties,
+      invalidated_properties: invalidated_properties,
     });
   }
 

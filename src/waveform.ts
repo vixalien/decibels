@@ -53,8 +53,7 @@ export class APWaveForm extends Gtk.DrawingArea {
             "position",
             "Waveform position",
             "Waveform position",
-            GObject.ParamFlags.READWRITE |
-              GObject.ParamFlags.CONSTRUCT,
+            GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT,
             0.0,
             1.0,
             0.0,
@@ -222,18 +221,21 @@ export class APPeaksGenerator extends GObject.Object {
   private loadedPeaks: number[] = [];
 
   static {
-    GObject.registerClass({
-      GTypeName: "APPeaksGenerator",
-      Properties: {
-        peaks: GObject.param_spec_boxed(
-          "peaks",
-          "Peaks",
-          "The peaks of the currently playing song",
-          (Object as any).$gtype,
-          GObject.ParamFlags.READABLE,
-        ),
+    GObject.registerClass(
+      {
+        GTypeName: "APPeaksGenerator",
+        Properties: {
+          peaks: GObject.param_spec_boxed(
+            "peaks",
+            "Peaks",
+            "The peaks of the currently playing song",
+            (Object as any).$gtype,
+            GObject.ParamFlags.READABLE,
+          ),
+        },
       },
-    }, this);
+      this,
+    );
   }
 
   private _peaks: number[] = [];

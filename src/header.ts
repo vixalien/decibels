@@ -36,9 +36,7 @@ export class APHeaderBar extends Adw.Bin {
 
   get title() {
     if (this.has_title_widget()) {
-      return (
-        (this._header_bar.title_widget as Adw.WindowTitle)?.title ?? null
-      );
+      return (this._header_bar.title_widget as Adw.WindowTitle)?.title ?? null;
     }
 
     return null;
