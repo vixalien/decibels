@@ -18,7 +18,7 @@ Download latest artifact [from here][artifact].
 
 ## TODO
 
-- [ ] changing playback speed
+- [ ] App Icon
 
 ## Links
 
