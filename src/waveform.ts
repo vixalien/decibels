@@ -59,6 +59,13 @@ export class APWaveForm extends Gtk.DrawingArea {
             1.0,
             0.0,
           ),
+          peaks: GObject.param_spec_boxed(
+            "peaks",
+            "Peaks",
+            "The peaks of the currently playing song",
+            (Object as any).$gtype,
+            GObject.ParamFlags.READWRITE,
+          ),
         },
         Signals: {
           "position-changed": { param_types: [GObject.TYPE_DOUBLE] },
@@ -165,12 +172,16 @@ export class APWaveForm extends Gtk.DrawingArea {
     });
   }
 
-  public set peaks(p: number[]) {
+  set peaks(p: number[]) {
     this._peaks = [...p];
     this.queue_draw();
   }
 
-  public set position(pos: number) {
+  get peaks() {
+    return this._peaks;
+  }
+
+  set position(pos: number) {
     if (this._peaks) {
       this._position = this.clamped(-pos * this._peaks.length * GUTTER);
       this.lastX = this._position;
@@ -179,7 +190,7 @@ export class APWaveForm extends Gtk.DrawingArea {
     }
   }
 
-  public get position(): number {
+  get position(): number {
     return -this._position / (this._peaks.length * GUTTER);
   }
 
@@ -213,12 +224,27 @@ export class APPeaksGenerator extends GObject.Object {
   static {
     GObject.registerClass({
       GTypeName: "APPeaksGenerator",
-      Signals: {
-        "peaks-generated": {
-          param_types: [(Object as any).$gtype],
-        },
+      Properties: {
+        peaks: GObject.param_spec_boxed(
+          "peaks",
+          "Peaks",
+          "The peaks of the currently playing song",
+          (Object as any).$gtype,
+          GObject.ParamFlags.READABLE,
+        ),
       },
     }, this);
+  }
+
+  private _peaks: number[] = [];
+
+  get peaks() {
+    return this._peaks;
+  }
+
+  set peaks(peaks: number[]) {
+    this._peaks = peaks;
+    this.notify("peaks");
   }
 
   constructor() {
@@ -230,6 +256,7 @@ export class APPeaksGenerator extends GObject.Object {
   restart() {
     this.started = true;
     this.loadedPeaks.length = 0;
+    this.peaks.length = 0;
   }
 
   generate_peaks_async(uri: string): void {
@@ -267,7 +294,7 @@ export class APPeaksGenerator extends GObject.Object {
         }
         case Gst.MessageType.EOS:
           if (this.started) {
-            this.emit("peaks-generated", this.loadedPeaks);
+            this.peaks = [...this.loadedPeaks];
           }
 
           this.loadedPeaks.length = 0;
@@ -277,4 +304,6 @@ export class APPeaksGenerator extends GObject.Object {
       }
     });
   }
+
+  static INTERVAL = 100000000;
 }

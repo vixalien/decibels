@@ -62,10 +62,6 @@ export class APPlayerState extends Adw.Bin {
 
     if (!window || !(window instanceof Window)) return;
 
-    window.stream.connect("peaks-generated", (_stream, peaks: number[]) => {
-      this._waveform.peaks = peaks;
-    });
-
     window.stream.bind_property(
       "duration",
       this._scale_adjustment,
@@ -154,6 +150,13 @@ export class APPlayerState extends Adw.Bin {
         ];
       },
       null,
+    );
+
+    window.stream.peaks_generator.bind_property(
+      "peaks",
+      this._waveform,
+      "peaks",
+      GObject.BindingFlags.SYNC_CREATE,
     );
   }
 

@@ -212,28 +212,17 @@ export class APMediaStream extends Gtk.MediaStream {
           null,
           GObject.ParamFlags.READWRITE,
         ),
-        peaks: GObject.param_spec_variant(
-          "peaks",
-          "Peaks",
-          "The peaks of the currently playing song",
-          new GLib.VariantType("as"),
-          null,
-          GObject.ParamFlags.READWRITE,
-        ),
       },
       Signals: {
         "error": {
           param_types: [GLib.Error.$gtype],
-        },
-        "peaks-generated": {
-          param_types: [(Object as any).$gtype],
         },
       },
     }, this);
   }
 
   private discoverer: GstPbUtils.Discoverer;
-  private peaks_generator: APPeaksGenerator;
+  peaks_generator: APPeaksGenerator;
 
   constructor() {
     super();
@@ -241,15 +230,20 @@ export class APMediaStream extends Gtk.MediaStream {
     this.discoverer = GstPbUtils.Discoverer.new(GLib.MAXINT32);
     this.discoverer.connect("discovered", (_source, info) => {
       this.tags = info.get_tags();
+
+      // try to generate an initial peaks array
+      if (this.peaks_generator.peaks.length === 0) {
+        const duration = info.get_duration();
+        if (duration > 0) {
+          this.peaks_generator.peaks = new Array(
+            Math.ceil(duration / APPeaksGenerator.INTERVAL),
+          )
+            .fill(0);
+        }
+      }
     });
 
     this.peaks_generator = new APPeaksGenerator();
-    this.peaks_generator.connect(
-      "peaks-generated",
-      (_generator: APPeaksGenerator, peaks: number[]) => {
-        this.emit("peaks-generated", peaks);
-      },
-    );
 
     this._play = new GstPlay.Play();
 
