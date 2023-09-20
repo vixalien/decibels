@@ -5,6 +5,9 @@ import GObject from "gi://GObject";
 import { Window } from "./window.js";
 import { APHeaderBar } from "./header.js";
 import { APWaveForm } from "./waveform.js";
+import { APPlaybackRateButton } from "./playback-rate-button.js";
+
+APPlaybackRateButton;
 
 export class APPlayerState extends Adw.Bin {
   private _scale_adjustment!: Gtk.Adjustment;

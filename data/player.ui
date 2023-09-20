@@ -82,12 +82,8 @@
                   <class name="toolbar"/>
                 </style>
                 <child type="start">
-                  <object class="GtkButton">
-                    <property name="icon-name">playback-speed-symbolic</property>
+                  <object class="APPlaybackRateButton">
                     <property name="valign">3</property>
-                    <style>
-                      <class name="circular"/>
-                    </style>
                   </object>
                 </child>
                 <child type="center">

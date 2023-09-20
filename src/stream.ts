@@ -212,6 +212,15 @@ export class APMediaStream extends Gtk.MediaStream {
           null,
           GObject.ParamFlags.READWRITE,
         ),
+        rate: GObject.param_spec_double(
+          "rate",
+          "Playback rate",
+          "The rate at which the media is played back at",
+          0.5,
+          3.0,
+          1.0,
+          GObject.ParamFlags.READWRITE,
+        ),
       },
       Signals: {
         "error": {
@@ -246,6 +255,8 @@ export class APMediaStream extends Gtk.MediaStream {
     this.peaks_generator = new APPeaksGenerator();
 
     this._play = new GstPlay.Play();
+
+    this._play.connect("notify::rate", () => this.notify("rate"));
 
     const play_config = this._play.get_config();
     GstPlay.Play.config_set_seek_accurate(play_config, true);
@@ -290,6 +301,18 @@ export class APMediaStream extends Gtk.MediaStream {
 
   set cubic_volume(value: number) {
     this.volume = get_linear_volume(value);
+  }
+
+  // rate
+
+  get rate() {
+    return this._play.rate;
+  }
+
+  set rate(value: number) {
+    if (value !== this._play.rate) {
+      this._play.rate = value;
+    }
   }
 
   // UTILS
@@ -564,9 +587,13 @@ export class APMediaStream extends Gtk.MediaStream {
   }
 
   private seek_done_cb(_play: GstPlay.Play, timestamp: number): void {
-    this.seek_success();
+    if (this.seeking) {
+      this.seek_success();
+    }
 
-    this.update(timestamp / Gst.USECOND);
+    if (this.prepared) {
+      this.update(timestamp / Gst.USECOND);
+    }
   }
 
   private reset() {

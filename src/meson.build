@@ -7,6 +7,7 @@ sources = files(
   'header.ts',
   'main.ts',
   'mpris.ts',
+  'playback-rate-button.ts',
   'player.ts',
   'stream.ts',
   'waveform.ts',
