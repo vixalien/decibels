@@ -16,7 +16,8 @@ export class Application extends Adw.Application {
 
   constructor() {
     super({
-      application_id: "com.vixalien.decibels",
+      application_id: pkg.name,
+      resource_base_path: "/com/vixalien/decibels",
       flags: Gio.ApplicationFlags.HANDLES_OPEN,
     });
 
@@ -34,7 +35,8 @@ export class Application extends Adw.Application {
     show_about_action.connect("activate", () => {
       const aboutWindow = Adw.AboutWindow.new_from_appdata(
         "/com/vixalien/decibels/com.vixalien.decibels.metainfo.xml",
-        pkg.version,
+        // remove commit tag
+        pkg.version.split("-")[0],
       );
       aboutWindow.set_artists(["kramo https://kramo.hu"]);
       aboutWindow.set_designers(["Allan Day"]);
@@ -51,6 +53,7 @@ export class Application extends Adw.Application {
   private present_main_window(): void {
     if (!this.window) {
       this.window = new Window({ application: this });
+      if (pkg.name.endsWith("Devel")) this.window.add_css_class("devel");
     }
 
     this.window.present();

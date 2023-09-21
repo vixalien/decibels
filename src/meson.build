@@ -25,31 +25,38 @@ typescript = custom_target(
   output: ['tsc-output'],
 )
 
+source_res_conf = configuration_data()
+source_res_conf.set('profile', profile)
 src_res = gnome.compile_resources(
-  'com.vixalien.decibels.src',
-  'com.vixalien.decibels.src.gresource.xml',
+ application_id + '.src',
+ configure_file(
+  	input: 'com.vixalien.decibels.src.gresource.xml.in',
+  	output: '@BASENAME@',
+  	configuration: source_res_conf
+  ),
   dependencies: typescript,
   source_dir: tsc_out,
   gresource_bundle: true,
   install: true,
-  install_dir: pkgdatadir,
+  install_dir: decibels_pkgdatadir,
 )
 
 bin_conf = configuration_data()
 bin_conf.set('GJS', gjs_console)
-bin_conf.set('PACKAGE_VERSION', meson.project_version())
-bin_conf.set('PACKAGE_NAME', meson.project_name())
-bin_conf.set('prefix', get_option('prefix'))
-bin_conf.set('libdir', join_paths(get_option('prefix'), get_option('libdir')))
-bin_conf.set('datadir', join_paths(get_option('prefix'), get_option('datadir')))
-bin_conf.set('resource_path', '/com/vixalien/decibels')
+bin_conf.set('PACKAGE_VERSION', '@0@@1@'.format(meson.project_version(), version_suffix))
+bin_conf.set('APPLICATION_ID', application_id)
+bin_conf.set('prefix', decibels_prefix)
+bin_conf.set('libdir', decibels_libdir)
+bin_conf.set('datadir', decibels_datadir)
+bin_conf.set('resource_path', '/com/vixalien/decibels@0@'.format(profile))
+bin_conf.set('profile', profile)
 
 app_launcher = configure_file(
   input: 'com.vixalien.decibels.in',
-  output: 'com.vixalien.decibels',
+  output: application_id,
   configuration: bin_conf,
   install: true,
-  install_dir: get_option('bindir')
+  install_dir: decibels_bindir
 )
 
 run_target(

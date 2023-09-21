@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2023 Angelo Verlain -->
 <component type="desktop">
-  <id>com.vixalien.decibels</id>
+  <id>@app-id@.desktop</id>
   <name>Decibels</name>
   <summary>Play audio files</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -35,8 +35,10 @@
 			</description>
     </release>
   </releases>
+  <launchable type="desktop-id">@app-id@.desktop</launchable>
   <url type="homepage">https://github.com/vixalien/decibels</url>
 	<url type="bugtracker">https://github.com/vixalien/decibels/issues</url>
+  <translation type="gettext">@gettext-package@</translation>
   <custom>
 		<value key="Purism::form_factor">workstation</value>
 		<value key="Purism::form_factor">mobile</value>

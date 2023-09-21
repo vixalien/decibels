@@ -13,7 +13,7 @@
   "build-options": {
     "append-path": "/usr/lib/sdk/node18/bin:/usr/lib/sdk/typescript/bin"
   },
-  "command": "com.vixalien.decibels",
+  "command": "com.vixalien.decibelsDevel",
   "finish-args": [
     "--share=ipc",
     "--device=dri",
@@ -21,7 +21,8 @@
     "--socket=fallback-x11",
     "--env=GJS_DISABLE_JIT=1",
     "--socket=pulseaudio",
-    "--own-name=org.mpris.MediaPlayer2.Decibels"
+    "--own-name=org.mpris.MediaPlayer2.Decibels",
+    "--socket=session-bus"
   ],
   "cleanup": [
     "/include",
@@ -38,6 +39,9 @@
     {
       "name": "decibels",
       "buildsystem": "meson",
+      "config-opts": [
+        "-Dprofile=development"
+      ],
       "sources": [
         {
           "type": "git",

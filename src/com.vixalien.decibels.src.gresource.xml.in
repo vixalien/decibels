@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/vixalien/decibels/js">
+  <gresource prefix="/com/vixalien/decibels@profile@/js">
     <file>application.js</file>
     <file>empty.js</file>
     <file>error.js</file>

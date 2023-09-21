@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="decibels">
-	<schema id="com.vixalien.decibels" path="/com/vixalien/decibels/">
+<schemalist>
+	<schema id="@app-id@" path="/com/vixalien/decibels/" gettext-domain="@gettext-package@">
 		<key name="last-window-size" type="(ii)">
 			<default>(-1,-1)</default>
 			<summary>Last width &amp; height of window</summary>
