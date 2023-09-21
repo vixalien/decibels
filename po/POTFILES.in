@@ -1,6 +1,11 @@
 data/com.vixalien.decibels.desktop.in
-data/com.vixalien.decibels.appdata.xml.in
+data/com.vixalien.decibels.metainfo.xml.in
 data/com.vixalien.decibels.gschema.xml
+data/empty.ui
+data/error.ui
+data/header.ui
 data/window.ui
 src/application.ts
+src/error.ts
+src/stream.ts
 src/window.ts

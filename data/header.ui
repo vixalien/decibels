@@ -9,7 +9,7 @@
             <property name="icon-name">open-menu-symbolic</property>
             <property name="menu-model">primary_menu</property>
             <property name="primary">true</property>
-            <property name="tooltip-text" translatable="true">Main Menu</property>
+            <property name="tooltip-text" translatable="yes">Main Menu</property>
           </object>
         </child>
       </object>
@@ -18,17 +18,17 @@
   <menu id="primary_menu">
     <section>
       <item>
-        <attribute name="label" translatable="true">Open…</attribute>
+        <attribute name="label" translatable="yes">Open…</attribute>
         <attribute name="action">win.open-file</attribute>
       </item>
     </section>
     <section>
       <item>
-        <attribute name="label" translatable="true">_Keyboard Shortcuts</attribute>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="true">_About Decibels</attribute>
+        <attribute name="label" translatable="yes">_About Decibels</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>

@@ -10,14 +10,14 @@
         <child>
           <object class="AdwStatusPage" id="statusPage">
             <property name="icon-name">warning-symbolic</property>
-            <property name="title" translatable="true">File Cannot Be Played</property>
+            <property name="title" translatable="yes">File Cannot Be Played</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">1</property>
                 <property name="spacing">12</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label">_Try Again…</property>
+                    <property name="label" translatable="yes">_Try Again…</property>
                     <property name="use-underline">true</property>
                     <property name="action-name">win.open-file</property>
                     <property name="can-shrink">True</property>

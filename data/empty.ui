@@ -10,14 +10,14 @@
         <child>
           <object class="AdwStatusPage" id="statusPage">
             <property name="icon-name">com.vixalien.decibels-symbolic</property>
-            <property name="title" translatable="true">Open an Audio File</property>
+            <property name="title" translatable="yes">Open an Audio File</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">1</property>
                 <property name="spacing">12</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label">_Open…</property>
+                    <property name="label" translatable="yes">_Open…</property>
                     <property name="use-underline">true</property>
                     <property name="action-name">win.open-file</property>
                     <property name="can-shrink">True</property>

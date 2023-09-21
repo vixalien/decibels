@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the decibels package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-21 16:34+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.vixalien.decibels.desktop.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in:11
+msgid "music;player;media;audio;"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in:12
+msgid "Play audio files"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:9
+msgid "Angelo Verlain"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:13
+msgid "Current features:"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:15
+msgid "Shows the waveform of the track"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:16
+msgid "Adjust playback speed"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:17
+msgid "Easy seek controls"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in:34
+msgid "Initial Release"
+msgstr ""
+
+#: data/com.vixalien.decibels.gschema.xml:6
+msgid "Last width & height of window"
+msgstr ""
+
+#: data/com.vixalien.decibels.gschema.xml:7
+msgid "The saved last size of the window (to be restored)"
+msgstr ""
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr ""
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr ""
+
+#: data/error.ui:13 src/window.ts:117 src/window.ts:163
+msgid "File Cannot Be Played"
+msgstr ""
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr ""
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr ""
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr ""
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr ""
+
+#: src/error.ts:57
+msgid "An unknown error happened"
+msgstr ""
+
+#: src/stream.ts:361
+msgid "Unknown File"
+msgstr ""
+
+#: src/window.ts:123
+msgid "Audio files"
+msgstr ""
+
+#: src/window.ts:130
+msgid "Open File"
+msgstr ""
+
+#: src/window.ts:164
+msgid "The file could not be accessed"
+msgstr ""
