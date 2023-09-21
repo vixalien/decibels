@@ -34,7 +34,7 @@ export class Application extends Adw.Application {
     show_about_action.connect("activate", () => {
       const aboutWindow = Adw.AboutWindow.new_from_appdata(
         "/com/vixalien/decibels/com.vixalien.decibels.metainfo.xml",
-        "0.1.0",
+        pkg.version,
       );
       aboutWindow.set_artists(["kramo https://kramo.hu"]);
       aboutWindow.set_designers(["Allan Day"]);
