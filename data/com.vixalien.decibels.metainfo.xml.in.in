@@ -29,6 +29,16 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.1.1" date="2023-09-20">
+      <description>
+				<p>A few bug fixes that polishes up the app</p>
+        <ul>
+          <li>Differentiate development versions of the app from the stable app by styling the icon and header differently</li>
+          <li>Added donation link in application metadata</li>
+          <li>Fix the About Window being detached from main window</li>
+        </ul>
+			</description>
+    </release>
     <release version="0.1.0" date="2023-09-20">
       <description>
 				<p>Initial Release</p>
