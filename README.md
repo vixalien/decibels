@@ -18,10 +18,6 @@ Coming Soon
 
 Download latest artifact [from here][artifact].
 
-## TODO
-
-- [ ] App Icon
-
 ## Links
 
 - [Audio Player app: issue by Allan Day](https://gitlab.gnome.org/Teams/Design/app-mockups/-/issues/96)
