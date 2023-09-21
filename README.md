@@ -1,3 +1,6 @@
+<div align="center">
+<img src="data/icons/hicolor/scalable/apps/com.vixalien.decibels.svg" height="64">
+
 # Decibels
 
 > Note: This app is still in development, and may not be stable.
