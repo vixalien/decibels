@@ -3,10 +3,10 @@
     <filter id="a" height="100%" width="100%" x="0%" y="0%">
         <feColorMatrix color-interpolation-filters="sRGB" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
     </filter>
-    <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="20" x2="108" y1="120" y2="120">
+    <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="20" x2="90" y1="120" y2="120">
         <stop offset="0" stop-color="#c64600"/>
-        <stop offset="0.047" stop-color="#ff7800"/>
-        <stop offset="0.109" stop-color="#c64600"/>
+        <stop offset="0.057" stop-color="#ff7800"/>
+        <stop offset="0.145" stop-color="#c64600"/>
     </linearGradient>
     <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="108" x2="90" y1="120" y2="120">
         <stop offset="0" stop-color="#c0bfbc"/>
@@ -23,8 +23,8 @@
         <g filter="url(#a)">
             <g clip-path="url(#e)" filter="url(#a)">
                 <g clip-path="url(#d)">
-                    <path d="m 20 17 c 0 -4.96875 4.03125 -9 9 -9 h 70 c 4.96875 0 9 4.03125 9 9 v 94 c 0 4.96875 -4.03125 9 -9 9 h -70 c -4.96875 0 -9 -4.03125 -9 -9 z m 0 0" fill="url(#b)"/>
-                    <path d="m 29 8 h 70 c 4.96875 0 9 4.03125 9 9 v 82 c 0 4.96875 -4.03125 9 -9 9 h -70 c -4.96875 0 -9 -4.03125 -9 -9 v -82 c 0 -4.96875 4.03125 -9 9 -9 z m 0 0" fill="#ff7800"/>
+                    <path d="m 20 17 c 0 -4.96875 4.03125 -9 9 -9 h 61 v 112 h -61 c -4.96875 0 -9 -4.03125 -9 -9 z m 0 0" fill="url(#b)"/>
+                    <path d="m 20 17 c 0 -4.96875 4.03125 -9 9 -9 h 61 v 100 h -61 c -4.96875 0 -9 -4.03125 -9 -9 z m 0 0" fill="#ff7800"/>
                     <path d="m 90 87 h 18 v 24 c 0 4.96875 -4.03125 9 -9 9 h -9 z m 0 0" fill="url(#c)"/>
                     <path d="m 107 51 h 3 c 1.65625 0 3 1.34375 3 3 v 13 c 0 1.65625 -1.34375 3 -3 3 h -3 c -1.65625 0 -3 -1.34375 -3 -3 v -13 c 0 -1.65625 1.34375 -3 3 -3 z m 0 0" fill="#5e5c64"/>
                     <path d="m 107 51 h 3 c 1.65625 0 3 1.34375 3 3 v 9 c 0 1.65625 -1.34375 3 -3 3 h -3 c -1.65625 0 -3 -1.34375 -3 -3 v -9 c 0 -1.65625 1.34375 -3 3 -3 z m 0 0" fill="#9a9996"/>
@@ -65,8 +65,8 @@
     <clipPath id="j">
         <rect height="128" width="128"/>
     </clipPath>
-    <path d="m 20 17 c 0 -4.96875 4.03125 -9 9 -9 h 70 c 4.96875 0 9 4.03125 9 9 v 94 c 0 4.96875 -4.03125 9 -9 9 h -70 c -4.96875 0 -9 -4.03125 -9 -9 z m 0 0" fill="url(#b)"/>
-    <path d="m 29 8 h 70 c 4.96875 0 9 4.03125 9 9 v 82 c 0 4.96875 -4.03125 9 -9 9 h -70 c -4.96875 0 -9 -4.03125 -9 -9 v -82 c 0 -4.96875 4.03125 -9 9 -9 z m 0 0" fill="#ff7800"/>
+    <path d="m 20 17 c 0 -4.96875 4.03125 -9 9 -9 h 61 v 112 h -61 c -4.96875 0 -9 -4.03125 -9 -9 z m 0 0" fill="url(#b)"/>
+    <path d="m 20 17 c 0 -4.96875 4.03125 -9 9 -9 h 61 v 100 h -61 c -4.96875 0 -9 -4.03125 -9 -9 z m 0 0" fill="#ff7800"/>
     <path d="m 90 87 h 18 v 24 c 0 4.96875 -4.03125 9 -9 9 h -9 z m 0 0" fill="url(#c)"/>
     <path d="m 107 51 h 3 c 1.65625 0 3 1.34375 3 3 v 13 c 0 1.65625 -1.34375 3 -3 3 h -3 c -1.65625 0 -3 -1.34375 -3 -3 v -13 c 0 -1.65625 1.34375 -3 3 -3 z m 0 0" fill="#5e5c64"/>
     <path d="m 107 51 h 3 c 1.65625 0 3 1.34375 3 3 v 9 c 0 1.65625 -1.34375 3 -3 3 h -3 c -1.65625 0 -3 -1.34375 -3 -3 v -9 c 0 -1.65625 1.34375 -3 3 -3 z m 0 0" fill="#9a9996"/>
