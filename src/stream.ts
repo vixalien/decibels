@@ -282,6 +282,8 @@ export class APMediaStream extends Gtk.MediaStream {
 
     this._play.connect("notify::rate", () => this.notify("rate"));
 
+    this._play.set_video_track_enabled(false);
+
     const play_config = this._play.get_config();
     GstPlay.Play.config_set_seek_accurate(play_config, true);
     this._play.set_config(play_config);
