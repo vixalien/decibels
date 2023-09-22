@@ -16,15 +16,6 @@
                 <property name="spacing">4</property>
                 <property name="orientation">1</property>
                 <child>
-                  <object class="GtkButton" id="plus_button">
-                    <property name="icon-name">list-add-symbolic</property>
-                    <signal name="clicked" handler="plus_activate_cb"/>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
                   <object class="GtkScale">
                     <property name="height-request">200</property>
                     <property name="vexpand">true</property>
@@ -40,20 +31,11 @@
                     </property>
                     <signal name="change-value" handler="scale_change_value_cb"/>
                     <marks>
-                      <mark value="0.5" position="bottom">0.5⨉</mark>
-                      <mark value="1" position="bottom">1⨉</mark>
-                      <mark value="2" position="bottom">2⨉</mark>
-                      <mark value="3" position="bottom">3⨉</mark>
+                      <mark value="0.5" position="bottom"/>
+                      <mark value="1" position="bottom"/>
+                      <mark value="2" position="bottom"/>
+                      <mark value="3" position="bottom"/>
                     </marks>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton" id="minus_button">
-                    <property name="icon-name">list-remove-symbolic</property>
-                    <signal name="clicked" handler="minus_activate_cb"/>
-                    <style>
-                      <class name="flat"/>
-                    </style>
                   </object>
                 </child>
               </object>

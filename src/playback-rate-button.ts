@@ -6,8 +6,6 @@ import { Window } from "./window.js";
 
 export class APPlaybackRateButton extends Adw.Bin {
   private _menu_button!: Gtk.MenuButton;
-  private _minus_button!: Gtk.Button;
-  private _plus_button!: Gtk.Button;
   private _adjustment!: Gtk.Adjustment;
 
   static {
@@ -18,8 +16,6 @@ export class APPlaybackRateButton extends Adw.Bin {
         InternalChildren: [
           "adjustment",
           "menu_button",
-          "minus_button",
-          "plus_button",
         ],
         Properties: {},
       },
@@ -35,30 +31,6 @@ export class APPlaybackRateButton extends Adw.Bin {
     const window = this.get_root() as Window;
 
     if (!window || !(window instanceof Window)) return;
-
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
-    window.stream.bind_property_full(
-      "rate",
-      this._minus_button,
-      "sensitive",
-      GObject.BindingFlags.SYNC_CREATE,
-      (_binding, from: number) => {
-        return [true, from > 0.5];
-      },
-      null,
-    );
-
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
-    window.stream.bind_property_full(
-      "rate",
-      this._plus_button,
-      "sensitive",
-      GObject.BindingFlags.SYNC_CREATE,
-      (_binding, from: number) => {
-        return [true, from < 3.0];
-      },
-      null,
-    );
 
     window.stream.bind_property(
       "rate",
@@ -104,14 +76,6 @@ export class APPlaybackRateButton extends Adw.Bin {
     stream.rate = increase
       ? this._adjustment.value + this._adjustment.step_increment
       : this._adjustment.value - this._adjustment.step_increment;
-  }
-
-  private minus_activate_cb() {
-    this.adjust_value(false);
-  }
-
-  private plus_activate_cb() {
-    this.adjust_value(true);
   }
 
   vfunc_root(): void {
