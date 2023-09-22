@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-21 16:34+0200\n"
+"POT-Creation-Date: 2023-09-22 15:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,72 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/com.vixalien.decibels.desktop.in:3
-#: data/com.vixalien.decibels.metainfo.xml.in:5 data/window.ui:9
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
 msgid "Decibels"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.vixalien.decibels.desktop.in:11
+#: data/com.vixalien.decibels.desktop.in.in:11
 msgid "music;player;media;audio;"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:6
-#: data/com.vixalien.decibels.metainfo.xml.in:12
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
 msgid "Play audio files"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:9
+#: data/com.vixalien.decibels.metainfo.xml.in.in:9
 msgid "Angelo Verlain"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:13
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
 msgid "Current features:"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:15
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
 msgid "Shows the waveform of the track"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:16
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
 msgid "Adjust playback speed"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:17
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
 msgid "Easy seek controls"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in:34
+#: data/com.vixalien.decibels.metainfo.xml.in.in:34
+msgid "A few bug fixes that polishes up the app"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:36
+msgid ""
+"Differentiate development versions of the app from the stable app by styling "
+"the icon and header differently"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:37
+msgid "Added donation link in application metadata"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+msgid "Fix the About Window being detached from main window"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+msgid "Fix the About Window showing release notes for an older version"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:46
 msgid "Initial Release"
 msgstr ""
 
-#: data/com.vixalien.decibels.gschema.xml:6
+#: data/com.vixalien.decibels.gschema.xml.in:6
 msgid "Last width & height of window"
 msgstr ""
 
-#: data/com.vixalien.decibels.gschema.xml:7
+#: data/com.vixalien.decibels.gschema.xml.in:7
 msgid "The saved last size of the window (to be restored)"
 msgstr ""
 

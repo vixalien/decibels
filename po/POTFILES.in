@@ -1,6 +1,6 @@
-data/com.vixalien.decibels.desktop.in
-data/com.vixalien.decibels.metainfo.xml.in
-data/com.vixalien.decibels.gschema.xml
+data/com.vixalien.decibels.desktop.in.in
+data/com.vixalien.decibels.metainfo.xml.in.in
+data/com.vixalien.decibels.gschema.xml.in
 data/empty.ui
 data/error.ui
 data/header.ui
