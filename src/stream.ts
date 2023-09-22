@@ -553,12 +553,6 @@ export class APMediaStream extends Gtk.MediaStream {
       this._is_buffering = false;
       this.notify("is-buffering");
     }
-
-    if (state == GstPlay.PlayState.STOPPED && this.prepared) {
-      if (this.prepared) {
-        this.stream_unprepared();
-      }
-    }
   }
 
   private error_cb(_play: GstPlay.Play, error: GLib.Error): void {
@@ -566,14 +560,11 @@ export class APMediaStream extends Gtk.MediaStream {
   }
 
   protected eos_cb(_play: GstPlay.Play): void {
-    if (this.loop) {
-      this.seek(0);
-      this.play();
-    }
+    this.pause();
+    this.seek(0);
 
-    if (this.prepared) {
-      this.stream_ended();
-      this.stream_unprepared();
+    if (this.loop) {
+      this.play();
     }
   }
 
