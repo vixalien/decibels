@@ -16,8 +16,7 @@ if (!Gst.is_initialized()) {
   Gst.init(null);
 }
 
-type GTypeToType<Y extends GObject.GType> = Y extends GObject.GType<infer T>
-  ? T
+type GTypeToType<Y extends GObject.GType> = Y extends GObject.GType<infer T> ? T
   : never;
 
 type GTypeArrayToTypeArray<Y extends readonly GObject.GType[]> = {
@@ -524,20 +523,9 @@ export class APMediaStream extends Gtk.MediaStream {
       this.notify("is-buffering");
     }
 
-    if (state == GstPlay.PlayState.STOPPED) {
+    if (state == GstPlay.PlayState.STOPPED && this.prepared) {
       if (this.prepared) {
         this.stream_unprepared();
-      }
-    } else {
-      if (!this.is_prepared) {
-        this.stream_prepared(
-          this.has_audio,
-          this.has_video,
-          this.seekable,
-          this.duration,
-        );
-
-        this.play();
       }
     }
   }
@@ -571,6 +559,16 @@ export class APMediaStream extends Gtk.MediaStream {
         info.is_seekable(),
         this._play.get_duration() / Gst.USECOND,
       );
+
+      if (info.get_number_of_audio_streams() <= 0) {
+        return this.gerror(
+          GLib.Error.new_literal(
+            GstPlay.PlayError,
+            GstPlay.PlayError.FAILED,
+            _("The selected file doesn't contain any audio"),
+          ),
+        );
+      }
 
       this.play();
     }
