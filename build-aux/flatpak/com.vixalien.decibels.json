@@ -1,5 +1,5 @@
 {
-  "id": "com.vixalien.decibels",
+  "id": "com.vixalien.decibelsDevel",
   "runtime": "org.gnome.Platform",
   "runtime-version": "master",
   "sdk": "org.gnome.Sdk",
