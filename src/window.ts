@@ -89,6 +89,10 @@ export class Window extends Adw.ApplicationWindow {
 
     this.insert_action_group("player", this.stream.get_action_group());
 
+    this.stream.connect("loaded", () => {
+      this.show_stack_page("player");
+    });
+
     this.stream.bind_property(
       "title",
       this._player,
@@ -143,14 +147,10 @@ export class Window extends Adw.ApplicationWindow {
 
   load_uri(uri: string) {
     this.stream.set_uri(uri);
-    this.stream.play();
-    this.show_stack_page("player");
   }
 
   load_file(file: Gio.File) {
     this.stream.set_file(file);
-    this.stream.play();
-    this.show_stack_page("player");
   }
 
   open_file() {

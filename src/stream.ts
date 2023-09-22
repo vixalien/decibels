@@ -226,6 +226,7 @@ export class APMediaStream extends Gtk.MediaStream {
           error: {
             param_types: [GLib.Error.$gtype],
           },
+          loaded: {},
         },
       },
       this,
@@ -239,8 +240,30 @@ export class APMediaStream extends Gtk.MediaStream {
     super();
 
     this.discoverer = GstPbUtils.Discoverer.new(GLib.MAXINT32);
-    this.discoverer.connect("discovered", (_source, info) => {
+    this.discoverer.connect("discovered", (_source, info, error) => {
       this.tags = info.get_tags();
+
+      switch (info.get_result()) {
+        case GstPbUtils.DiscovererResult.MISSING_PLUGINS:
+          this.gerror(
+            GLib.Error.new_literal(
+              GstPlay.PlayError,
+              GstPlay.PlayError.FAILED,
+              _("File uses a format that cannot be played. Additional media codecs may be required."),
+            ),
+          );
+          return;
+        case GstPbUtils.DiscovererResult.ERROR:
+          this.gerror(
+            error ??
+              GLib.Error.new_literal(
+                GstPlay.PlayError,
+                GstPlay.PlayError.FAILED,
+                _("An error happened while trying to get information about the file. Please try again."),
+              ),
+          );
+          return;
+      }
 
       // try to generate an initial peaks array
       if (this.peaks_generator.peaks.length === 0) {
@@ -265,6 +288,7 @@ export class APMediaStream extends Gtk.MediaStream {
 
     const adapter = new APPlaySignalAdapter(this._play);
 
+    adapter.connect("uri-loaded", this.uri_loaded_cb.bind(this));
     adapter.connect("buffering", this.buffering_cb.bind(this));
     adapter.connect("end-of-stream", this.eos_cb.bind(this));
     adapter.connect("error", this.error_cb.bind(this));
@@ -483,6 +507,11 @@ export class APMediaStream extends Gtk.MediaStream {
 
   // handlers
 
+  private uri_loaded_cb(_play: GstPlay.Play, uri: string): void {
+    this.emit("loaded");
+    this.play();
+  }
+
   private buffering_cb(_play: GstPlay.Play, percent: number): void {
     if (percent < 100) {
       if (!this.is_buffering && this.playing) {
@@ -569,8 +598,6 @@ export class APMediaStream extends Gtk.MediaStream {
           ),
         );
       }
-
-      this.play();
     }
   }
 
