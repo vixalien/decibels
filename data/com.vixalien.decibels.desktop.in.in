@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Decibels
-Exec=@app-id@
+Exec=com.vixalien.decibels
 Icon=@app-id@
 Terminal=false
 Type=Application
