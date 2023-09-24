@@ -6,31 +6,35 @@
     <property name="default-height">400</property>
     <property name="width-request">300</property>
     <property name="height-request">260</property>
-    <property name="title" translatable="yes">Decibels</property>
+    <property name="title" translatable="true">Decibels</property>
     <property name="content">
-      <object class="GtkStack" id="stack">
+      <object class="GtkWindowHandle">
         <child>
-          <object class="GtkStackPage">
-            <property name="name">empty</property>
-            <property name="child">
-              <object class="APEmptyState" />
-            </property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">error</property>
-            <property name="child">
-              <object class="APErrorState" id="error" />
-            </property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStackPage">
-            <property name="name">player</property>
-            <property name="child">
-              <object class="APPlayerState" id="player" />
-            </property>
+          <object class="GtkStack" id="stack">
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">empty</property>
+                <property name="child">
+                  <object class="APEmptyState"></object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">error</property>
+                <property name="child">
+                  <object class="APErrorState" id="error"></object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkStackPage">
+                <property name="name">player</property>
+                <property name="child">
+                  <object class="APPlayerState" id="player"></object>
+                </property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
