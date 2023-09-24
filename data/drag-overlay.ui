@@ -2,6 +2,9 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="APDragOverlay" parent="AdwBin">
+    <style>
+      <class name="drag-overlay"/>
+    </style>
     <child>
       <object class="GtkOverlay" id="overlay">
         <child type="overlay">

@@ -12,3 +12,7 @@
 .blurred {
   filter: blur(6px);
 }
+
+.drag-overlay {
+  box-shadow: none;
+}
