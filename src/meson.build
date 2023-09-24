@@ -2,6 +2,7 @@ gnome = import('gnome')
 
 sources = files(
   'application.ts',
+  'drag-overlay.ts',
   'empty.ts',
   'error.ts',
   'header.ts',

@@ -1,11 +1,13 @@
 data/com.vixalien.decibels.desktop.in.in
 data/com.vixalien.decibels.metainfo.xml.in.in
 data/com.vixalien.decibels.gschema.xml.in
+data/drag-overlay.ui
 data/empty.ui
 data/error.ui
 data/header.ui
 data/window.ui
 src/application.ts
+src/drag-overlay.ts
 src/error.ts
 src/stream.ts
 src/window.ts

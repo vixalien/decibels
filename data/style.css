@@ -3,3 +3,12 @@
 .large-button {
   padding: 12px;
 }
+
+.drag-overlay-status-page {
+  background-color: alpha(@accent_bg_color, 0.5);
+  color: @accent_fg_color;
+}
+
+.blurred {
+  filter: blur(6px);
+}

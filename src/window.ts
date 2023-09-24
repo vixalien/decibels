@@ -12,6 +12,7 @@ import { APErrorState } from "./error.js";
 import { APPlayerState } from "./player.js";
 import { MPRIS } from "./mpris.js";
 import { Settings } from "./application.js";
+import { APDragOverlay } from "./drag-overlay.js";
 
 Gio._promisify(Gtk.FileDialog.prototype, "open", "open_finish");
 
@@ -21,6 +22,7 @@ APHeaderBar;
 APEmptyState;
 APErrorState;
 APPlayerState;
+APDragOverlay;
 
 export type ActionEntry = {
   name: string;
@@ -181,7 +183,7 @@ export class Window extends Adw.ApplicationWindow {
     this._stack.visible_child_name = page;
   }
 
-  private show_error(title: string, error: any) {
+  show_error(title: string, error: any) {
     this.show_stack_page("error");
 
     this._error.show_error(title, error);

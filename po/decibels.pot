@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 15:48+0200\n"
+"POT-Creation-Date: 2023-09-24 14:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
-#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5
 msgid "Decibels"
 msgstr ""
 
@@ -94,7 +94,7 @@ msgstr ""
 msgid "_Open…"
 msgstr ""
 
-#: data/error.ui:13 src/window.ts:117 src/window.ts:163
+#: data/error.ui:13 src/window.ts:123 src/window.ts:165
 msgid "File Cannot Be Played"
 msgstr ""
 
@@ -118,22 +118,46 @@ msgstr ""
 msgid "_About Decibels"
 msgstr ""
 
+#: src/drag-overlay.ts:72
+msgid "File Cannot be Played"
+msgstr ""
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr ""
+
 #: src/error.ts:57
 msgid "An unknown error happened"
 msgstr ""
 
-#: src/stream.ts:361
+#: src/stream.ts:252
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+
+#: src/stream.ts:262
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+
+#: src/stream.ts:386
 msgid "Unknown File"
 msgstr ""
 
-#: src/window.ts:123
+#: src/stream.ts:590
+msgid "The selected file doesn't contain any audio"
+msgstr ""
+
+#: src/window.ts:129
 msgid "Audio files"
 msgstr ""
 
-#: src/window.ts:130
+#: src/window.ts:136
 msgid "Open File"
 msgstr ""
 
-#: src/window.ts:164
+#: src/window.ts:166
 msgid "The file could not be accessed"
 msgstr ""

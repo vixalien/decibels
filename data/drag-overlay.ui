@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="APDragOverlay" parent="AdwBin">
+    <child>
+      <object class="GtkOverlay" id="overlay">
+        <child type="overlay">
+          <object class="GtkRevealer" id="revealer">
+            <property name="can-target">false</property>
+            <property name="transition-type">crossfade</property>
+            <child>
+              <object class="AdwStatusPage">
+                <property name="icon-name">folder-music-symbolic</property>
+                <property name="title" translatable="true">Drop an audio file to play it</property>
+                <style>
+                  <class name="drag-overlay-status-page"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
