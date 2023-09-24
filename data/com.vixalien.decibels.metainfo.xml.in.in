@@ -29,6 +29,22 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.1.3" date="2023-09-24">
+      <description>
+				<p>A few improvements and papercut fixes</p>
+        <ul>
+          <li>Support drag and drop</li>
+          <li>Seek to the start of a track after it ends</li>
+          <li>Allow dragging the app window from everywhere (except the waveform)</li>
+          <li>Made the playback speed popover look less cluttered by removing the +/- buttons and mark labels</li>
+          <li>Fix an issue that prevented accessing file metadata from within the Flatpak sandbox</li>
+          <li>Don't try to play files without audio streams (images and videos without sound)</li>
+          <li>Don't try to process video streams even if they were not rendered</li>
+          <li>Fixed some issues with the Development build of Decibels</li>
+          <li>Fixed a minor glitch with the app icon</li>
+        </ul>
+			</description>
+    </release>
     <release version="0.1.2" date="2023-09-21">
       <description>
 				<p>A few bug fixes that polishes up the app</p>
