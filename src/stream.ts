@@ -535,7 +535,9 @@ export class APMediaStream extends Gtk.MediaStream {
       return;
     }
 
-    this.update(position / Gst.USECOND);
+    if (this.prepared) {
+      this.update(position / Gst.USECOND);
+    }
   }
 
   private duration_changed_cb(_play: GstPlay.Play): void {
@@ -619,6 +621,10 @@ export class APMediaStream extends Gtk.MediaStream {
     this.discoverer.start();
 
     this.peaks_generator.restart();
+
+    if (this.prepared) {
+      this.stream_unprepared();
+    }
   }
 
   set_uri(uri: string): void {
