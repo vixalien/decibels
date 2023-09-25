@@ -691,7 +691,9 @@ export class APMediaStream extends Gtk.MediaStream {
         parameter_type: "i",
         activate: (_source, param) => {
           if (param) {
-            this.seek(this.timestamp + param.get_int32() * Gst.MSECOND);
+            this.seek(
+              Math.max(this.timestamp + param.get_int32() * Gst.MSECOND, 0),
+            );
           }
         },
       },
