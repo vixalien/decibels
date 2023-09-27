@@ -208,7 +208,14 @@ export class APMediaStream extends Gtk.MediaStream {
           title: GObject.param_spec_string(
             "title",
             "Title",
-            "The title of the currently playing song",
+            "The title of the currently playing track",
+            null,
+            GObject.ParamFlags.READWRITE,
+          ),
+          artist: GObject.param_spec_string(
+            "artist",
+            "artist",
+            "The artist of the currently playing track",
             null,
             GObject.ParamFlags.READWRITE,
           ),
@@ -391,6 +398,25 @@ export class APMediaStream extends Gtk.MediaStream {
     this.notify("title");
   }
 
+  // property: artist
+
+  protected _artist: string | null = null;
+
+  get artist() {
+    const artist = this.tags?.get_string("artist");
+
+    if (artist && artist[0] && artist[1]) {
+      return artist[1];
+    }
+
+    return null;
+  }
+
+  private set artist(artist: string | null) {
+    this.artist = artist;
+    this.notify("artist");
+  }
+
   // property: tags
 
   protected _tags: Gst.TagList | null = null;
@@ -403,6 +429,7 @@ export class APMediaStream extends Gtk.MediaStream {
     this._tags = tags;
     this.notify("tags");
     this.notify("title");
+    this.notify("artist");
   }
 
   // property: media-info

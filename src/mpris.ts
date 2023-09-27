@@ -239,6 +239,11 @@ export class MPRIS extends DBusInterface {
     );
 
     this.stream.connect(
+      "notify::artist",
+      this._on_current_song_changed.bind(this),
+    );
+
+    this.stream.connect(
       "notify::duration",
       this._on_current_song_changed.bind(this),
     );
@@ -284,11 +289,15 @@ export class MPRIS extends DBusInterface {
 
     const length = this.stream.duration;
 
-    const metadata = {
+    const metadata: Record<string, GLib.Variant> = {
       "mpris:trackid": GLib.Variant.new_object_path(song_dbus_path),
       "mpris:length": GLib.Variant.new_int64(length),
       "xesam:title": GLib.Variant.new_string(track_title),
     };
+
+    if (this.stream.artist) {
+      metadata["xesam:artist"] = GLib.Variant.new("as", [this.stream.artist]);
+    }
 
     return metadata;
   }

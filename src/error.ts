@@ -6,23 +6,16 @@ import { APHeaderBar } from "./header.js";
 
 export class APErrorState extends Adw.Bin {
   private _statusPage!: Adw.StatusPage;
-  private _headerbar!: APHeaderBar;
+
+  headerbar!: APHeaderBar;
 
   static {
     GObject.registerClass(
       {
         GTypeName: "APErrorState",
         Template: "resource:///com/vixalien/decibels/error.ui",
-        InternalChildren: ["statusPage", "headerbar"],
-        Properties: {
-          title: GObject.param_spec_string(
-            "title",
-            "Title",
-            "The title of the header bar",
-            null,
-            GObject.ParamFlags.READWRITE,
-          ),
-        },
+        InternalChildren: ["statusPage"],
+        Children: ["headerbar"],
       },
       this,
     );
@@ -30,14 +23,6 @@ export class APErrorState extends Adw.Bin {
 
   constructor(params?: Partial<Adw.Bin.ConstructorProperties>) {
     super(params);
-  }
-
-  get title() {
-    return this._headerbar.title;
-  }
-
-  set title(title: string | null) {
-    this._headerbar.title = title;
   }
 
   private show_message(message: string) {

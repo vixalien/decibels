@@ -97,15 +97,29 @@ export class Window extends Adw.ApplicationWindow {
 
     this.stream.bind_property(
       "title",
-      this._player,
+      this._player.headerbar,
       "title",
       GObject.BindingFlags.DEFAULT,
     );
 
     this.stream.bind_property(
+      "artist",
+      this._player.headerbar,
+      "subtitle",
+      GObject.BindingFlags.DEFAULT,
+    );
+
+    this.stream.bind_property(
       "title",
-      this._error,
+      this._error.headerbar,
       "title",
+      GObject.BindingFlags.DEFAULT,
+    );
+
+    this.stream.bind_property(
+      "artist",
+      this._error.headerbar,
+      "subtitle",
       GObject.BindingFlags.DEFAULT,
     );
 
