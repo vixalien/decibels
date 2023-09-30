@@ -14,7 +14,7 @@
             <child>
               <object class="AdwStatusPage">
                 <property name="icon-name">folder-music-symbolic</property>
-                <property name="title" translatable="true">Drop an audio file to play it</property>
+                <property name="title" translatable="yes">Drop an audio file to play it</property>
                 <style>
                   <class name="drag-overlay-status-page"/>
                 </style>
