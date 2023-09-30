@@ -1,0 +1,171 @@
+# Russian translation for Decibels.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the decibels package.
+# Сергей Ворон <voron@duck.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-24 14:06+0200\n"
+"PO-Revision-Date: 2023-09-30 21:48+0300\n"
+"Last-Translator: Сергей Ворон <voron@duck.com>\n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5
+msgid "Decibels"
+msgstr "Децибелы"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "music;player;media;audio;музыка;плеер;медиа;аудио;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Воспроизведение аудио файлов"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:9
+msgid "Angelo Verlain"
+msgstr "Angelo Verlain"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Текущие возможности:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Отображение волны трека"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Настройка скорости воспроизведения"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Простое управление поиском"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:34
+msgid "A few bug fixes that polishes up the app"
+msgstr "Несколько исправлений ошибок, улучшающих приложение."
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:36
+msgid ""
+"Differentiate development versions of the app from the stable app by styling "
+"the icon and header differently"
+msgstr ""
+"Отличайте разрабатываемые версии приложения от стабильной версии, используя "
+"разные стили значка и заголовка."
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:37
+msgid "Added donation link in application metadata"
+msgstr "Добавлена ссылка на пожертвования в метаданные приложения"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+msgid "Fix the About Window being detached from main window"
+msgstr "Исправлено отделение окна «О программе» от главного окна"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+msgid "Fix the About Window showing release notes for an older version"
+msgstr ""
+"Исправлено окно «О программе», показывающее примечания к выпуску для более "
+"старой версии"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:46
+msgid "Initial Release"
+msgstr "Первоначальный выпуск"
+
+#: data/com.vixalien.decibels.gschema.xml.in:6
+msgid "Last width & height of window"
+msgstr "Последняя ширина и высота окна"
+
+#: data/com.vixalien.decibels.gschema.xml.in:7
+msgid "The saved last size of the window (to be restored)"
+msgstr "Сохраненный последний размер окна (будет восстановлен)"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Открыть аудио файл"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_Открыть…"
+
+#: data/error.ui:13 src/window.ts:123 src/window.ts:165
+msgid "File Cannot Be Played"
+msgstr "Невозможно воспроизвести файл"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "_Попробуйте еще раз…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Главное меню"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Открыть…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Комбинации клавиш"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "_О приложении"
+
+#: src/drag-overlay.ts:72
+msgid "File Cannot be Played"
+msgstr "Невозможно воспроизвести файл"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "Невозможно получить доступ к удаленным файлам"
+
+#: src/error.ts:57
+msgid "An unknown error happened"
+msgstr "Произошла неизвестная ошибка"
+
+#: src/stream.ts:252
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Файл использует формат, который невозможно воспроизвести. Возможно, "
+"потребуются дополнительные медиа кодеки."
+
+#: src/stream.ts:262
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Произошла ошибка при попытке получить информацию о файле. Пожалуйста, "
+"попробуйте еще раз."
+
+#: src/stream.ts:386
+msgid "Unknown File"
+msgstr "Неизвестный файл"
+
+#: src/stream.ts:590
+msgid "The selected file doesn't contain any audio"
+msgstr "Выбранный файл не содержит аудио"
+
+#: src/window.ts:129
+msgid "Audio files"
+msgstr "Аудио файлы"
+
+#: src/window.ts:136
+msgid "Open File"
+msgstr "Открыть файл"
+
+#: src/window.ts:166
+msgid "The file could not be accessed"
+msgstr "Не удалось получить доступ к файлу"
