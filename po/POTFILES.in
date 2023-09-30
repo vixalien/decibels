@@ -6,6 +6,7 @@ data/empty.ui
 data/error.ui
 data/header.ui
 data/window.ui
+data/gtk/help-overlay.ui
 src/application.ts
 src/drag-overlay.ts
 src/error.ts
