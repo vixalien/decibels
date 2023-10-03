@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-24 14:06+0200\n"
-"PO-Revision-Date: 2023-09-30 21:48+0300\n"
+"POT-Creation-Date: 2023-10-03 17:20+0200\n"
+"PO-Revision-Date: 2023-10-03 22:19+0300\n"
 "Last-Translator: Сергей Ворон <voron@duck.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -53,42 +53,87 @@ msgid "Easy seek controls"
 msgstr "Простое управление поиском"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:34
-msgid "A few bug fixes that polishes up the app"
-msgstr "Несколько исправлений ошибок, улучшающих приложение."
+msgid "A few improvements and papercut fixes"
+msgstr "Несколько улучшений и исправлений"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:36
+msgid "Support drag and drop"
+msgstr "Поддержка перетаскивания"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:37
+msgid "Seek to the start of a track after it ends"
+msgstr "Переход к началу дорожки после ее окончания"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+msgid "Allow dragging the app window from everywhere (except the waveform)"
+msgstr "Разрешить перетаскивание окна приложения отовсюду (кроме волны трека)"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+msgid ""
+"Made the playback speed popover look less cluttered by removing the +/- "
+"buttons and mark labels"
+msgstr ""
+"Всплывающее окно скорости воспроизведения стало менее загроможденным, удалив "
+"кнопки +/- и метки"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:40
+msgid ""
+"Fix an issue that prevented accessing file metadata from within the Flatpak "
+"sandbox"
+msgstr ""
+"Устранена проблема, из-за которой невозможно было получить доступ к "
+"метаданным файла из песочницы Flatpak"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:41
+msgid ""
+"Don't try to play files without audio streams (images and videos without "
+"sound)"
+msgstr ""
+"Не пытайтесь воспроизвести файлы без аудио потоков (изображения и видео без "
+"звука)"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:42
+msgid "Don't try to process video streams even if they were not rendered"
+msgstr ""
+"Не пытайтесь обрабатывать видео потоки, даже если они не были отрендерены"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:43
+msgid "Fixed some issues with the Development build of Decibels"
+msgstr "Исправлены некоторые проблемы со сборкой для разработчиков"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:44
+msgid "Fixed a minor glitch with the app icon"
+msgstr "Исправлен небольшой сбой с иконкой приложения"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:50
+msgid "A few bug fixes that polishes up the app"
+msgstr "Несколько исправлений ошибок, улучшающих приложение"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:52
 msgid ""
 "Differentiate development versions of the app from the stable app by styling "
 "the icon and header differently"
 msgstr ""
 "Отличайте разрабатываемые версии приложения от стабильной версии, используя "
-"разные стили значка и заголовка."
+"разные стили иконки и заголовка"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:37
+#: data/com.vixalien.decibels.metainfo.xml.in.in:53
 msgid "Added donation link in application metadata"
 msgstr "Добавлена ссылка на пожертвования в метаданные приложения"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+#: data/com.vixalien.decibels.metainfo.xml.in.in:54
 msgid "Fix the About Window being detached from main window"
 msgstr "Исправлено отделение окна «О программе» от главного окна"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+#: data/com.vixalien.decibels.metainfo.xml.in.in:55
 msgid "Fix the About Window showing release notes for an older version"
 msgstr ""
 "Исправлено окно «О программе», показывающее примечания к выпуску для более "
 "старой версии"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:46
+#: data/com.vixalien.decibels.metainfo.xml.in.in:62
 msgid "Initial Release"
 msgstr "Первоначальный выпуск"
-
-#: data/com.vixalien.decibels.gschema.xml.in:6
-msgid "Last width & height of window"
-msgstr "Последняя ширина и высота окна"
-
-#: data/com.vixalien.decibels.gschema.xml.in:7
-msgid "The saved last size of the window (to be restored)"
-msgstr "Сохраненный последний размер окна (будет восстановлен)"
 
 #: data/empty.ui:13
 msgid "Open an Audio File"
@@ -98,7 +143,7 @@ msgstr "Открыть аудио файл"
 msgid "_Open…"
 msgstr "_Открыть…"
 
-#: data/error.ui:13 src/window.ts:123 src/window.ts:165
+#: data/error.ui:13 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
 msgstr "Невозможно воспроизвести файл"
 
@@ -130,11 +175,11 @@ msgstr "Невозможно воспроизвести файл"
 msgid "Unable to access dropped files"
 msgstr "Невозможно получить доступ к удаленным файлам"
 
-#: src/error.ts:57
+#: src/error.ts:42
 msgid "An unknown error happened"
 msgstr "Произошла неизвестная ошибка"
 
-#: src/stream.ts:252
+#: src/stream.ts:259
 msgid ""
 "File uses a format that cannot be played. Additional media codecs may be "
 "required."
@@ -142,7 +187,7 @@ msgstr ""
 "Файл использует формат, который невозможно воспроизвести. Возможно, "
 "потребуются дополнительные медиа кодеки."
 
-#: src/stream.ts:262
+#: src/stream.ts:269
 msgid ""
 "An error happened while trying to get information about the file. Please try "
 "again."
@@ -150,22 +195,28 @@ msgstr ""
 "Произошла ошибка при попытке получить информацию о файле. Пожалуйста, "
 "попробуйте еще раз."
 
-#: src/stream.ts:386
+#: src/stream.ts:393
 msgid "Unknown File"
 msgstr "Неизвестный файл"
 
-#: src/stream.ts:590
+#: src/stream.ts:619
 msgid "The selected file doesn't contain any audio"
 msgstr "Выбранный файл не содержит аудио"
 
-#: src/window.ts:129
+#: src/window.ts:161
 msgid "Audio files"
 msgstr "Аудио файлы"
 
-#: src/window.ts:136
+#: src/window.ts:168
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: src/window.ts:166
+#: src/window.ts:198
 msgid "The file could not be accessed"
 msgstr "Не удалось получить доступ к файлу"
+
+#~ msgid "Last width & height of window"
+#~ msgstr "Последняя ширина и высота окна"
+
+#~ msgid "The saved last size of the window (to be restored)"
+#~ msgstr "Сохраненный последний размер окна (будет восстановлен)"
