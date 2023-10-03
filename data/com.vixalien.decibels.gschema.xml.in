@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
 	<schema id="@app-id@" path="/com/vixalien/decibels/" gettext-domain="@gettext-package@">
-		<key name="last-window-size" type="(ii)">
-			<default>(-1,-1)</default>
-			<summary>Last width &amp; height of window</summary>
-			<description>The saved last size of the window (to be restored)</description>
-		</key>
+		<key name="width" type="i">
+      <default>640</default>
+    </key>
+    <key name="height" type="i">
+      <default>480</default>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+    </key>
+    <key name="is-fullscreen" type="b">
+      <default>false</default>
+    </key>
 	</schema>
 </schemalist>

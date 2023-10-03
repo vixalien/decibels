@@ -79,13 +79,31 @@ export class Window extends Adw.ApplicationWindow {
   constructor(params?: Partial<Adw.ApplicationWindow.ConstructorProperties>) {
     super(params);
 
-    const window_size = Settings.get_value("last-window-size");
-
-    const width = window_size.get_child_value(0).get_int32();
-    const height = window_size.get_child_value(1).get_int32();
-
-    if (width > 0) this.default_width = width;
-    if (height > 0) this.default_height = height;
+    // update the settings when the properties change and vice versa
+    Settings.bind(
+      "width",
+      this,
+      "default-width",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
+    Settings.bind(
+      "height",
+      this,
+      "default-height",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
+    Settings.bind(
+      "is-maximized",
+      this,
+      "maximized",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
+    Settings.bind(
+      "is-fullscreen",
+      this,
+      "fullscreened",
+      Gio.SettingsBindFlags.DEFAULT,
+    );
 
     this.stream = new APMediaStream();
 
@@ -201,16 +219,5 @@ export class Window extends Adw.ApplicationWindow {
     this.show_stack_page("error");
 
     this._error.show_error(title, error);
-  }
-
-  vfunc_close_request() {
-    const window_size = GLib.Variant.new("(ii)", [
-      this.get_width(),
-      this.get_height(),
-    ]);
-
-    Settings.set_value("last-window-size", window_size);
-
-    return super.vfunc_close_request();
   }
 }

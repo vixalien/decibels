@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-24 14:06+0200\n"
+"POT-Creation-Date: 2023-10-03 17:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,37 +53,75 @@ msgid "Easy seek controls"
 msgstr ""
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:34
-msgid "A few bug fixes that polishes up the app"
+msgid "A few improvements and papercut fixes"
 msgstr ""
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:36
+msgid "Support drag and drop"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:37
+msgid "Seek to the start of a track after it ends"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+msgid "Allow dragging the app window from everywhere (except the waveform)"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+msgid ""
+"Made the playback speed popover look less cluttered by removing the +/- "
+"buttons and mark labels"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:40
+msgid ""
+"Fix an issue that prevented accessing file metadata from within the Flatpak "
+"sandbox"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:41
+msgid ""
+"Don't try to play files without audio streams (images and videos without "
+"sound)"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:42
+msgid "Don't try to process video streams even if they were not rendered"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:43
+msgid "Fixed some issues with the Development build of Decibels"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:44
+msgid "Fixed a minor glitch with the app icon"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:50
+msgid "A few bug fixes that polishes up the app"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:52
 msgid ""
 "Differentiate development versions of the app from the stable app by styling "
 "the icon and header differently"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:37
+#: data/com.vixalien.decibels.metainfo.xml.in.in:53
 msgid "Added donation link in application metadata"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+#: data/com.vixalien.decibels.metainfo.xml.in.in:54
 msgid "Fix the About Window being detached from main window"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+#: data/com.vixalien.decibels.metainfo.xml.in.in:55
 msgid "Fix the About Window showing release notes for an older version"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:46
+#: data/com.vixalien.decibels.metainfo.xml.in.in:62
 msgid "Initial Release"
-msgstr ""
-
-#: data/com.vixalien.decibels.gschema.xml.in:6
-msgid "Last width & height of window"
-msgstr ""
-
-#: data/com.vixalien.decibels.gschema.xml.in:7
-msgid "The saved last size of the window (to be restored)"
 msgstr ""
 
 #: data/empty.ui:13
@@ -94,7 +132,7 @@ msgstr ""
 msgid "_Open…"
 msgstr ""
 
-#: data/error.ui:13 src/window.ts:123 src/window.ts:165
+#: data/error.ui:13 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
 msgstr ""
 
@@ -126,38 +164,38 @@ msgstr ""
 msgid "Unable to access dropped files"
 msgstr ""
 
-#: src/error.ts:57
+#: src/error.ts:42
 msgid "An unknown error happened"
 msgstr ""
 
-#: src/stream.ts:252
+#: src/stream.ts:259
 msgid ""
 "File uses a format that cannot be played. Additional media codecs may be "
 "required."
 msgstr ""
 
-#: src/stream.ts:262
+#: src/stream.ts:269
 msgid ""
 "An error happened while trying to get information about the file. Please try "
 "again."
 msgstr ""
 
-#: src/stream.ts:386
+#: src/stream.ts:393
 msgid "Unknown File"
 msgstr ""
 
-#: src/stream.ts:590
+#: src/stream.ts:619
 msgid "The selected file doesn't contain any audio"
 msgstr ""
 
-#: src/window.ts:129
+#: src/window.ts:161
 msgid "Audio files"
 msgstr ""
 
-#: src/window.ts:136
+#: src/window.ts:168
 msgid "Open File"
 msgstr ""
 
-#: src/window.ts:166
+#: src/window.ts:198
 msgid "The file could not be accessed"
 msgstr ""
