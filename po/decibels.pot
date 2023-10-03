@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
-#: data/com.vixalien.decibels.metainfo.xml.in.in:5
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
 msgid "Decibels"
 msgstr ""
 
@@ -52,76 +52,8 @@ msgstr ""
 msgid "Easy seek controls"
 msgstr ""
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:34
-msgid "A few improvements and papercut fixes"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:36
-msgid "Support drag and drop"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:37
-msgid "Seek to the start of a track after it ends"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:38
-msgid "Allow dragging the app window from everywhere (except the waveform)"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:39
-msgid ""
-"Made the playback speed popover look less cluttered by removing the +/- "
-"buttons and mark labels"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:40
-msgid ""
-"Fix an issue that prevented accessing file metadata from within the Flatpak "
-"sandbox"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:41
-msgid ""
-"Don't try to play files without audio streams (images and videos without "
-"sound)"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:42
-msgid "Don't try to process video streams even if they were not rendered"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:43
-msgid "Fixed some issues with the Development build of Decibels"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:44
-msgid "Fixed a minor glitch with the app icon"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:50
-msgid "A few bug fixes that polishes up the app"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:52
-msgid ""
-"Differentiate development versions of the app from the stable app by styling "
-"the icon and header differently"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:53
-msgid "Added donation link in application metadata"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:54
-msgid "Fix the About Window being detached from main window"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:55
-msgid "Fix the About Window showing release notes for an older version"
-msgstr ""
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:62
-msgid "Initial Release"
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
 msgstr ""
 
 #: data/empty.ui:13
@@ -154,6 +86,31 @@ msgstr ""
 
 #: data/header.ui:31
 msgid "_About Decibels"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
 msgstr ""
 
 #: src/drag-overlay.ts:72
