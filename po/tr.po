@@ -1,0 +1,173 @@
+# Turkish translation for decibels.
+# Copyright (C) 2023 decibels's copyright holder
+# This file is distributed under the same license as the decibels package.
+#
+# Sabri Ünal <libreajans@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-03 17:20+0200\n"
+"PO-Revision-Date: 2023-10-03 22:06+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <takim@gnome.org.tr>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Decibels"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "music;player;media;audio;müzik;oynatıcı;ortam;ses;müzik;muzik;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Ses dosyalarını oynat"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:9
+msgid "Angelo Verlain"
+msgstr "Angelo Verlain"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Geçerli özellikleri:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Parçanın dalga şeklini gösterir"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Oynatma hızını ayarla"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Kolay yönetim denetimleri"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Oynatmak için bir ses dosyası bırakın"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Ses Dosyası Aç"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_Aç…"
+
+#: data/error.ui:13 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "Dosya Oynatılamadı"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "_Yeniden Dene…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Aç…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "Decibels _Hakkında"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Genel"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Kısayolları Göster"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Çık"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Oynatıcı"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Dosya Aç"
+
+#: src/drag-overlay.ts:72
+msgid "File Cannot be Played"
+msgstr "Dosya Oynatılamadı"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "Bırakılan dosyalara erişilemiyor"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Bilinmeyen hata oluştu"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Dosya oynatılamayan bir biçim kullanıyor. Ek ortam kod çözme bileşenleri "
+"gerekli olabilir."
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Dosya hakkında bilgi alınmaya çalışılırken hata oluştu. Lütfen yeniden "
+"deneyin."
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "Bilinmeyen Dosya"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "Seçilen dosya ses içermiyor"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "Ses dosyaları"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "Dosya Aç"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "Dosyaya erişilemiyor"
+
+#~ msgid "Last width & height of window"
+#~ msgstr "Pencerenin son genişliği ve yüksekliği"
+
+#~ msgid "The saved last size of the window (to be restored)"
+#~ msgstr "Pencerenin  son kaydedilen boyutu (geri yüklenecek)"
+
+#~ msgid "translator-credits"
+#~ msgstr "Sabri Ünal <libreajans@gmail.com>"
