@@ -17,11 +17,24 @@ Play audio files.
 
 ### Flathub
 
-Coming Soon
+Decibels is available to download on
+[Flathub](https://flathub.org/apps/details/com.vixalien.decibels).
+
+<a href="https://flathub.org/apps/details/com.vixalien.decibels" title="Download Decibels on Flathub">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="data/flathub-badges/download-i.svg">
+    <source media="(prefers-color-scheme: light)" srcset="data/flathub-badges/download.svg">
+    <img alt="Download Decibels on Flathub" src="data/flathub-badges/download.svg">
+  </picture>
+</a>
 
 ### From Nightly Flatpak
 
 Download latest artifact [from here][artifact].
+
+### From source
+
+Open the project in GNOME Builder and click "Build & Run Project".
 
 ## Links
 
