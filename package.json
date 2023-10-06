@@ -4,7 +4,7 @@
   "description": "Template for writing GNOME applications in TypeScript",
   "main": "src/main.ts",
   "repository": "https://github.com/vixalien/decibels",
-  "author": "Angelo Verlain <geoangercola@gmail.com>",
+  "author": "Angelo Verlain (https://vixalien.com)",
   "license": "GPL-3.0",
   "dependencies": {
     "typescript": "^5.1.0"
