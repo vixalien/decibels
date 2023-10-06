@@ -42,6 +42,8 @@ export class Application extends Adw.Application {
       aboutWindow.set_artists(["kramo https://kramo.hu"]);
       aboutWindow.set_designers(["Allan Day"]);
       aboutWindow.set_transient_for(this.get_active_window());
+      /* Translators: Replace "translator-credits" with your names, one name per line */
+      aboutWindow.set_translator_credits(_("translator-credits"));
 
       aboutWindow.present();
     });
