@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-06 16:23+0200\n"
+"POT-Creation-Date: 2023-10-06 16:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "_Open…"
 msgstr ""
 
-#: data/error.ui:13 src/window.ts:155 src/window.ts:197
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
 msgstr ""
 
@@ -116,10 +116,6 @@ msgstr ""
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.ts:46
 msgid "translator-credits"
-msgstr ""
-
-#: src/drag-overlay.ts:72
-msgid "File Cannot be Played"
 msgstr ""
 
 #: src/drag-overlay.ts:73

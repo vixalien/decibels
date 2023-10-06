@@ -69,7 +69,7 @@ export class APDragOverlay extends Adw.Bin {
       const file = file_list.get_files()[0];
       if (!file) {
         this.get_window().show_error(
-          _("File Cannot be Played"),
+          _("File Cannot Be Played"),
           new Error(_("Unable to access dropped files")),
         );
         return false;
