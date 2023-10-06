@@ -42,7 +42,7 @@ export class APWaveForm extends Gtk.DrawingArea {
   private _position: number;
   private dragGesture?: Gtk.GestureDrag;
   private hcId: number;
-  private lastX?: number;
+  private drag_start_position: number | null = null;
 
   static {
     GObject.registerClass(
@@ -101,30 +101,37 @@ export class APWaveForm extends Gtk.DrawingArea {
 
   private dragBegin(gesture: Gtk.GestureDrag): void {
     gesture.set_state(Gtk.EventSequenceState.CLAIMED);
+    this.drag_start_position = this._position;
     this.emit("gesture-pressed");
   }
 
-  private dragUpdate(_gesture: Gtk.GestureDrag, offsetX: number): void {
-    if (this.lastX) {
-      this._position = this.clamped(offsetX + this.lastX);
+  private dragUpdate(_gesture: Gtk.GestureDrag, offset_x: number): void {
+    if (this.drag_start_position != null) {
+      const after = this.drag_start_position -
+        (offset_x / (this._peaks.length * GUTTER));
+
+      this._position = Math.max(Math.min(after, 1), 0);
       this.queue_draw();
     }
   }
 
   private dragEnd(): void {
-    this.lastX = this._position;
+    this.drag_start_position = null;
     this.emit("position-changed", this.position);
   }
 
-  private drawFunc(superDa: Gtk.DrawingArea, ctx: Cairo.Context) {
-    const da = superDa as APWaveForm;
-    const maxHeight = da.get_allocated_height();
-    const vertiCenter = maxHeight / 2;
-    const horizCenter = da.get_allocated_width() / 2;
+  private drawFunc(
+    _: Gtk.DrawingArea,
+    ctx: Cairo.Context,
+    width: number,
+    height: number,
+  ) {
+    const vertiCenter = height / 2;
+    const horizCenter = width / 2;
 
-    let pointer = horizCenter + da._position;
+    let pointer = horizCenter - (this._position * this._peaks.length * GUTTER);
 
-    const styleContext = da.get_style_context();
+    const styleContext = this.get_style_context();
     const leftColor = styleContext.get_color();
 
     const rightColor = styleContext.lookup_color("dimmed_color")[1];
@@ -142,33 +149,53 @@ export class APWaveForm extends Gtk.DrawingArea {
     ctx.setLineCap(Cairo.LineCap.ROUND);
     ctx.setLineWidth(2);
 
-    da.setSourceRGBA(ctx, dividerColor);
+    this.setSourceRGBA(ctx, dividerColor);
 
-    ctx.moveTo(horizCenter, vertiCenter - maxHeight);
-    ctx.lineTo(horizCenter, vertiCenter + maxHeight);
+    ctx.moveTo(horizCenter, vertiCenter - height);
+    ctx.lineTo(horizCenter, vertiCenter + height);
     ctx.stroke();
 
     ctx.setLineWidth(1);
     /* eslint-enable @typescript-eslint/no-unsafe-call */
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 
-    da._peaks.forEach((peak) => {
+    // only draw the waveform for peaks inside the view
+    let invisible_peaks = 0;
+
+    if (pointer < 0) {
+      invisible_peaks = -Math.floor(pointer);
+      pointer = pointer + invisible_peaks;
+    }
+
+    for (
+      const peak of this._peaks.slice(invisible_peaks / GUTTER)
+    ) {
+      // this shouldn't happen, but just in case
+      if (pointer < 0) {
+        pointer += GUTTER;
+        continue;
+      }
+
+      if (pointer > this.get_width()) {
+        break;
+      }
+
       if (pointer > horizCenter) {
-        da.setSourceRGBA(ctx, rightColor);
+        this.setSourceRGBA(ctx, rightColor);
       } else {
-        da.setSourceRGBA(ctx, leftColor);
+        this.setSourceRGBA(ctx, leftColor);
       }
 
       /* eslint-disable @typescript-eslint/no-unsafe-call */
       /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-      ctx.moveTo(pointer, vertiCenter + peak * maxHeight);
-      ctx.lineTo(pointer, vertiCenter - peak * maxHeight);
+      ctx.moveTo(pointer, vertiCenter + peak * height);
+      ctx.lineTo(pointer, vertiCenter - peak * height);
       ctx.stroke();
       /* eslint-enable @typescript-eslint/no-unsafe-call */
       /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 
       pointer += GUTTER;
-    });
+    }
   }
 
   set peaks(p: number[]) {
@@ -182,24 +209,14 @@ export class APWaveForm extends Gtk.DrawingArea {
 
   set position(pos: number) {
     if (this._peaks) {
-      this._position = this.clamped(-pos * this._peaks.length * GUTTER);
-      this.lastX = this._position;
+      this._position = pos;
       this.queue_draw();
       this.notify("position");
     }
   }
 
   get position(): number {
-    return -this._position / (this._peaks.length * GUTTER);
-  }
-
-  private clamped(position: number): number {
-    if (position > 0) position = 0;
-    else if (position < -this._peaks.length * GUTTER) {
-      position = -this._peaks.length * GUTTER;
-    }
-
-    return position;
+    return this._position;
   }
 
   private setSourceRGBA(cr: Cairo.Context, rgba: Gdk.RGBA): void {
