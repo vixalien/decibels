@@ -11,8 +11,6 @@ Play audio files.
 
 </div>
 
-> Note: This app is still in development, and may not be stable.
-
 ## Installing
 
 ### Flathub
