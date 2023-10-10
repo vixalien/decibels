@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 17:20+0200\n"
+"POT-Creation-Date: 2023-10-10 19:20+0200\n"
 "PO-Revision-Date: 2023-10-03 22:19+0300\n"
 "Last-Translator: Сергей Ворон <voron@duck.com>\n"
 "Language-Team: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 3.3.2\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
-#: data/com.vixalien.decibels.metainfo.xml.in.in:5
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
 msgid "Decibels"
 msgstr "Децибелы"
 
@@ -52,88 +52,9 @@ msgstr "Настройка скорости воспроизведения"
 msgid "Easy seek controls"
 msgstr "Простое управление поиском"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:34
-msgid "A few improvements and papercut fixes"
-msgstr "Несколько улучшений и исправлений"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:36
-msgid "Support drag and drop"
-msgstr "Поддержка перетаскивания"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:37
-msgid "Seek to the start of a track after it ends"
-msgstr "Переход к началу дорожки после ее окончания"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:38
-msgid "Allow dragging the app window from everywhere (except the waveform)"
-msgstr "Разрешить перетаскивание окна приложения отовсюду (кроме волны трека)"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:39
-msgid ""
-"Made the playback speed popover look less cluttered by removing the +/- "
-"buttons and mark labels"
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
 msgstr ""
-"Всплывающее окно скорости воспроизведения стало менее загроможденным, удалив "
-"кнопки +/- и метки"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:40
-msgid ""
-"Fix an issue that prevented accessing file metadata from within the Flatpak "
-"sandbox"
-msgstr ""
-"Устранена проблема, из-за которой невозможно было получить доступ к "
-"метаданным файла из песочницы Flatpak"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:41
-msgid ""
-"Don't try to play files without audio streams (images and videos without "
-"sound)"
-msgstr ""
-"Не пытайтесь воспроизвести файлы без аудио потоков (изображения и видео без "
-"звука)"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:42
-msgid "Don't try to process video streams even if they were not rendered"
-msgstr ""
-"Не пытайтесь обрабатывать видео потоки, даже если они не были отрендерены"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:43
-msgid "Fixed some issues with the Development build of Decibels"
-msgstr "Исправлены некоторые проблемы со сборкой для разработчиков"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:44
-msgid "Fixed a minor glitch with the app icon"
-msgstr "Исправлен небольшой сбой с иконкой приложения"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:50
-msgid "A few bug fixes that polishes up the app"
-msgstr "Несколько исправлений ошибок, улучшающих приложение"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:52
-msgid ""
-"Differentiate development versions of the app from the stable app by styling "
-"the icon and header differently"
-msgstr ""
-"Отличайте разрабатываемые версии приложения от стабильной версии, используя "
-"разные стили иконки и заголовка"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:53
-msgid "Added donation link in application metadata"
-msgstr "Добавлена ссылка на пожертвования в метаданные приложения"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:54
-msgid "Fix the About Window being detached from main window"
-msgstr "Исправлено отделение окна «О программе» от главного окна"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:55
-msgid "Fix the About Window showing release notes for an older version"
-msgstr ""
-"Исправлено окно «О программе», показывающее примечания к выпуску для более "
-"старой версии"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:62
-msgid "Initial Release"
-msgstr "Первоначальный выпуск"
 
 #: data/empty.ui:13
 msgid "Open an Audio File"
@@ -143,7 +64,7 @@ msgstr "Открыть аудио файл"
 msgid "_Open…"
 msgstr "_Открыть…"
 
-#: data/error.ui:13 src/window.ts:155 src/window.ts:197
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
 msgstr "Невозможно воспроизвести файл"
 
@@ -167,9 +88,37 @@ msgstr "_Комбинации клавиш"
 msgid "_About Decibels"
 msgstr "_О приложении"
 
-#: src/drag-overlay.ts:72
-msgid "File Cannot be Played"
-msgstr "Невозможно воспроизвести файл"
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:14
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "_Комбинации клавиш"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:31
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Открыть файл"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr ""
 
 #: src/drag-overlay.ts:73
 msgid "Unable to access dropped files"
@@ -214,6 +163,77 @@ msgstr "Открыть файл"
 #: src/window.ts:198
 msgid "The file could not be accessed"
 msgstr "Не удалось получить доступ к файлу"
+
+#~ msgid "A few improvements and papercut fixes"
+#~ msgstr "Несколько улучшений и исправлений"
+
+#~ msgid "Support drag and drop"
+#~ msgstr "Поддержка перетаскивания"
+
+#~ msgid "Seek to the start of a track after it ends"
+#~ msgstr "Переход к началу дорожки после ее окончания"
+
+#~ msgid "Allow dragging the app window from everywhere (except the waveform)"
+#~ msgstr ""
+#~ "Разрешить перетаскивание окна приложения отовсюду (кроме волны трека)"
+
+#~ msgid ""
+#~ "Made the playback speed popover look less cluttered by removing the +/- "
+#~ "buttons and mark labels"
+#~ msgstr ""
+#~ "Всплывающее окно скорости воспроизведения стало менее загроможденным, "
+#~ "удалив кнопки +/- и метки"
+
+#~ msgid ""
+#~ "Fix an issue that prevented accessing file metadata from within the "
+#~ "Flatpak sandbox"
+#~ msgstr ""
+#~ "Устранена проблема, из-за которой невозможно было получить доступ к "
+#~ "метаданным файла из песочницы Flatpak"
+
+#~ msgid ""
+#~ "Don't try to play files without audio streams (images and videos without "
+#~ "sound)"
+#~ msgstr ""
+#~ "Не пытайтесь воспроизвести файлы без аудио потоков (изображения и видео "
+#~ "без звука)"
+
+#~ msgid "Don't try to process video streams even if they were not rendered"
+#~ msgstr ""
+#~ "Не пытайтесь обрабатывать видео потоки, даже если они не были отрендерены"
+
+#~ msgid "Fixed some issues with the Development build of Decibels"
+#~ msgstr "Исправлены некоторые проблемы со сборкой для разработчиков"
+
+#~ msgid "Fixed a minor glitch with the app icon"
+#~ msgstr "Исправлен небольшой сбой с иконкой приложения"
+
+#~ msgid "A few bug fixes that polishes up the app"
+#~ msgstr "Несколько исправлений ошибок, улучшающих приложение"
+
+#~ msgid ""
+#~ "Differentiate development versions of the app from the stable app by "
+#~ "styling the icon and header differently"
+#~ msgstr ""
+#~ "Отличайте разрабатываемые версии приложения от стабильной версии, "
+#~ "используя разные стили иконки и заголовка"
+
+#~ msgid "Added donation link in application metadata"
+#~ msgstr "Добавлена ссылка на пожертвования в метаданные приложения"
+
+#~ msgid "Fix the About Window being detached from main window"
+#~ msgstr "Исправлено отделение окна «О программе» от главного окна"
+
+#~ msgid "Fix the About Window showing release notes for an older version"
+#~ msgstr ""
+#~ "Исправлено окно «О программе», показывающее примечания к выпуску для "
+#~ "более старой версии"
+
+#~ msgid "Initial Release"
+#~ msgstr "Первоначальный выпуск"
+
+#~ msgid "File Cannot be Played"
+#~ msgstr "Невозможно воспроизвести файл"
 
 #~ msgid "Last width & height of window"
 #~ msgstr "Последняя ширина и высота окна"

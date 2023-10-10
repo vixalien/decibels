@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 17:20+0200\n"
+"POT-Creation-Date: 2023-10-10 19:20+0200\n"
 "PO-Revision-Date: 2023-10-03 22:06+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
@@ -66,7 +66,7 @@ msgstr "Ses Dosyası Aç"
 msgid "_Open…"
 msgstr "_Aç…"
 
-#: data/error.ui:13 src/window.ts:155 src/window.ts:197
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
 msgstr "Dosya Oynatılamadı"
 
@@ -115,9 +115,10 @@ msgctxt "shortcut window"
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: src/drag-overlay.ts:72
-msgid "File Cannot be Played"
-msgstr "Dosya Oynatılamadı"
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "Sabri Ünal <libreajans@gmail.com>"
 
 #: src/drag-overlay.ts:73
 msgid "Unable to access dropped files"
@@ -163,11 +164,11 @@ msgstr "Dosya Aç"
 msgid "The file could not be accessed"
 msgstr "Dosyaya erişilemiyor"
 
+#~ msgid "File Cannot be Played"
+#~ msgstr "Dosya Oynatılamadı"
+
 #~ msgid "Last width & height of window"
 #~ msgstr "Pencerenin son genişliği ve yüksekliği"
 
 #~ msgid "The saved last size of the window (to be restored)"
 #~ msgstr "Pencerenin  son kaydedilen boyutu (geri yüklenecek)"
-
-#~ msgid "translator-credits"
-#~ msgstr "Sabri Ünal <libreajans@gmail.com>"

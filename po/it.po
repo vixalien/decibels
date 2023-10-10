@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-24 14:06+0200\n"
+"POT-Creation-Date: 2023-10-10 19:20+0200\n"
 "PO-Revision-Date: 2023-09-30 13:30+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: italian <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
-#: data/com.vixalien.decibels.metainfo.xml.in.in:5
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
 msgid "Decibels"
 msgstr "Decibels"
 
@@ -51,41 +51,9 @@ msgstr "Regola la velocità di riproduzione"
 msgid "Easy seek controls"
 msgstr "Controlli di ricerca facili"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:34
-msgid "A few bug fixes that polishes up the app"
-msgstr "Alcune correzioni di bug che migliorano l'app"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:36
-msgid ""
-"Differentiate development versions of the app from the stable app by styling "
-"the icon and header differently"
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
 msgstr ""
-"Differenzito le versioni di sviluppo dell'app dall'app stabile mediante lo stile "
-"icona e l'intestazione in modo diverso"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:37
-msgid "Added donation link in application metadata"
-msgstr "Aggiunto collegamento per la donazione nei metadati dell'applicazione"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:38
-msgid "Fix the About Window being detached from main window"
-msgstr "Risolto il problema con il quale la finestra Informazioni veniva staccata dalla finestra principale"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:39
-msgid "Fix the About Window showing release notes for an older version"
-msgstr "Corretto la finestra Informazioni che mostra le note di rilascio per una versione precedente"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:46
-msgid "Initial Release"
-msgstr "Versione iniziale"
-
-#: data/com.vixalien.decibels.gschema.xml.in:6
-msgid "Last width & height of window"
-msgstr "Ultima larghezza & altezza della finestra"
-
-#: data/com.vixalien.decibels.gschema.xml.in:7
-msgid "The saved last size of the window (to be restored)"
-msgstr "L'ultima dimensione salvata della finestra (da ripristinare)"
 
 #: data/empty.ui:13
 msgid "Open an Audio File"
@@ -95,7 +63,7 @@ msgstr "Apri un file audio"
 msgid "_Open…"
 msgstr "_Apri…"
 
-#: data/error.ui:13 src/window.ts:123 src/window.ts:165
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
 msgstr "Impossibile riprodurre il file"
 
@@ -119,50 +87,114 @@ msgstr "_Scorciatoie da tastiera"
 msgid "_About Decibels"
 msgstr "_Informazioni su decibel"
 
-#: src/drag-overlay.ts:72
-msgid "File Cannot be Played"
-msgstr "Impossibile riprodurre il file"
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:14
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "_Scorciatoie da tastiera"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:31
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Apri file"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr ""
 
 #: src/drag-overlay.ts:73
 msgid "Unable to access dropped files"
 msgstr "Impossibile accedere ai file rilasciati"
 
-#: src/error.ts:57
+#: src/error.ts:42
 msgid "An unknown error happened"
 msgstr "Si è verificato un errore sconosciuto"
 
-#: src/stream.ts:252
+#: src/stream.ts:259
 msgid ""
 "File uses a format that cannot be played. Additional media codecs may be "
 "required."
 msgstr ""
-"Il file utilizza un formato che non può essere riprodotto. Ulteriori codec multimediali potrebbero essere "
-"necessari."
+"Il file utilizza un formato che non può essere riprodotto. Ulteriori codec "
+"multimediali potrebbero essere necessari."
 
-#: src/stream.ts:262
+#: src/stream.ts:269
 msgid ""
 "An error happened while trying to get information about the file. Please try "
 "again."
 msgstr ""
-"Si è verificato un errore durante il tentativo di ottenere informazioni sul file. Provare "
-"ancora."
+"Si è verificato un errore durante il tentativo di ottenere informazioni sul "
+"file. Provare ancora."
 
-#: src/stream.ts:386
+#: src/stream.ts:393
 msgid "Unknown File"
 msgstr "File sconosciuto"
 
-#: src/stream.ts:590
+#: src/stream.ts:619
 msgid "The selected file doesn't contain any audio"
 msgstr "Il file selezionato non contiene audio"
 
-#: src/window.ts:129
+#: src/window.ts:161
 msgid "Audio files"
 msgstr "File audio"
 
-#: src/window.ts:136
+#: src/window.ts:168
 msgid "Open File"
 msgstr "Apri file"
 
-#: src/window.ts:166
+#: src/window.ts:198
 msgid "The file could not be accessed"
 msgstr "Non è stato possibile accedere al file"
+
+#~ msgid "A few bug fixes that polishes up the app"
+#~ msgstr "Alcune correzioni di bug che migliorano l'app"
+
+#~ msgid ""
+#~ "Differentiate development versions of the app from the stable app by "
+#~ "styling the icon and header differently"
+#~ msgstr ""
+#~ "Differenzito le versioni di sviluppo dell'app dall'app stabile mediante "
+#~ "lo stile icona e l'intestazione in modo diverso"
+
+#~ msgid "Added donation link in application metadata"
+#~ msgstr ""
+#~ "Aggiunto collegamento per la donazione nei metadati dell'applicazione"
+
+#~ msgid "Fix the About Window being detached from main window"
+#~ msgstr ""
+#~ "Risolto il problema con il quale la finestra Informazioni veniva staccata "
+#~ "dalla finestra principale"
+
+#~ msgid "Fix the About Window showing release notes for an older version"
+#~ msgstr ""
+#~ "Corretto la finestra Informazioni che mostra le note di rilascio per una "
+#~ "versione precedente"
+
+#~ msgid "Initial Release"
+#~ msgstr "Versione iniziale"
+
+#~ msgid "Last width & height of window"
+#~ msgstr "Ultima larghezza & altezza della finestra"
+
+#~ msgid "The saved last size of the window (to be restored)"
+#~ msgstr "L'ultima dimensione salvata della finestra (da ripristinare)"
+
+#~ msgid "File Cannot be Played"
+#~ msgstr "Impossibile riprodurre il file"
