@@ -35,7 +35,7 @@ decibels_schemadir = decibels_datadir / 'glib-2.0' / 'schemas'
 gjs_dep = dependency('gjs-1.0', version: '>= 1.54.0')
 gjs_console = gjs_dep.get_variable(pkgconfig: 'gjs_console')
 
-tsc = find_program('tsc', required: true)
+tsc = find_program('tsc', files('node_modules/.bin/tsc'), required: true)
 
 subdir('data')
 subdir('src')
