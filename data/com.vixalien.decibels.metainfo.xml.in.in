@@ -6,7 +6,7 @@
   <summary>Play audio files</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
-  <developer_name>Angelo Verlain</developer_name>
+  <developer_name translatable="no">Angelo Verlain</developer_name>
   <update_contact>hey@vixalien.com</update_contact>
   <description>
     <p>Play audio files</p>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 19:20+0200\n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
 "PO-Revision-Date: 2023-10-03 22:19+0300\n"
 "Last-Translator: Сергей Ворон <voron@duck.com>\n"
 "Language-Team: \n"
@@ -31,10 +31,6 @@ msgstr "music;player;media;audio;музыка;плеер;медиа;аудио;"
 #: data/com.vixalien.decibels.metainfo.xml.in.in:12
 msgid "Play audio files"
 msgstr "Воспроизведение аудио файлов"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:9
-msgid "Angelo Verlain"
-msgstr "Angelo Verlain"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:13
 msgid "Current features:"
@@ -163,6 +159,9 @@ msgstr "Открыть файл"
 #: src/window.ts:198
 msgid "The file could not be accessed"
 msgstr "Не удалось получить доступ к файлу"
+
+#~ msgid "Angelo Verlain"
+#~ msgstr "Angelo Verlain"
 
 #~ msgid "A few improvements and papercut fixes"
 #~ msgstr "Несколько улучшений и исправлений"

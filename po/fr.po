@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 19:20+0200\n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
 "PO-Revision-Date: 2023-10-06 14:52+0200\n"
 "Last-Translator: Irénée THIRION <irenee.thirion@e.email>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
@@ -33,10 +33,6 @@ msgstr "musique;lecteur;jouer;média;audio;"
 #: data/com.vixalien.decibels.metainfo.xml.in.in:12
 msgid "Play audio files"
 msgstr "Jouez vos fichiers audio"
-
-#: data/com.vixalien.decibels.metainfo.xml.in.in:9
-msgid "Angelo Verlain"
-msgstr "Angelo Verlain"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:13
 msgid "Current features:"
@@ -163,6 +159,9 @@ msgstr "Ouvrir un fichier"
 #: src/window.ts:198
 msgid "The file could not be accessed"
 msgstr "Impossible d’accéder au fichier"
+
+#~ msgid "Angelo Verlain"
+#~ msgstr "Angelo Verlain"
 
 #~ msgid "File Cannot be Played"
 #~ msgstr "Le fichier ne peut être lu"
