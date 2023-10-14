@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Angelo Verlain SHEMA <hey@vixalien.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"PO-Revision-Date: 2023-10-15 00:25+0200\n"
+"Last-Translator: Angelo Verlain SHEMA <hey@vixalien.com>\n"
+"Language-Team: Kinyarwanda <>\n"
+"Language: rw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 45.2\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Amajwi"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "muzika;umuziki;kina;media;audio;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Kina amadosiye y'amajwi"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Ubushobozi:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Kwerekana isanisha ry'indirimbo"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Hindura umuvuduko w'amajwi"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Jya imbere n'inyuma mu buryo bworoheje"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Terekamo dosiye y'amajwi kugirango uyikine"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Gufungura Amajwi"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_Gufungura…"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "Iyi Dosiye Ntabwo Yakinwa"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "Kugerageza _Nanone…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Ibikubiyemo by'ibanze"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Gufungura…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Ihinanzira za mwandikisho"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "Ibyerekeye _Amajwi"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Rusange"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Kwerekana Amahinanzira"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Gusohoka"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Mukinnyi"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Gufungura Dosiye"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "Angelo Verlain"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "Ntibishoboka kwakira amadosiye wateretsemo"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Habaye ikosa ritazwi"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Iyi dosiye ifite imiterere itazwi. Ama \"codecs\" yandi ashobora kuba "
+"akenewe."
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Habaye ikosa ritazwi mu kugerageza gutarura amakuru yerekeye dosiye. Ongera "
+"ugerageze nanone."
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "Dosiye Itazwi"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "Dosiye wahisemo nta majwi ifite"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "Dosiye z'amajwi"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "Gufungura dosiye"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "Dosiye ntabwo yabashije gutarurwa"
