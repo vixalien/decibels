@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"PO-Revision-Date: 2023-10-15 15:14+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Decibely"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "hudba;přehrávač;média;audio;zvuk;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Přehrávejte zvukové soubory"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Současné funkce:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Ukazuje zvukové vlny stopy"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Nastavitelná rychlost přehrávání"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Snadné ovládání přeskakování"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Přetáhněte zvukový soubor pro přehrání"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Otevřte zvukový soubor"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_Otevřít"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "Soubor nelze přehrát"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "_Zkusit znovu…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Hlavní Nabídka"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Otevřít…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové Zkratky"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "O _aplikaci Decibely"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Obecné"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Zobrazit klávesové zkratky"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončit"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Přehrávač"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Otevřít soubor"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "Písek Pískovec <pisekpiskovec@gmail.com>"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "Nelze přehrát přetažený soubor"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Vyskytla se neznámá chyba"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Soubor používá formát, který nelze přehrát. Přídavné kodeky mohou být "
+"vyžadovány."
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Vyskytla se chyba při získávání informací o souboru. Prosíme zkuste znovu."
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "Neznámý soubor"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "Vybraný soubor neobsahuje žádný zvuk"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "Zvukové soubory"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "Otevřít soubor"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "K souboru nelze získat přístup"
