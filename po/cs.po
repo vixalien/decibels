@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-10-15 15:14+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-10-15 15:18+0200\n"
+"Last-Translator: Písek Pískovec <pisekpiskovec@gmail.com>\n"
 "Language-Team: \n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Otevřte zvukový soubor"
 
 #: data/empty.ui:20
 msgid "_Open…"
-msgstr "_Otevřít"
+msgstr "_Otevřít…"
 
 #: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
