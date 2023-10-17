@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-10-17 18:13+0300\n"
+"PO-Revision-Date: 2023-10-17 18:29+0300\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -25,16 +25,17 @@ msgstr "Децибели"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/com.vixalien.decibels.desktop.in.in:11
 msgid "music;player;media;audio;"
-msgstr "music;player;media;audio;музика;аудіо;плеєр;медіа;звук;програвач;трек;"
+msgstr ""
+"music;player;media;audio;музика;аудіо;плеєр;медіа;звук;програвач;трек;музяка;"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:6
 #: data/com.vixalien.decibels.metainfo.xml.in.in:12
 msgid "Play audio files"
-msgstr "Програє аудіо файли"
+msgstr "Програвач аудіо файлів"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:13
 msgid "Current features:"
-msgstr "Можливості:"
+msgstr "Поточні можливості:"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:15
 msgid "Shows the waveform of the track"
@@ -144,7 +145,7 @@ msgstr "Невідомий файл"
 
 #: src/stream.ts:619
 msgid "The selected file doesn't contain any audio"
-msgstr "Обраний файл не має аудіо даних"
+msgstr "Обраний файл не містить аудіо даних"
 
 #: src/window.ts:161
 msgid "Audio files"
