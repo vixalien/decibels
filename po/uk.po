@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-10-17 18:29+0300\n"
+"PO-Revision-Date: 2023-10-17 18:35+0300\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -51,7 +51,7 @@ msgstr "Просте керування позицією програвання 
 
 #: data/drag-overlay.ui:17
 msgid "Drop an audio file to play it"
-msgstr "Перетягування аудіо файлів у вікно програми для програвання"
+msgstr "Перетягніть аудіо файл щоб програти його"
 
 #: data/empty.ui:13
 msgid "Open an Audio File"
