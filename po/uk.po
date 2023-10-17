@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"PO-Revision-Date: 2023-10-17 18:13+0300\n"
+"Last-Translator: volkov <volkovissocool@gmail.com>\n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Децибели"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "music;player;media;audio;музика;аудіо;плеєр;медіа;звук;програвач;трек;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Програє аудіо файли"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Можливості:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Показує звукову хвилю трека"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Регулювання швидкості відтворення"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Просте керування позицією програвання трека"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Перетягування аудіо файлів у вікно програми для програвання"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Відкрити аудіо файл"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_Відкрити…"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "Неможливо програти файл"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "_Спробувати ще раз…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Головне меню"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Відкрити…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "_Про Децибели"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Загальні"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Клавіатурні скорочення"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вийти"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Програвач"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Відкрити файл"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "volkov <volkovissocool@gmail.com>"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "Неможливо отримати доступ до перетягнутих файлів"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Сталася невідома помилка"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Файл використовує формат який неможливо програти. Можливо, вам потрібно "
+"встановити додаткові медіа-кодеки."
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Сталася помилка під час спроби отримати інформацію про файл. Будь ласка, "
+"спробуйте ще раз."
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "Невідомий файл"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "Обраний файл не має аудіо даних"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "Аудіо файли"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "Відкрити файл"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "Неможливо отримати доступ до файлу"
