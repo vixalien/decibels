@@ -15,16 +15,14 @@
   },
   "command": "com.vixalien.decibelsDevel",
   "finish-args": [
-    "--share=ipc",
     "--device=dri",
-    "--socket=wayland",
+    "--filesystem=xdg-download:ro",
+    "--filesystem=xdg-music:ro",
+    "--share=ipc",
     "--socket=fallback-x11",
-    "--env=GJS_DISABLE_JIT=1",
+    "--socket=wayland",
     "--socket=pulseaudio",
-    "--own-name=org.mpris.MediaPlayer2.Decibels",
-    "--socket=session-bus",
-    "--talk-name=org.gtk.vfs.*",
-    "--filesystem=xdg-run/gvfsd"
+    "--env=GJS_DISABLE_JIT=1"
   ],
   "cleanup": [
     "/include",
