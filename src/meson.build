@@ -1,6 +1,6 @@
 gnome = import('gnome')
 
-sources = files(
+sources = [
   'application.ts',
   'drag-overlay.ts',
   'empty.ts',
@@ -13,17 +13,19 @@ sources = files(
   'stream.ts',
   'waveform.ts',
   'window.ts',
-)
+]
 
-tsc_out = meson.project_build_root() / 'tsc-out'
+outputs = []
+foreach source : sources
+    outputs += source.replace('.ts', '.js')
+endforeach
 
 typescript = custom_target(
   'typescript-compile',
-  input: sources,
+  input: files(sources),
   build_by_default: true,
-  build_always_stale: true,
-  command: [ tsc, '--outDir', tsc_out ],
-  output: ['tsc-output'],
+  command: [ tsc, '--project', tsconfig, '--outDir', '@OUTDIR@' ],
+  output: outputs,
 )
 
 source_res_conf = configuration_data()
@@ -36,7 +38,6 @@ src_res = gnome.compile_resources(
   	configuration: source_res_conf
   ),
   dependencies: typescript,
-  source_dir: tsc_out,
   gresource_bundle: true,
   install: true,
   install_dir: decibels_pkgdatadir,

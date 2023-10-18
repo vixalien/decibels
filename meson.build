@@ -37,6 +37,8 @@ gjs_console = gjs_dep.get_variable(pkgconfig: 'gjs_console')
 
 tsc = find_program('tsc', files('node_modules/.bin/tsc'), required: true)
 
+tsconfig = files('tsconfig.json')
+
 subdir('data')
 subdir('src')
 subdir('po')
