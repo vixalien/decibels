@@ -272,6 +272,12 @@ export class APMediaStream extends Gtk.MediaStream {
           return;
       }
 
+      this.peaks_generator.restart();
+      this.peaks_generator.generate_peaks_async(
+        this._play.uri,
+        info.get_duration(),
+      );
+
       // try to generate an initial peaks array
       if (this.peaks_generator.peaks.length === 0) {
         const duration = info.get_duration();
@@ -647,8 +653,6 @@ export class APMediaStream extends Gtk.MediaStream {
     this.discoverer.stop();
     this.discoverer.start();
 
-    this.peaks_generator.restart();
-
     if (this.prepared) {
       this.stream_unprepared();
     }
@@ -661,7 +665,6 @@ export class APMediaStream extends Gtk.MediaStream {
     this._play.uri = uri;
 
     this.discoverer.discover_uri_async(uri);
-    this.peaks_generator.generate_peaks_async(uri);
   }
 
   get_uri() {
@@ -677,7 +680,6 @@ export class APMediaStream extends Gtk.MediaStream {
     this._play.uri = uri;
 
     this.discoverer.discover_uri_async(uri);
-    this.peaks_generator.generate_peaks_async(uri);
   }
 
   stop() {

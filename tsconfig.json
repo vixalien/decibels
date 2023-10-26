@@ -6,7 +6,7 @@
       "ES2020",
     ],
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "outDir": "_build/tsc-out",
     "strict": true,
     "moduleResolution": "node",

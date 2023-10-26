@@ -27,6 +27,8 @@ import Gdk from "gi://Gdk?version=4.0";
 import Gtk from "gi://Gtk?version=4.0";
 import Gst from "gi://Gst";
 
+import { throttle } from "./util.js";
+
 // @ts-expect-error This module doesn't import nicely
 import Cairo from "cairo";
 
@@ -261,6 +263,15 @@ export class APPeaksGenerator extends GObject.Object {
     return this._peaks;
   }
 
+  private throttled_notify_peaks = throttle(
+    () => this.notify("peaks"),
+    100,
+    {
+      leading: true,
+      trailing: true,
+    },
+  );
+
   set peaks(peaks: number[]) {
     this._peaks = peaks;
     this.notify("peaks");
@@ -278,7 +289,7 @@ export class APPeaksGenerator extends GObject.Object {
     this.peaks.length = 0;
   }
 
-  generate_peaks_async(uri: string): void {
+  generate_peaks_async(uri: string, duration: number): void {
     const pipeline = Gst.parse_launch(
       "uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! audioresample ! audioloudnorm ! level name=level ! fakesink name=faked",
     ) as Gst.Bin;
@@ -307,6 +318,18 @@ export class APPeaksGenerator extends GObject.Object {
             if (peakVal) {
               const peak = peakVal.get_nth(0) as number;
               this.loadedPeaks.push(Math.pow(10, peak / 20));
+
+              if (duration > 0) {
+                const peaks_number = Math.ceil(
+                  duration / APPeaksGenerator.INTERVAL,
+                );
+                const remaining_peaks = peaks_number - this.loadedPeaks.length;
+                this._peaks = [
+                  ...this.loadedPeaks,
+                  ...new Array(remaining_peaks).fill(0),
+                ];
+                this.throttled_notify_peaks();
+              }
             }
           }
           break;
