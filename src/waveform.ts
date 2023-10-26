@@ -280,7 +280,7 @@ export class APPeaksGenerator extends GObject.Object {
 
   generate_peaks_async(uri: string): void {
     const pipeline = Gst.parse_launch(
-      "uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! level name=level ! fakesink name=faked",
+      "uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! audioresample ! audioloudnorm ! level name=level ! fakesink name=faked",
     ) as Gst.Bin;
 
     const fakesink = pipeline.get_by_name("faked");

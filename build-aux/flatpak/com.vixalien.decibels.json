@@ -5,13 +5,17 @@
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.node18",
-    "org.freedesktop.Sdk.Extension.typescript"
+    "org.freedesktop.Sdk.Extension.typescript",
+    "org.freedesktop.Sdk.Extension.rust-stable"
   ],
   "tags": [
     "nightly"
   ],
   "build-options": {
-    "append-path": "/usr/lib/sdk/node18/bin:/usr/lib/sdk/typescript/bin"
+    "env": {
+      "CARGO_HOME": "/run/build/cargo-c/cargo"
+    },
+    "append-path": "/usr/lib/sdk/node18/bin:/usr/lib/sdk/typescript/bin:/usr/lib/sdk/rust-stable/bin"
   },
   "command": "com.vixalien.decibelsDevel",
   "finish-args": [
@@ -37,6 +41,43 @@
     "*.a"
   ],
   "modules": [
+    {
+      "name": "cargo-c",
+      "buildsystem": "simple",
+      "build-commands": [
+        "cargo install cargo-c --root /app"
+      ],
+      "build-options": {
+        "build-args": [
+          "--share=network"
+        ]
+      },
+      "cleanup": [
+        "*"
+      ]
+    },
+    {
+      "name": "gst-plugins-rs",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs",
+          "branch": "0.11"
+        }
+      ],
+      "build-options": {
+        "build-args": [
+          "--share=network"
+        ],
+        "env": {
+          "CARGO_NET_GIT_FETCH_WITH_CLI": "true"
+        }
+      },
+      "build-commands": [
+        "cargo cinstall -p gst-plugin-audiofx --prefix=/app"
+      ]
+    },
     {
       "name": "decibels",
       "buildsystem": "meson",
