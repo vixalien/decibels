@@ -1,0 +1,155 @@
+# Chinese translations for com.vixalien.decibels package
+# Traditional Chinese translation for com.vixalien.decibels.
+# Copyright (C) 2023 THE com.vixalien.decibels'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# Peter Hsu <hsu@peterdavehello.org>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"PO-Revision-Date: 2023-11-01 01:53+0800\n"
+"Last-Translator: Peter Hsu <hsu@peterdavehello.org>\n"
+"Language-Team: Chinese (traditional)\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Decibels"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "音樂;播放器;媒體;音訊;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "播放音訊檔案"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "目前的功能："
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "顯示音軌的波形"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "調整播放速度"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "簡易搜尋控制"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "拖放音訊檔案以播放"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "開啟音訊檔案"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_開啟…"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "檔案無法播放"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "_再試一次…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "主選單"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "開啟…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_鍵盤快捷鍵"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "_關於 Decibels"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "一般"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "顯示快捷鍵"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "結束"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "播放器"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "開啟檔案"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "Peter Dave Hello (https://github.com/PeterDaveHello)"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "無法存取拖放的檔案"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "發生未知的錯誤"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr "檔案使用無法播放的格式。可能需要額外的媒體解碼器。"
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr "嘗試取得檔案資訊時發生錯誤。請再試一次。"
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "未知的檔案"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "選擇的檔案不包含任何音訊"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "音訊檔案"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "開啟檔案"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "無法存取檔案"
