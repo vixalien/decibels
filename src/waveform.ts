@@ -38,7 +38,6 @@ export enum WaveType {
 const GUTTER = 4;
 
 export class APWaveForm extends Gtk.DrawingArea {
-  private _peaks: number[];
   private _position: number;
   private dragGesture?: Gtk.GestureDrag;
   private hcId: number;
@@ -80,7 +79,6 @@ export class APWaveForm extends Gtk.DrawingArea {
     // type: WaveType,
   ) {
     super(params);
-    this._peaks = [];
     this._position = 0;
 
     this.dragGesture = Gtk.GestureDrag.new();
@@ -99,6 +97,10 @@ export class APWaveForm extends Gtk.DrawingArea {
     this.set_draw_func(this.drawFunc.bind(this));
   }
 
+  get peaks(): number[] {
+    return [];
+  }
+
   private dragBegin(gesture: Gtk.GestureDrag): void {
     gesture.set_state(Gtk.EventSequenceState.CLAIMED);
     this.drag_start_position = this._position;
@@ -108,7 +110,7 @@ export class APWaveForm extends Gtk.DrawingArea {
   private dragUpdate(_gesture: Gtk.GestureDrag, offset_x: number): void {
     if (this.drag_start_position != null) {
       const after = this.drag_start_position -
-        (offset_x / (this._peaks.length * GUTTER));
+        (offset_x / (this.peaks.length * GUTTER));
 
       this._position = Math.max(Math.min(after, 1), 0);
       this.queue_draw();
@@ -126,10 +128,11 @@ export class APWaveForm extends Gtk.DrawingArea {
     width: number,
     height: number,
   ) {
+    const peaks = this.peaks;
     const vertiCenter = height / 2;
     const horizCenter = width / 2;
 
-    let pointer = horizCenter - (this._position * this._peaks.length * GUTTER);
+    let pointer = horizCenter - (this._position * peaks.length * GUTTER);
 
     const styleContext = this.get_style_context();
     const leftColor = styleContext.get_color();
@@ -168,7 +171,7 @@ export class APWaveForm extends Gtk.DrawingArea {
     }
 
     for (
-      const peak of this._peaks.slice(invisible_peaks / GUTTER)
+      const peak of peaks.slice(invisible_peaks / GUTTER)
     ) {
       // this shouldn't happen, but just in case
       if (pointer < 0) {
@@ -198,17 +201,8 @@ export class APWaveForm extends Gtk.DrawingArea {
     }
   }
 
-  set peaks(p: number[]) {
-    this._peaks = [...p];
-    this.queue_draw();
-  }
-
-  get peaks() {
-    return this._peaks;
-  }
-
   set position(pos: number) {
-    if (this._peaks) {
+    if (this.peaks.length > 0) {
       this._position = pos;
       this.queue_draw();
       this.notify("position");
@@ -229,13 +223,13 @@ export class APWaveForm extends Gtk.DrawingArea {
 
   public destroy(): void {
     Adw.StyleManager.get_default().disconnect(this.hcId);
-    this._peaks.length = 0;
+    this.peaks.length = 0;
     this.queue_draw();
   }
 }
 
 export class APPeaksGenerator extends GObject.Object {
-  private loadedPeaks: number[] = [];
+  loaded_peaks: number[] = [];
 
   static {
     GObject.registerClass(
@@ -274,13 +268,13 @@ export class APPeaksGenerator extends GObject.Object {
 
   restart() {
     this.started = true;
-    this.loadedPeaks.length = 0;
+    this.loaded_peaks.length = 0;
     this.peaks.length = 0;
   }
 
   generate_peaks_async(uri: string): void {
     const pipeline = Gst.parse_launch(
-      "uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! level name=level ! fakesink name=faked",
+      `uridecodebin name=uridecodebin ! audioconvert ! audio/x-raw,channels=1 ! level name=level interval=${this.INTERVAL} ! fakesink name=faked`,
     ) as Gst.Bin;
 
     const fakesink = pipeline.get_by_name("faked");
@@ -306,17 +300,17 @@ export class APPeaksGenerator extends GObject.Object {
 
             if (peakVal) {
               const peak = peakVal.get_nth(0) as number;
-              this.loadedPeaks.push(Math.pow(10, peak / 20));
+              this.loaded_peaks.push(Math.pow(10, peak / 20));
             }
           }
           break;
         }
         case Gst.MessageType.EOS:
           if (this.started) {
-            this.peaks = [...this.loadedPeaks];
+            this.peaks = [...this.loaded_peaks];
           }
 
-          this.loadedPeaks.length = 0;
+          this.loaded_peaks.length = 0;
 
           pipeline?.set_state(Gst.State.NULL);
           break;
@@ -324,5 +318,5 @@ export class APPeaksGenerator extends GObject.Object {
     });
   }
 
-  static INTERVAL = 100000000;
+  INTERVAL = 100000000;
 }
