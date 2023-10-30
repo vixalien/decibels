@@ -301,7 +301,7 @@ export class APPeaksGenerator extends GObject.Object {
           const s = message.get_structure();
           if (s && s.has_name("level")) {
             const peakVal = s.get_value(
-              "peak",
+              "rms",
             ) as unknown as GObject.ValueArray;
 
             if (peakVal) {
