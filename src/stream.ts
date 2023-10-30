@@ -271,16 +271,6 @@ export class APMediaStream extends Gtk.MediaStream {
           );
           return;
       }
-
-      // try to generate an initial peaks array
-      if (this.peaks_generator.peaks.length === 0) {
-        const duration = info.get_duration();
-        if (duration > 0) {
-          this.peaks_generator.peaks = new Array(
-            Math.ceil(duration / APPeaksGenerator.INTERVAL),
-          ).fill(0);
-        }
-      }
     });
 
     this.peaks_generator = new APPeaksGenerator();

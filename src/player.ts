@@ -141,12 +141,36 @@ export class APPlayerState extends Adw.Bin {
       null,
     );
 
-    window.stream.peaks_generator.bind_property(
-      "peaks",
-      this._waveform,
-      "peaks",
-      GObject.BindingFlags.SYNC_CREATE,
-    );
+    Object.defineProperty(this._waveform, "peaks", {
+      get() {
+        const peaks = window.stream.peaks_generator.peaks;
+
+        if (peaks.length > 0) {
+          return peaks;
+        }
+
+        // show only the loaded peaks, and 0 for the other remaining
+        const duration = window.stream.duration;
+
+        if (duration <= 0) {
+          return [];
+        }
+
+        const loaded_peaks = window.stream.peaks_generator.loaded_peaks.length;
+        const total_peaks = Math.ceil(
+          duration / window.stream.peaks_generator.INTERVAL,
+        );
+
+        return [
+          ...window.stream.peaks_generator.loaded_peaks,
+          new Array(Math.max(total_peaks - loaded_peaks, 0)).fill(0),
+        ];
+      },
+    });
+
+    window.stream.peaks_generator.connect("notify::peaks", () => {
+      this._waveform.queue_draw();
+    });
   }
 
   private scale_change_value_cb(
