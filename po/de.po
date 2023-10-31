@@ -1,0 +1,159 @@
+# German translation for Decibels.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"PO-Revision-Date: 2023-10-31 18:53+0100\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Decibels"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "music;player;media;audio;Musik;Abspieler;Medien;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Audiodateien abspielen"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Aktuelle Funktionen:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Zeigt die Wellenform des Tracks"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Wiedergabegeschwindigkeit anpassen"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Einfache Suchen-Werkzeuge"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Legen Sie eine Audiodatei ab, um sie abzuspielen"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Eine Audiodatei öffnen"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "Ö_ffnen …"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "Datei kann nicht abgespielt werden"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "Erneu_t versuchen …"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Öffnen …"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastenkürzel"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "_Info zu Decibels"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Allgemein"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tastenkürzel anzeigen"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Beenden"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Player"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Datei öffnen"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "Philipp Kiemle <philipp.kiemle@gmail.com>"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "Zugriff auf abgelegte Dateien fehlgeschlagen"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Ein unbekannter Fehler ist aufgetreten"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Datei ist in einem nicht abspielbaren Format. Zusätzliche Media-Codecs "
+"könnten erforderlich sein."
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Während des Holens von Informationen über die Datei ist ein Fehler "
+"aufgetreten. Bitte versuchen Sie es noch einmal."
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "Unbekannte Datei"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "Die ausgewählte Datei enthält kein Audio"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "Audiodateien"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "Datei öffnen"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "Auf die Datei konnte nicht zugegriffen werden"
