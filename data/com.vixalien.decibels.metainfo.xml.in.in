@@ -29,6 +29,15 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.1.5" date="2023-11-02">
+      <description translatable="no">
+        <ul>
+          <li>The waveform of the track is now reliably generated, and shows volume levels more distinctly</li>
+          <li>A few issues preventing some content from being translated were fixed</li>
+          <li>Decibels was translated to Czech, Kinyarwanda, German, Traditional Chinese, Ukranian and Brazilian Portuguese</li>
+        </ul>
+			</description>
+    </release>
     <release version="0.1.4" date="2023-10-06">
       <description translatable="no">
 				<p>A small bugfix and minor improvements release</p>
