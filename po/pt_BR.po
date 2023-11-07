@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-10-31 01:43-0300\n"
+"PO-Revision-Date: 2023-11-07 20:33-0300\n"
 "Last-Translator: Tiago Lucas Flach <tiagolucas9830@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -34,7 +34,7 @@ msgstr "Reproduza arquivos de áudio"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:13
 msgid "Current features:"
-msgstr "Fu atuais:"
+msgstr "Recursos atuais:"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:15
 msgid "Shows the waveform of the track"
@@ -66,7 +66,7 @@ msgstr "O arquivo não pode ser reproduzido"
 
 #: data/error.ui:20
 msgid "_Try Again…"
-msgstr "_Tente novamente…"
+msgstr "_Tente Novamente…"
 
 #: data/header.ui:12
 msgid "Main Menu"
@@ -82,7 +82,7 @@ msgstr "_Atalhos do teclado"
 
 #: data/header.ui:31
 msgid "_About Decibels"
-msgstr "_About Decibels"
+msgstr "_Sobre o Decibels"
 
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
