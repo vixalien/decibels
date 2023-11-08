@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-09-30 13:30+0100\n"
+"PO-Revision-Date: 2023-11-08 22:30+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: italian <LL@li.org>\n"
 "Language: it\n"
@@ -49,7 +49,7 @@ msgstr "Controlli di ricerca facili"
 
 #: data/drag-overlay.ui:17
 msgid "Drop an audio file to play it"
-msgstr ""
+msgstr "Rilascia un file audio per riprodurlo"
 
 #: data/empty.ui:13
 msgid "Open an Audio File"
@@ -86,18 +86,17 @@ msgstr "_Informazioni su decibel"
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 #: data/gtk/help-overlay.ui:14
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Scorciatoie da tastiera"
+msgstr "Mostra scorciatoie"
 
 #: data/gtk/help-overlay.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Esci"
 
 #: data/gtk/help-overlay.ui:28
 msgctxt "shortcut window"
@@ -105,7 +104,6 @@ msgid "Player"
 msgstr ""
 
 #: data/gtk/help-overlay.ui:31
-#, fuzzy
 msgctxt "shortcut window"
 msgid "Open File"
 msgstr "Apri file"
@@ -113,7 +111,7 @@ msgstr "Apri file"
 #. Translators: Replace "translator-credits" with your names, one name per line
 #: src/application.ts:46
 msgid "translator-credits"
-msgstr ""
+msgstr "Albano Battistella"
 
 #: src/drag-overlay.ts:73
 msgid "Unable to access dropped files"
