@@ -29,6 +29,14 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.1.6" date="2023-11-08">
+      <description translatable="no">
+        <ul>
+          <li>The buttons allowing to skip forwards and backwards 30 seconds were removed</li>
+          <li>Some issues in the Brazilian Translation were fixed</li>
+        </ul>
+			</description>
+    </release>
     <release version="0.1.5" date="2023-11-02">
       <description translatable="no">
         <ul>
