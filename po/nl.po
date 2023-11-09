@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"PO-Revision-Date: 2023-11-09 17:54+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Decibels"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:11
+msgid "music;player;media;audio;"
+msgstr "muziek;speler;media;audio;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Play audio files"
+msgstr "Beluister audiobestanden"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+msgid "Current features:"
+msgstr "Huidige mogelijkheden:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+msgid "Shows the waveform of the track"
+msgstr "Toon de golflengte van een nummer"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Adjust playback speed"
+msgstr "Pas de afspeelsnelheid aan"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+msgid "Easy seek controls"
+msgstr "Eenvoudige spoelknoppen"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Sleep een audiobestand hierheen"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Open een audiobestand"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "_Openen…"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+msgid "File Cannot Be Played"
+msgstr "Dit bestand kan niet worden afgespeeld"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "O_pnieuw proberen…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Hoofdmenu"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Openen…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "_Sneltoetsen"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "Ov_er Decibels"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Sneltoetsen tonen"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Speler"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Bestand openen"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:46
+msgid "translator-credits"
+msgstr "Heimen Stoffels <vistausss@fastmail.com>"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "U heeft geen toegang tot de bestanden"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Er is een onbekende fout opgetreden"
+
+#: src/stream.ts:259
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"Dit bestandsformaat wordt niet ondersteund. Wellicht zijn er aanvullende "
+"codecs beschikbaar."
+
+#: src/stream.ts:269
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Er is een fout opgetreden tijdens het ophalen van de bestandsinformatie. "
+"Probeer het opnieuw."
+
+#: src/stream.ts:393
+msgid "Unknown File"
+msgstr "Onbekend bestandstype"
+
+#: src/stream.ts:619
+msgid "The selected file doesn't contain any audio"
+msgstr "Het gekozen bestand bevat geen audio"
+
+#: src/window.ts:161
+msgid "Audio files"
+msgstr "Audiobestanden"
+
+#: src/window.ts:168
+msgid "Open File"
+msgstr "Bestand openen"
+
+#: src/window.ts:198
+msgid "The file could not be accessed"
+msgstr "U heeft geen toegang tot dit bestand"
