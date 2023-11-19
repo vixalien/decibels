@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 19:43+0200\n"
+"POT-Creation-Date: 2023-11-19 17:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,12 @@ msgstr ""
 msgid "Decibels"
 msgstr ""
 
+#: data/com.vixalien.decibels.desktop.in.in:4
+msgid "Audio Player"
+msgstr ""
+
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.vixalien.decibels.desktop.in.in:11
+#: data/com.vixalien.decibels.desktop.in.in:12
 msgid "music;player;media;audio;"
 msgstr ""
 
@@ -84,6 +88,18 @@ msgstr ""
 msgid "_About Decibels"
 msgstr ""
 
+#: data/player.ui:77
+msgid "Adjust Playback Speed"
+msgstr ""
+
+#: data/player.ui:89
+msgid "Skip back 10s"
+msgstr ""
+
+#: data/player.ui:117
+msgid "Skip forward 10s"
+msgstr ""
+
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
@@ -134,12 +150,20 @@ msgid ""
 "again."
 msgstr ""
 
-#: src/stream.ts:393
+#: src/stream.ts:383
 msgid "Unknown File"
 msgstr ""
 
-#: src/stream.ts:619
+#: src/stream.ts:609
 msgid "The selected file doesn't contain any audio"
+msgstr ""
+
+#: src/player.ts:134
+msgid "Pause"
+msgstr ""
+
+#: src/player.ts:134
+msgid "Play"
 msgstr ""
 
 #: src/window.ts:161

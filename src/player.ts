@@ -15,6 +15,7 @@ export class APPlayerState extends Adw.Bin {
   private _duration_label!: Gtk.Label;
   private _volume_button!: Gtk.VolumeButton;
   private _playback_image!: Gtk.Image;
+  private _playback_button!: Gtk.Button;
   private _waveform!: APWaveForm;
   private _scale!: Gtk.Scale;
 
@@ -31,6 +32,7 @@ export class APPlayerState extends Adw.Bin {
           "duration_label",
           "volume_button",
           "playback_image",
+          "playback_button",
           "waveform",
           "scale",
         ],
@@ -118,6 +120,18 @@ export class APPlayerState extends Adw.Bin {
             ? "media-playback-pause-symbolic"
             : "media-playback-start-symbolic",
         ];
+      },
+      null,
+    );
+
+    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    window.stream.bind_property_full(
+      "playing",
+      this._playback_button,
+      "tooltip-text",
+      GObject.BindingFlags.SYNC_CREATE,
+      (_binding, from: boolean) => {
+        return [true, from ? _("Pause") : _("Play")];
       },
       null,
     );
