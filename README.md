@@ -34,6 +34,20 @@ Download latest artifact [from here][artifact].
 
 Open the project in GNOME Builder and click "Build & Run Project".
 
+## Code of conduct
+
+Decibels follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
+
+- **Be friendly.** Use welcoming and inclusive language.
+- **Be empathetic.** Be respectful of differing viewpoints and experiences.
+- **Be respectful.** When we disagree, we do so in a polite and constructive
+  manner.
+- **Be considerate.** Remember that decisions are often a difficult choice
+  between competing priorities.
+- **Be patient and generous.** If someone asks for help it is because they need
+  it.
+- **Try to be concise.** Read the discussion before commenting.
+
 ## Links
 
 - [Audio Player app: issue by Allan Day](https://gitlab.gnome.org/Teams/Design/app-mockups/-/issues/96)
