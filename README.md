@@ -48,7 +48,7 @@ Decibels follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
   it.
 - **Try to be concise.** Read the discussion before commenting.
 
-## Links
+## Credits
 
 - [Audio Player app: issue by Allan Day](https://gitlab.gnome.org/Teams/Design/app-mockups/-/issues/96)
 - [Audio Player mockups](https://gitlab.gnome.org/Teams/Design/app-mockups/-/blob/master/audio-player/audio-player.png?ref_type=heads)
