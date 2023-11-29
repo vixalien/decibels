@@ -9,7 +9,6 @@
   <developer_name translatable="no">Angelo Verlain</developer_name>
   <update_contact>hey@vixalien.com</update_contact>
   <description>
-    <p>Play audio files</p>
     <p>Current features:</p>
 		<ul>
 			<li>Shows the waveform of the track</li>
