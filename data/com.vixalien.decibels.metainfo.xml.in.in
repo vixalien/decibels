@@ -28,6 +28,15 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="0.1.7" date="2023-11-29">
+      <description translatable="no">
+        <ul>
+          <li>Decibels joined GNOME Circle! 🥳</li>
+          <li>Enhanced the accessibility of the app by ensuring that every on-screen element is screenreader accessible</li>
+          <li>Added Dutch, Occitan, Belarusian and updated the Italian translations</li>
+        </ul>
+			</description>
+    </release>
     <release version="0.1.6" date="2023-11-08">
       <description translatable="no">
         <ul>
