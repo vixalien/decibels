@@ -1,3 +1,3 @@
 [D-BUS Service]
 Name=@application_id@
-Exec=@application_id@ --gapplication-service
+Exec=@bindir@/@application_id@ --gapplication-service
