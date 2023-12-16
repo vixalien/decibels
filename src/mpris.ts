@@ -359,10 +359,13 @@ export class MPRIS extends DBusInterface {
   }
 
   /** Skips to the next track in the tracklist */
-  _next() {}
+  _next() {
+    this.stream.skip_seconds(10);
+  }
 
   /** Skips to the previous track in the tracklist */
-  _previous() {}
+  _previous() {
+    this.stream.skip_seconds(-10);}
 
   /** Pauses playback */
   _pause() {
@@ -494,8 +497,8 @@ export class MPRIS extends DBusInterface {
           Position: GLib.Variant.new_int64(position_msecond),
           MinimumRate: GLib.Variant.new_double(1.0),
           MaximumRate: GLib.Variant.new_double(1.0),
-          CanGoNext: GLib.Variant.new_boolean(false),
-          CanGoPrevious: GLib.Variant.new_boolean(false),
+          CanGoNext: GLib.Variant.new_boolean(true),
+          CanGoPrevious: GLib.Variant.new_boolean(true),
           CanPlay: GLib.Variant.new_boolean(true),
           CanPause: GLib.Variant.new_boolean(true),
           CanSeek: GLib.Variant.new_boolean(true),

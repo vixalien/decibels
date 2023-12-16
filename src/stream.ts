@@ -677,6 +677,12 @@ export class APMediaStream extends Gtk.MediaStream {
     this.notify("timestamp");
   }
 
+  skip_seconds(seconds: number) {
+    this.seek(
+      Math.max(this.timestamp + seconds * Gst.MSECOND, 0),
+    );
+  }
+
   get_action_group() {
     const action_group = Gio.SimpleActionGroup.new();
 
@@ -708,9 +714,7 @@ export class APMediaStream extends Gtk.MediaStream {
         parameter_type: "i",
         activate: (_source, param) => {
           if (param) {
-            this.seek(
-              Math.max(this.timestamp + param.get_int32() * Gst.MSECOND, 0),
-            );
+            this.skip_seconds(param.get_int32());
           }
         },
       },
