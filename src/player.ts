@@ -200,6 +200,22 @@ export class APPlayerState extends Adw.Bin {
     stream.seek(value);
   }
 
+  private event_scroll(
+    _controller: Gtk.EventControllerScroll,
+    dx: number,
+    dy: number,
+  ) {
+    const window = this.get_root() as Window;
+    const stream = window?.stream;
+
+    if (!stream) return;
+
+    const delta = dx * 1000000;
+    const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
+
+    stream.seek(d);
+  }
+
   private waveform_position_changed_cb(_scale: Gtk.Scale, value: number) {
     const window = this.get_root() as Window;
     const stream = window?.stream;

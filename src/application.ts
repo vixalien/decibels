@@ -39,6 +39,9 @@ export class Application extends Adw.Application {
         pkg.version.split("-")[0],
       );
       aboutWindow.set_version(pkg.version);
+      aboutWindow.set_developers([
+        "Angelo Verlain https://vixalien.com",
+      ]);
       aboutWindow.set_artists(["kramo https://kramo.hu"]);
       aboutWindow.set_designers(["Allan Day"]);
       aboutWindow.set_transient_for(this.get_active_window());

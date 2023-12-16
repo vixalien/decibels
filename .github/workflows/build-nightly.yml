@@ -17,7 +17,7 @@ jobs:
         arch: [x86_64, aarch64]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install Docker
         if: matrix.arch == 'aarch64'
         run: |
@@ -25,14 +25,14 @@ jobs:
       - name: Setup QEMU
         if: matrix.arch == 'aarch64'
         id: qemu
-        uses: docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v3
         with:
           platforms: arm64
       - name: Prepare Runtime
         run: |
           flatpak --system install -y --noninteractive flathub org.freedesktop.Sdk.Extension.node18/${{ matrix.arch }}/23.08
           flatpak --system install -y --noninteractive flathub org.freedesktop.Sdk.Extension.typescript/${{ matrix.arch }}/23.08
-      - uses: flatpak/flatpak-github-actions/flatpak-builder@v4
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: com.vixalien.decibels.nightly.flatpak
           repository-name: gnome-nightly
