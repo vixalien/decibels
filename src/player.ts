@@ -240,7 +240,7 @@ export class APPlayerState extends Adw.Bin {
       return Gdk.EVENT_PROPAGATE;
     }
 
-    return Gdk.EVENT_PROPAGATE;
+    return Gdk.EVENT_STOP;
   }
 
   private waveform_position_changed_cb(_scale: Gtk.Scale, value: number) {
