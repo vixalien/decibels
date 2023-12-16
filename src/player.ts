@@ -210,7 +210,7 @@ export class APPlayerState extends Adw.Bin {
 
     if (!stream) return;
 
-    const delta = dx * 1000000;
+    const delta = (dx === 0 ? dy : dx) * 1000000;
     const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
 
     stream.seek(d);

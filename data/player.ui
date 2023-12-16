@@ -18,7 +18,7 @@
                 <property name="vexpand">true</property>
                 <child>
                   <object class="GtkEventControllerScroll">
-                    <property name="flags">horizontal</property>
+                    <property name="flags">both-axes</property>
                     <signal name="scroll" handler="event_scroll"/>
                   </object>
                 </child>
@@ -46,7 +46,7 @@
                 </property>
                 <child>
                   <object class="GtkEventControllerScroll">
-                    <property name="flags">horizontal</property>
+                    <property name="flags">both-axes</property>
                     <signal name="scroll" handler="event_scroll"/>
                   </object>
                 </child>
