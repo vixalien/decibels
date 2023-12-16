@@ -1,6 +1,7 @@
 import Adw from "gi://Adw";
 import Gtk from "gi://Gtk?version=4.0";
 import GObject from "gi://GObject";
+import Gdk from "gi://Gdk?version=4.0"
 
 import { Window } from "./window.js";
 import { APHeaderBar } from "./header.js";
@@ -201,18 +202,25 @@ export class APPlayerState extends Adw.Bin {
   }
 
   private event_scroll(
-    _controller: Gtk.EventControllerScroll,
+    controller: Gtk.EventControllerScroll,
     dx: number,
     dy: number,
   ) {
     const window = this.get_root() as Window;
     const stream = window?.stream;
+    let delta = 0.0;
 
     if (!stream) return;
 
-    const delta = (dx === 0 ? dy : dx) * 1000000;
-    const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
+    const unit = controller.get_unit();
 
+    if (unit === Gdk.ScrollUnit.WHEEL) {
+      delta = (dx === 0 ? dy : dx) * 10000000
+    } else {
+      delta = (dx === 0 ? dy : dx) * 1000000
+    }
+
+    const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
     stream.seek(d);
   }
 
