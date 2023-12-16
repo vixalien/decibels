@@ -528,6 +528,7 @@ export class APMediaStream extends Gtk.MediaStream {
 
   private uri_loaded_cb(_play: GstPlay.Play, uri: string): void {
     this.emit("loaded");
+    this.notify("rate");
     this.play();
   }
 
