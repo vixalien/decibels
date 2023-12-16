@@ -16,6 +16,12 @@
               <object class="APWaveForm" id="waveform">
                 <signal name="position-changed" handler="waveform_position_changed_cb" />
                 <property name="vexpand">true</property>
+                <child>
+                  <object class="GtkEventControllerScroll">
+                    <property name="flags">horizontal</property>
+                    <signal name="scroll" handler="event_scroll"/>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -38,6 +44,12 @@
                     <property name="step-increment">10000000</property>
                   </object>
                 </property>
+                <child>
+                  <object class="GtkEventControllerScroll">
+                    <property name="flags">horizontal</property>
+                    <signal name="scroll" handler="event_scroll"/>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
@@ -129,6 +141,18 @@
                 <property name="valign">3</property>
               </object>
             </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class='GtkShortcutController'>
+        <property name='scope'>managed</property>
+        <child>
+          <object class='GtkShortcut'>
+            <property name='trigger'>&lt;Control&gt;&lt;Shift&gt;leftarrow</property>
+            <property name='action'>action(player.skip-seconds)</property>
+            <property name='arguments'>10</property>
           </object>
         </child>
       </object>
