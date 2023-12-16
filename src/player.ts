@@ -197,7 +197,7 @@ export class APPlayerState extends Adw.Bin {
 
     if (!stream) return;
 
-    stream.seek(value);
+    stream.seek(this._scale_adjustment.value);
   }
 
   private event_scroll(
