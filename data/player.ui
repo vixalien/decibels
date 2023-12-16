@@ -16,10 +16,16 @@
               <object class="APWaveForm" id="waveform">
                 <signal name="position-changed" handler="waveform_position_changed_cb" />
                 <property name="vexpand">true</property>
+                <property name="focusable">true</property>
                 <child>
                   <object class="GtkEventControllerScroll">
                     <property name="flags">horizontal</property>
                     <signal name="scroll" handler="event_scroll"/>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEventControllerKey">
+                    <signal name="key_pressed" handler="event_key_pressed"/>
                   </object>
                 </child>
               </object>
@@ -34,6 +40,7 @@
                 <property name="margin-start">6</property>
                 <property name="margin-end">6</property>
                 <property name="hexpand">true</property>
+                <property name="focusable">false</property>
                 <signal name="change-value" handler="scale_change_value_cb" />
                 <property name="adjustment">
                   <object class="GtkAdjustment" id="scale_adjustment">
@@ -101,6 +108,7 @@
                     <property name="icon-name">skip-backwards-10-symbolic</property>
                     <property name="valign">3</property>
                     <property name="tooltip-text" translatable="yes">Skip back 10s</property>
+                    <property name="focusable">false</property>
                     <style>
                       <class name="circular" />
                     </style>
@@ -109,6 +117,7 @@
                 <child>
                   <object class="GtkButton" id="playback_button">
                     <property name="action-name">player.play-pause</property>
+                    <property name="focusable">false</property>
                     <child>
                       <object class="GtkImage" id="playback_image">
                         <property name="icon-name">media-playback-pause-symbolic</property>
@@ -129,6 +138,7 @@
                     <property name="icon-name">skip-forward-10-symbolic</property>
                     <property name="valign">3</property>
                     <property name="tooltip-text" translatable="yes">Skip forward 10s</property>
+                    <property name="focusable">false</property>
                     <style>
                       <class name="circular" />
                     </style>

@@ -1,6 +1,7 @@
 import Adw from "gi://Adw";
 import Gtk from "gi://Gtk?version=4.0";
 import GObject from "gi://GObject";
+import Gdk from "gi://Gdk?version=4.0"
 
 import { Window } from "./window.js";
 import { APHeaderBar } from "./header.js";
@@ -214,6 +215,32 @@ export class APPlayerState extends Adw.Bin {
     const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
 
     stream.seek(d);
+  }
+
+  private event_key_pressed(
+    _controller: Gtk.EventControllerKey,
+    keyval: number,
+    _keycode: number,
+    _modifier: Gdk.ModifierType
+  ): boolean {
+    const window = this.get_root() as Window;
+    const stream = window?.stream;
+
+    if (!stream) return Gdk.EVENT_PROPAGATE;
+
+    if (keyval === Gdk.KEY_space) {
+      stream.playing ? stream.pause() : stream.play();
+    } else if (keyval === Gdk.KEY_Left) {
+      const d = Math.max(Math.min(stream.timestamp - 10000000, stream.duration), 0);
+      stream.seek(d);
+    } else if (keyval === Gdk.KEY_Right) {
+      const d = Math.max(Math.min(stream.timestamp + 10000000, stream.duration), 0);
+      stream.seek(d);
+    } else {
+      return Gdk.EVENT_PROPAGATE;
+    }
+
+    return Gdk.EVENT_PROPAGATE;
   }
 
   private waveform_position_changed_cb(_scale: Gtk.Scale, value: number) {
