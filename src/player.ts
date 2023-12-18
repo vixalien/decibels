@@ -231,11 +231,9 @@ export class APPlayerState extends Adw.Bin {
     if (keyval === Gdk.KEY_space) {
       stream.playing ? stream.pause() : stream.play();
     } else if (keyval === Gdk.KEY_Left) {
-      const d = Math.max(Math.min(stream.timestamp - 10000000, stream.duration), 0);
-      stream.seek(d);
+      stream.skip_seconds(-10);
     } else if (keyval === Gdk.KEY_Right) {
-      const d = Math.max(Math.min(stream.timestamp + 10000000, stream.duration), 0);
-      stream.seek(d);
+      stream.skip_seconds(10);
     } else {
       return Gdk.EVENT_PROPAGATE;
     }
