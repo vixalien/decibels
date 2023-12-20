@@ -16,7 +16,6 @@
               <object class="APWaveForm" id="waveform">
                 <signal name="position-changed" handler="waveform_position_changed_cb" />
                 <property name="vexpand">true</property>
-                <property name="focusable">true</property>
                 <child>
                   <object class="GtkEventControllerScroll">
                     <property name="flags">both-axes</property>
