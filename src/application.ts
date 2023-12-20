@@ -41,6 +41,7 @@ export class Application extends Adw.Application {
       aboutWindow.set_version(pkg.version);
       aboutWindow.set_developers([
         "Angelo Verlain https://vixalien.com",
+        "David Keller https://gitlab.com/BlobCodes",
       ]);
       aboutWindow.set_artists(["kramo https://kramo.hu"]);
       aboutWindow.set_designers(["Allan Day"]);
