@@ -23,11 +23,6 @@
                     <signal name="scroll" handler="event_scroll"/>
                   </object>
                 </child>
-                <child>
-                  <object class="GtkEventControllerKey">
-                    <signal name="key_pressed" handler="event_key_pressed"/>
-                  </object>
-                </child>
               </object>
             </child>
           </object>
@@ -161,6 +156,11 @@
             <property name='arguments'>10</property>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEventControllerKey">
+        <signal name="key_pressed" handler="event_key_pressed"/>
       </object>
     </child>
   </template>
