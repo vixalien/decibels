@@ -19,7 +19,7 @@
                 <property name="focusable">true</property>
                 <child>
                   <object class="GtkEventControllerScroll">
-                    <property name="flags">horizontal</property>
+                    <property name="flags">both-axes</property>
                     <signal name="scroll" handler="event_scroll"/>
                   </object>
                 </child>
@@ -40,7 +40,7 @@
                 <property name="margin-start">6</property>
                 <property name="margin-end">6</property>
                 <property name="hexpand">true</property>
-                <signal name="change-value" handler="scale_change_value_cb" />
+                <signal name="change-value" handler="scale_change_value_cb" after="yes"/>
                 <property name="adjustment">
                   <object class="GtkAdjustment" id="scale_adjustment">
                     <property name="upper">1</property>
@@ -52,7 +52,7 @@
                 </property>
                 <child>
                   <object class="GtkEventControllerScroll">
-                    <property name="flags">horizontal</property>
+                    <property name="flags">both-axes</property>
                     <signal name="scroll" handler="event_scroll"/>
                   </object>
                 </child>

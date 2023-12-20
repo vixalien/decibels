@@ -191,29 +191,36 @@ export class APPlayerState extends Adw.Bin {
   private scale_change_value_cb(
     _scale: Gtk.Scale,
     _scroll: Gtk.ScrollType,
-    value: number,
+    _value: number,
   ) {
     const window = this.get_root() as Window;
     const stream = window?.stream;
 
     if (!stream) return;
 
-    stream.seek(value);
+    stream.seek(this._scale_adjustment.value);
   }
 
   private event_scroll(
-    _controller: Gtk.EventControllerScroll,
+    controller: Gtk.EventControllerScroll,
     dx: number,
     dy: number,
   ) {
     const window = this.get_root() as Window;
     const stream = window?.stream;
+    let delta = 0.0;
 
     if (!stream) return;
 
-    const delta = dx * 1000000;
-    const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
+    const unit = controller.get_unit();
 
+    if (unit === Gdk.ScrollUnit.WHEEL) {
+      delta = (dx === 0 ? dy : dx) * 10000000
+    } else {
+      delta = (dx === 0 ? dy : dx) * 1000000
+    }
+
+    const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
     stream.seek(d);
   }
 
