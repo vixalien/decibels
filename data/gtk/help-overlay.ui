@@ -32,6 +32,24 @@
                 <property name="action-name">win.open-file</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Pause/Play</property>
+                <property name="accelerator">space</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Go back 10 seconds</property>
+                <property name="accelerator">Left</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Go forward 10 seconds</property>
+                <property name="accelerator">Right</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
