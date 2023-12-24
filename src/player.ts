@@ -68,6 +68,7 @@ export class APPlayerState extends Adw.Bin {
       "label",
       GObject.BindingFlags.SYNC_CREATE,
       (_binding, from: number) => {
+        this._scale.grab_focus();
         return [true, micro_to_string(from)];
       },
       null,
