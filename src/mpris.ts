@@ -365,7 +365,8 @@ export class MPRIS extends DBusInterface {
 
   /** Skips to the previous track in the tracklist */
   _previous() {
-    this.stream.skip_seconds(-10);}
+    this.stream.skip_seconds(-10);
+  }
 
   /** Pauses playback */
   _pause() {
