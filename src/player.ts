@@ -216,13 +216,12 @@ export class APPlayerState extends Adw.Bin {
     const unit = controller.get_unit();
 
     if (unit === Gdk.ScrollUnit.WHEEL) {
-      delta = (dx === 0 ? dy : dx) * 10000000;
+      delta = (dx === 0 ? dy : dx) * 10;
     } else {
-      delta = (dx === 0 ? dy : dx) * 1000000;
+      delta = dx === 0 ? dy : dx;
     }
 
-    const d = Math.max(Math.min(stream.timestamp - delta, stream.duration), 0);
-    stream.seek(d);
+    stream.skip_seconds(delta);
   }
 
   private key_pressed_cb(
