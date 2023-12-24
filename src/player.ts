@@ -202,7 +202,7 @@ export class APPlayerState extends Adw.Bin {
     stream.seek(this._scale_adjustment.value);
   }
 
-  private event_scroll(
+  private scroll_cb(
     controller: Gtk.EventControllerScroll,
     dx: number,
     dy: number,
@@ -225,7 +225,7 @@ export class APPlayerState extends Adw.Bin {
     stream.seek(d);
   }
 
-  private event_key_pressed(
+  private key_pressed_cb(
     _controller: Gtk.EventControllerKey,
     keyval: number,
     _keycode: number,

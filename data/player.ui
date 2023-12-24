@@ -19,7 +19,7 @@
                 <child>
                   <object class="GtkEventControllerScroll">
                     <property name="flags">both-axes</property>
-                    <signal name="scroll" handler="event_scroll"/>
+                    <signal name="scroll" handler="scroll_cb"/>
                   </object>
                 </child>
               </object>
@@ -47,7 +47,7 @@
                 <child>
                   <object class="GtkEventControllerScroll">
                     <property name="flags">both-axes</property>
-                    <signal name="scroll" handler="event_scroll"/>
+                    <signal name="scroll" handler="scroll_cb"/>
                   </object>
                 </child>
               </object>
@@ -159,7 +159,7 @@
     </child>
     <child>
       <object class="GtkEventControllerKey">
-        <signal name="key_pressed" handler="event_key_pressed"/>
+        <signal name="key_pressed" handler="key_pressed_cb"/>
       </object>
     </child>
   </template>
