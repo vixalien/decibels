@@ -35,9 +35,14 @@ appstream_file = i18n.merge_file(
   install_dir: decibels_datadir / 'metainfo'
 )
 
-appstream_util = find_program('appstream-util', required: false)
-if appstream_util.found()
-  test('Validate appstream file', appstream_util, args: ['validate', '--nonet', appstream_file])
+# Validate Appdata
+appstreamcli = find_program('appstreamcli', required: false)
+if (appstreamcli.found())
+  test('Validate appdata file',
+    appstreamcli,
+    args: ['validate', '--no-net', '--explain', appstream_file],
+    workdir: meson.current_build_dir()
+  )
 endif
 
 gsettings_conf = configuration_data()
