@@ -9,7 +9,7 @@
   <homepage rdf:resource="https://github.com/vixalien/decibels/" />
   <bug-database rdf:resource="https://github.com/vixalien/decibels/issues/"/>
 
-  <programming-language>Rust</programming-language>
+  <programming-language>JavaScript</programming-language>
   <platform>GTK 4</platform>
   <platform>Libadwaita</platform>
 
