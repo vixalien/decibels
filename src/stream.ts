@@ -552,11 +552,6 @@ export class APMediaStream extends Gtk.MediaStream {
   private uri_loaded_cb(_play: GstPlay.Play, uri: string): void {
     this.emit("loaded");
     this.notify("rate");
-    console.log(
-      "uri loaded",
-      uri,
-      this._play.pipeline.get_state(Number.MAX_SAFE_INTEGER),
-    );
     this.play();
   }
 
@@ -683,14 +678,12 @@ export class APMediaStream extends Gtk.MediaStream {
     return this._play.uri;
   }
 
-  set_file(file: Gio.File): void {
+  set_file(file: Gio.File) {
     this.reset();
-
-    const uri = file.get_uri();
 
     this.file = file;
 
-    this.discoverer.discover_uri_async(uri);
+    this.discoverer.discover_uri_async(file.get_uri());
   }
 
   stop() {

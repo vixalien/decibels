@@ -15,6 +15,7 @@ import { Settings } from "./application.js";
 import { APDragOverlay } from "./drag-overlay.js";
 
 Gio._promisify(Gtk.FileDialog.prototype, "open", "open_finish");
+Gio._promisify(Gio.File.prototype, "query_info_async", "query_info_finish");
 
 APHeaderBar;
 
@@ -166,7 +167,7 @@ export class Window extends Adw.ApplicationWindow {
     this.file_dialog = new Gtk.FileDialog({
       modal: true,
       title: _("Open File"),
-      filters,
+      // filters,
     });
 
     (this.add_action_entries as AddActionEntries)([
@@ -183,7 +184,39 @@ export class Window extends Adw.ApplicationWindow {
     this.stream.set_uri(uri);
   }
 
-  load_file(file: Gio.File) {
+  async load_file(file: Gio.File) {
+    const fileInfo = await file.query_info_async(
+      "standard::*",
+      Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+      GLib.PRIORITY_DEFAULT,
+      null,
+    ).catch(() => {
+      this.show_error(
+        _("File Cannot Be Played"),
+        _("No available audio file found"),
+      );
+      return null;
+    });
+
+    if (!fileInfo) return;
+
+    switch (fileInfo.get_file_type()) {
+      case Gio.FileType.REGULAR:
+        break;
+      case Gio.FileType.DIRECTORY:
+        this.show_error(
+          _("Directories Cannot Be Played"),
+          _("Please select a file."),
+        );
+        return;
+      default:
+        this.show_error(
+          _("File Cannot Be Played"),
+          _("The selected file is not a regular file."),
+        );
+        return;
+    }
+
     this.stream.set_file(file);
   }
 
@@ -195,7 +228,7 @@ export class Window extends Adw.ApplicationWindow {
         } else {
           this.show_error(
             _("File Cannot Be Played"),
-            _("The file could not be accessed"),
+            _("No file was selected"),
           );
         }
       })
@@ -216,8 +249,9 @@ export class Window extends Adw.ApplicationWindow {
   }
 
   show_error(title: string, error: any) {
-    this.show_stack_page("error");
+    this.stream.stop();
 
+    this.show_stack_page("error");
     this._error.show_error(title, error);
   }
 }
