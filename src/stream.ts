@@ -251,6 +251,11 @@ export class APMediaStream extends Gtk.MediaStream {
       this.tags = info.get_tags();
 
       switch (info.get_result()) {
+        case GstPbUtils.DiscovererResult.OK:
+          const uri = info.get_uri();
+          this._play.set_uri(uri);
+          this.peaks_generator.generate_peaks_async(uri);
+          return;
         case GstPbUtils.DiscovererResult.MISSING_PLUGINS:
           this.gerror(
             GLib.Error.new_literal(
@@ -267,6 +272,26 @@ export class APMediaStream extends Gtk.MediaStream {
                 GstPlay.PlayError,
                 GstPlay.PlayError.FAILED,
                 _("An error happened while trying to get information about the file. Please try again."),
+              ),
+          );
+          return;
+        case GstPbUtils.DiscovererResult.URI_INVALID:
+          this.gerror(
+            error ??
+              GLib.Error.new_literal(
+                GstPlay.PlayError,
+                GstPlay.PlayError.FAILED,
+                _("File uses an invalid URI"),
+              ),
+          );
+          return;
+        case GstPbUtils.DiscovererResult.TIMEOUT:
+          this.gerror(
+            error ??
+              GLib.Error.new_literal(
+                GstPlay.PlayError,
+                GstPlay.PlayError.FAILED,
+                _("Reading the file's information timed out. Please try again."),
               ),
           );
           return;
@@ -504,9 +529,7 @@ export class APMediaStream extends Gtk.MediaStream {
     // TODO: cancel pending seeks
     this._play.stop();
 
-    if (this.prepared) {
-      this.stream_unprepared();
-    }
+    this.stop();
 
     this.emit("error", error);
   }
@@ -529,6 +552,11 @@ export class APMediaStream extends Gtk.MediaStream {
   private uri_loaded_cb(_play: GstPlay.Play, uri: string): void {
     this.emit("loaded");
     this.notify("rate");
+    console.log(
+      "uri loaded",
+      uri,
+      this._play.pipeline.get_state(Number.MAX_SAFE_INTEGER),
+    );
     this.play();
   }
 
@@ -640,19 +668,15 @@ export class APMediaStream extends Gtk.MediaStream {
 
     this.peaks_generator.restart();
 
-    if (this.prepared) {
-      this.stream_unprepared();
-    }
+    this.stop();
   }
 
   set_uri(uri: string): void {
     this.reset();
 
     this.file = null;
-    this._play.uri = uri;
 
     this.discoverer.discover_uri_async(uri);
-    this.peaks_generator.generate_peaks_async(uri);
   }
 
   get_uri() {
@@ -665,17 +689,16 @@ export class APMediaStream extends Gtk.MediaStream {
     const uri = file.get_uri();
 
     this.file = file;
-    this._play.uri = uri;
 
     this.discoverer.discover_uri_async(uri);
-    this.peaks_generator.generate_peaks_async(uri);
   }
 
   stop() {
-    this._play.seek(0);
-    this.pause();
+    if (this.prepared) {
+      this.stream_unprepared();
+    }
 
-    this.notify("timestamp");
+    this._play.pipeline.set_state(Gst.State.NULL);
   }
 
   skip_seconds(seconds: number) {
