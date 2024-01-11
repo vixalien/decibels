@@ -149,8 +149,9 @@ export class APWaveForm extends Gtk.DrawingArea {
     // We keep them to the minimum possible scope to catch real errors.
     /* eslint-disable @typescript-eslint/no-unsafe-call */
     /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-    ctx.setLineCap(Cairo.LineCap.ROUND);
-    ctx.setLineWidth(2);
+    ctx.setLineCap(Cairo.LineCap.SQUARE);
+    ctx.setAntialias(Cairo.Antialias.NONE);
+    ctx.setLineWidth(1);
 
     this.setSourceRGBA(ctx, dividerColor);
 
@@ -158,7 +159,7 @@ export class APWaveForm extends Gtk.DrawingArea {
     ctx.lineTo(horizCenter, vertiCenter + height);
     ctx.stroke();
 
-    ctx.setLineWidth(1);
+    ctx.setLineWidth(2);
     /* eslint-enable @typescript-eslint/no-unsafe-call */
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 
