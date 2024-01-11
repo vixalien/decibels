@@ -15,6 +15,8 @@
             <child>
               <object class="APWaveForm" id="waveform">
                 <signal name="position-changed" handler="waveform_position_changed_cb" />
+                <property name="margin-start">6</property>
+                <property name="margin-end">6</property>
                 <property name="vexpand">true</property>
                 <child>
                   <object class="GtkEventControllerScroll">
