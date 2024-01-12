@@ -4,7 +4,7 @@
   <template class="APPlaybackRateButton" parent="AdwBin">
     <child>
       <object class="GtkMenuButton" id="menu_button">
-        <property name="label">1.0x</property>
+        <property name="label">1.0×</property>
         <property name="popover">
           <object class="GtkPopover">
             <child>

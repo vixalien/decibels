@@ -48,7 +48,7 @@ export class APPlaybackRateButton extends Adw.Bin {
       (_binding, from: number) => {
         // const rounded = (Math.round(from * 10) / 10).toString();
         const rounded = from.toFixed(1);
-        return [true, `${rounded}⨉`];
+        return [true, `${rounded}×`];
       },
       null,
     );
