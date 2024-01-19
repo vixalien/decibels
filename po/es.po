@@ -1,0 +1,225 @@
+# Spanish translations for com.vixalien.decibels package.
+# Copyright (C) 2024 THE com.vixalien.decibels'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.vixalien.decibels\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-19 10:38+0100\n"
+"PO-Revision-Date: 2024-01-19 10:56+0100\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 45.3\n"
+
+#: data/com.vixalien.decibels.desktop.in.in:3
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+msgid "Decibels"
+msgstr "Decibelios"
+
+#: data/com.vixalien.decibels.desktop.in.in:4
+msgid "Audio Player"
+msgstr "Reproductor de audio"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/com.vixalien.decibels.desktop.in.in:12
+msgid "music;player;media;audio;"
+msgstr "music;player;media;audio;música;reproductor;"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:6
+msgid "Play audio files"
+msgstr "Reproducir archivos de audio"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+msgid "Current features:"
+msgstr "Características actuales:"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:18
+msgid "Shows the waveform of the track"
+msgstr "Muestra la forma de onda de la pista"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:19
+msgid "Adjust playback speed"
+msgstr "Ajustar la velocidad de reproducción"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:20
+msgid "Easy seek controls"
+msgstr "Controles de desplazamiento sencillos"
+
+#: data/drag-overlay.ui:17
+msgid "Drop an audio file to play it"
+msgstr "Suelte un archivo de audio para reproducirlo"
+
+#: data/empty.ui:13
+msgid "Open an Audio File"
+msgstr "Abrir un archivo de audio"
+
+#: data/empty.ui:20
+msgid "_Open…"
+msgstr "A_brir…"
+
+#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:156 src/window.ts:195
+#: src/window.ts:214 src/window.ts:230
+msgid "File Cannot Be Played"
+msgstr "No se puede reproducir el archivo"
+
+#: data/error.ui:20
+msgid "_Try Again…"
+msgstr "_Intentar de nuevo…"
+
+#: data/header.ui:12
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: data/header.ui:21
+msgid "Open…"
+msgstr "Abrir…"
+
+#: data/header.ui:27
+msgid "_Keyboard Shortcuts"
+msgstr "Atajos del _teclado"
+
+#: data/header.ui:31
+msgid "_About Decibels"
+msgstr "_Acerca de Decibelios"
+
+#: data/player.ui:91
+msgid "Adjust Playback Speed"
+msgstr "Ajustar la velocidad de reproducción"
+
+#: data/player.ui:103
+msgid "Skip back 10s"
+msgstr "Retroceder 10s"
+
+#: data/player.ui:131
+msgid "Skip forward 10s"
+msgstr "Avanzar 10s"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostrar atajos"
+
+#: data/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Salir"
+
+#: data/gtk/help-overlay.ui:28
+msgctxt "shortcut window"
+msgid "Player"
+msgstr "Reproductor"
+
+#: data/gtk/help-overlay.ui:31
+msgctxt "shortcut window"
+msgid "Open File"
+msgstr "Abrir archivo"
+
+#: data/gtk/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Pause/Play"
+msgstr "Pausar/Reproducir"
+
+#: data/gtk/help-overlay.ui:43
+msgctxt "shortcut window"
+msgid "Go back 10 seconds"
+msgstr "Retroceder 10 segundos"
+
+#: data/gtk/help-overlay.ui:49
+msgctxt "shortcut window"
+msgid "Go forward 10 seconds"
+msgstr "Avanzar 10 segundos"
+
+#. Translators: Replace "translator-credits" with your names, one name per line
+#: src/application.ts:50
+msgid "translator-credits"
+msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>"
+
+#: src/drag-overlay.ts:73
+msgid "Unable to access dropped files"
+msgstr "No se puede acceder a los archivos eliminados"
+
+#: src/error.ts:42
+msgid "An unknown error happened"
+msgstr "Se ha producido un error desconocido"
+
+#: src/stream.ts:264
+msgid ""
+"File uses a format that cannot be played. Additional media codecs may be "
+"required."
+msgstr ""
+"El archivo usa un formato que no se puede reproducir. Es posible que se "
+"necesiten códecs multimedia adicionales."
+
+#: src/stream.ts:274
+msgid ""
+"An error happened while trying to get information about the file. Please try "
+"again."
+msgstr ""
+"Se ha producido un error al intentar obtener información sobre el archivo. "
+"Por favor, inténtelo de nuevo."
+
+#: src/stream.ts:284
+msgid "File uses an invalid URI"
+msgstr "El archivo usa una URI no válida"
+
+#: src/stream.ts:294
+msgid "Reading the file's information timed out. Please try again."
+msgstr ""
+"Se ha agotado el tiempo de lectura de la información del archivo. Por favor, "
+"inténtelo de nuevo."
+
+#: src/stream.ts:408
+msgid "Unknown File"
+msgstr "Archivo desconocido"
+
+#: src/stream.ts:633
+msgid "The selected file doesn't contain any audio"
+msgstr "El archivo seleccionado no contiene audio"
+
+#: src/player.ts:136
+msgid "Pause"
+msgstr "Pausar"
+
+#: src/player.ts:136
+msgid "Play"
+msgstr "Reproducir"
+
+#: src/window.ts:162
+msgid "Audio files"
+msgstr "Archivos de audio"
+
+#: src/window.ts:169
+msgid "Open File"
+msgstr "Abrir archivo"
+
+#: src/window.ts:196
+msgid "No available audio file found"
+msgstr "No se ha encontrado ningún archivo de audio disponible"
+
+#: src/window.ts:208
+msgid "Directories Cannot Be Played"
+msgstr "Los directorios no se pueden reproducir"
+
+#: src/window.ts:209
+msgid "Please select a file."
+msgstr "Seleccione un archivo."
+
+#: src/window.ts:215
+msgid "The selected file is not a regular file."
+msgstr "El archivo seleccionado no es un archivo normal."
+
+#: src/window.ts:231
+msgid "No file was selected"
+msgstr "No se ha seleccionado ningún archivo"
