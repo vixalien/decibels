@@ -43,7 +43,7 @@ export class Application extends Adw.Application {
         "Angelo Verlain https://vixalien.com",
         "David Keller https://gitlab.com/BlobCodes",
       ]);
-      aboutWindow.set_artists(["kramo https://kramo.hu"]);
+      aboutWindow.set_artists(["kramo https://kramo.page"]);
       aboutWindow.set_designers(["Allan Day"]);
       aboutWindow.set_transient_for(this.get_active_window());
       /* Translators: Replace "translator-credits" with your names, one name per line */
