@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-19 17:52+0200\n"
-"PO-Revision-Date: 2024-01-30 19:41+0300\n"
+"PO-Revision-Date: 2024-01-30 20:11+0300\n"
 "Last-Translator: rthrejheytjyrtj545 <130095917+rthrejheytjyrtj545@users.noreply.github.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -84,6 +84,18 @@ msgstr "_Комбинации клавиш"
 msgid "_About Decibels"
 msgstr "О _Децибелах"
 
+#: data/player.ui:77
+msgid "Adjust Playback Speed"
+msgstr "Регулировка скорости"
+
+#: data/player.ui:89
+msgid "Skip back 10s"
+msgstr "Перемотать вперёд на 10 с."
+
+#: data/player.ui:117
+msgid "Skip forward 10s"
+msgstr "Перемотать назад на 10 с."
+
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
@@ -145,6 +157,14 @@ msgstr "Неизвестный файл"
 #: src/stream.ts:619
 msgid "The selected file doesn't contain any audio"
 msgstr "В выбранном файле нет аудио"
+
+#: src/player.ts:134
+msgid "Pause"
+msgstr "Пауза"
+
+#: src/player.ts:134
+msgid "Play"
+msgstr "Произведение"
 
 #: src/window.ts:161
 msgid "Audio files"
