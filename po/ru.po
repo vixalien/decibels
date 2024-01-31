@@ -1,21 +1,21 @@
-# Localisation of Decibels
-# Copyright (C) 2024
-# This file is distributed under the same license as the decibels package.
-# vixalien <hey@vixalien.com>, 2023.
+# Локализация Децибел
+# Copyright (C) 2024 THE com.vixalien.decibels'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
+# Сергей Ворон <voron@duck.com>, 2023.
+# rthrejheytjyrtj545 <130095917+rthrejheytjyrtj545@users.noreply.github.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-19 17:52+0200\n"
-"PO-Revision-Date: 2024-01-31 14:46+0300\n"
+"PO-Revision-Date: 2023-11-19 17:52+0200\n"
 "Last-Translator: rthrejheytjyrtj545 <130095917+rthrejheytjyrtj545@users.noreply.github.com>\n"
-"Language-Team: \n"
+"Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: 8bit\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
 #: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
