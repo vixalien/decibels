@@ -119,8 +119,8 @@ export class APPlayerState extends Adw.Bin {
         return [
           true,
           from
-            ? "media-playback-pause-symbolic"
-            : "media-playback-start-symbolic",
+            ? "pause-symbolic"
+            : "play-symbolic",
         ];
       },
       null,

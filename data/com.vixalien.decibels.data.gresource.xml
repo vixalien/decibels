@@ -14,6 +14,8 @@
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
 
+    <file preprocess="xml-stripblanks">icons/scalable/actions/pause-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/actions/play-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/skip-backwards-10-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/skip-backwards-30-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/skip-forward-10-symbolic.svg</file>

@@ -31,8 +31,8 @@
             <property name="orientation">1</property>
             <child>
               <object class="GtkScale" id="scale">
-                <property name="margin-start">6</property>
-                <property name="margin-end">6</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
                 <property name="hexpand">true</property>
                 <signal name="change-value" handler="scale_change_value_cb" after="yes"/>
                 <property name="adjustment">
@@ -54,8 +54,8 @@
             </child>
             <child>
               <object class="GtkBox" id="labels">
-                <property name="margin-start">18</property>
-                <property name="margin-end">18</property>
+                <property name="margin-start">24</property>
+                <property name="margin-end">24</property>
                 <child>
                   <object class="GtkLabel" id="timestamp_label">
                     <style>
@@ -80,9 +80,10 @@
         </child>
         <child type="bottom">
           <object class="GtkCenterBox" id="controls">
-            <property name="margin-bottom">6</property>
+            <property name="margin-start">9</property>
+            <property name="margin-end">9</property>
+            <property name="margin-bottom">9</property>
             <style>
-              <class name="controls" />
               <class name="toolbar" />
             </style>
             <child type="start">
@@ -109,14 +110,15 @@
                 <child>
                   <object class="GtkButton" id="playback_button">
                     <property name="action-name">player.play-pause</property>
+                    <property name="width-request">42</property>
+                    <property name="height-request">42</property>
                     <child>
                       <object class="GtkImage" id="playback_image">
-                        <property name="icon-name">media-playback-pause-symbolic</property>
-                        <property name="pixel-size">24</property>
+                        <property name="icon-name">pause-symbolic</property>
+                        <property name="pixel-size">20</property>
                       </object>
                     </child>
                     <style>
-                      <class name="large-button" />
                       <class name="circular" />
                       <class name="raised" />
                     </style>
