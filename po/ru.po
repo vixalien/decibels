@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: decibels\n"
+"Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-19 17:52+0200\n"
-"PO-Revision-Date: 2024-01-30 20:11+0300\n"
+"PO-Revision-Date: 2024-01-31 14:46+0300\n"
 "Last-Translator: rthrejheytjyrtj545 <130095917+rthrejheytjyrtj545@users.noreply.github.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -22,8 +22,12 @@ msgstr ""
 msgid "Decibels"
 msgstr "Децибелы"
 
+#: data/com.vixalien.decibels.desktop.in.in:4
+msgid "Audio Player"
+msgstr "Аудиопроигрыватель"
+
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.vixalien.decibels.desktop.in.in:11
+#: data/com.vixalien.decibels.desktop.in.in:12
 msgid "music;player;media;audio;"
 msgstr "music;player;media;audio;музыка;плеер;медиа;аудио;"
 
@@ -150,11 +154,11 @@ msgid ""
 "again."
 msgstr "Не удалось получить информацию о файле"
 
-#: src/stream.ts:393
+#: src/stream.ts:383
 msgid "Unknown File"
 msgstr "Неизвестный файл"
 
-#: src/stream.ts:619
+#: src/stream.ts:609
 msgid "The selected file doesn't contain any audio"
 msgstr "В выбранном файле нет аудио"
 
