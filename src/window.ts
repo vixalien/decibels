@@ -17,13 +17,11 @@ import { APDragOverlay } from "./drag-overlay.js";
 Gio._promisify(Gtk.FileDialog.prototype, "open", "open_finish");
 Gio._promisify(Gio.File.prototype, "query_info_async", "query_info_finish");
 
-APHeaderBar;
-
-// make sure that GObject registers these first
-APEmptyState;
-APErrorState;
-APPlayerState;
-APDragOverlay;
+GObject.type_ensure(APHeaderBar.$gtype);
+GObject.type_ensure(APEmptyState.$gtype);
+GObject.type_ensure(APErrorState.$gtype);
+GObject.type_ensure(APPlayerState.$gtype);
+GObject.type_ensure(APDragOverlay.$gtype);
 
 export type ActionEntry = {
   name: string;
