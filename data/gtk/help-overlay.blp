@@ -1,0 +1,48 @@
+using Gtk 4.0;
+
+ShortcutsWindow help_overlay {
+  modal: true;
+
+  ShortcutsSection {
+    section-name: "shortcuts";
+    max-height: 10;
+
+    ShortcutsGroup {
+      title: C_("shortcut window", "General");
+
+      ShortcutsShortcut {
+        title: C_("shortcut window", "Show Shortcuts");
+        action-name: "win.show-help-overlay";
+      }
+
+      ShortcutsShortcut {
+        title: C_("shortcut window", "Quit");
+        action-name: "app.quit";
+      }
+    }
+
+    ShortcutsGroup {
+      title: C_("shortcut window", "Player");
+
+      ShortcutsShortcut {
+        title: C_("shortcut window", "Open File");
+        action-name: "win.open-file";
+      }
+
+      ShortcutsShortcut {
+        title: C_("shortcut window", "Pause/Play");
+        accelerator: "space";
+      }
+
+      ShortcutsShortcut {
+        title: C_("shortcut window", "Go back 10 seconds");
+        accelerator: "Left";
+      }
+
+      ShortcutsShortcut {
+        title: C_("shortcut window", "Go forward 10 seconds");
+        accelerator: "Right";
+      }
+    }
+  }
+}

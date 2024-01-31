@@ -1,3 +1,17 @@
+blueprints = custom_target('blueprints',
+  input: files(
+    'gtk/help-overlay.blp',
+    'drag-overlay.blp',
+    'empty.blp',
+    'error.blp',
+    'header.blp',
+    'window.blp',
+    'playback-rate-button.blp',
+  ),
+  output: '.',
+  command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
+)
+
 desktop_conf = configuration_data()
 desktop_conf.set('app-id', application_id)
 
@@ -77,7 +91,7 @@ data_res = gnome.compile_resources(
   gresource_bundle: true,
   install: true,
   install_dir: decibels_pkgdatadir,
-  dependencies: appstream_file,
+  dependencies: [appstream_file, blueprints],
 )
 
 service_conf = configuration_data()

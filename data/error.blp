@@ -1,0 +1,33 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $APErrorState : Adw.Bin {
+  Adw.ToolbarView {
+    [top]
+    $APHeaderBar headerbar {
+    }
+
+    Adw.StatusPage statusPage {
+      icon-name: "warning-symbolic";
+      title: _("File Cannot Be Played");
+
+      Box {
+        orientation: vertical;
+        spacing: 12;
+
+        Button {
+          label: _("_Try Again…");
+          use-underline: true;
+          action-name: "win.open-file";
+          can-shrink: true;
+          halign: center;
+
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $APEmptyState : Adw.Bin {
+  Adw.ToolbarView {
+    [top]
+    $APHeaderBar {
+    }
+
+    Adw.StatusPage statusPage {
+      icon-name: "com.vixalien.decibels-symbolic";
+      title: _("Open an Audio File");
+
+      Box {
+        orientation: vertical;
+        spacing: 12;
+
+        Button {
+          label: _("_Open…");
+          use-underline: true;
+          action-name: "win.open-file";
+          can-shrink: true;
+          halign: center;
+
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+        }
+      }
+    }
+  }
+}

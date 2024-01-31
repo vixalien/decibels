@@ -1,0 +1,25 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $APDragOverlay : Adw.Bin {
+  styles [
+    "drag-overlay",
+  ]
+
+  Overlay overlay {
+    [overlay]
+    Revealer revealer {
+      can-target: false;
+      transition-type: crossfade;
+
+      Adw.StatusPage {
+        icon-name: "folder-music-symbolic";
+        title: _("Drop an audio file to play it");
+
+        styles [
+          "drag-overlay-status-page",
+        ]
+      }
+    }
+  }
+}
