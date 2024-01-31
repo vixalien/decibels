@@ -473,7 +473,7 @@ export class APMediaStream extends Gtk.MediaStream {
   get_duration() {
     if (!this._play.media_info) return 0;
 
-    return this._play.media_info.get_duration() / Gst.USECOND;
+    return get_safe_duration(this._play.media_info.get_duration()) / Gst.USECOND;
   }
 
   // property: error
@@ -622,7 +622,7 @@ export class APMediaStream extends Gtk.MediaStream {
         info.get_number_of_audio_streams() > 0,
         info.get_number_of_video_streams() > 0,
         info.is_seekable(),
-        this._play.get_duration() / Gst.USECOND,
+        get_safe_duration(info.get_duration()) / Gst.USECOND,
       );
 
       if (info.get_number_of_audio_streams() <= 0) {
@@ -634,6 +634,8 @@ export class APMediaStream extends Gtk.MediaStream {
           ),
         );
       }
+    } else {
+      this.notify("duration");
     }
   }
 
@@ -760,4 +762,12 @@ export function get_cubic_volume(value: number) {
     GstAudio.StreamVolumeFormat.CUBIC,
     value,
   );
+}
+
+function get_safe_duration(value: number) {
+  if (value >= GLib.MAXUINT64) {
+    return 100 * Gst.SECOND;
+  }
+
+  return value;
 }
