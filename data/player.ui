@@ -139,7 +139,7 @@
               </object>
             </child>
             <child type="end">
-              <object class="GtkVolumeButton" id="volume_button">
+              <object class="APVolumeButton" id="volume_button">
                 <property name="valign">3</property>
               </object>
             </child>

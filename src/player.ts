@@ -7,8 +7,10 @@ import { Window } from "./window.js";
 import { APHeaderBar } from "./header.js";
 import { APWaveForm } from "./waveform.js";
 import { APPlaybackRateButton } from "./playback-rate-button.js";
+import { APVolumeButton } from "./volume-button.js";
 
 GObject.type_ensure(APPlaybackRateButton.$gtype);
+GObject.type_ensure(APVolumeButton.$gtype);
 
 export class APPlayerState extends Adw.Bin {
   private _scale_adjustment!: Gtk.Adjustment;

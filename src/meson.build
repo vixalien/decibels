@@ -11,6 +11,7 @@ sources = [
   'playback-rate-button.ts',
   'player.ts',
   'stream.ts',
+  'volume-button.ts',
   'waveform.ts',
   'window.ts',
 ]

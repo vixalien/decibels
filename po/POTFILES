@@ -12,5 +12,6 @@ src/application.ts
 src/drag-overlay.ts
 src/error.ts
 src/stream.ts
+src/volume-button.ts
 src/player.ts
 src/window.ts
