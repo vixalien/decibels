@@ -135,15 +135,10 @@ export class APWaveForm extends Gtk.DrawingArea {
     let pointer = horizCenter - (this._position * peaks.length * GUTTER);
 
     const styleContext = this.get_style_context();
-    const leftColor = styleContext.get_color();
 
     const rightColor = styleContext.lookup_color("dimmed_color")[1];
 
-    const dividerName = "accent_color";
-    const lookupColor = styleContext.lookup_color(dividerName);
-    const ok = lookupColor[0];
-    let dividerColor = lookupColor[1];
-    if (!ok) dividerColor = styleContext.get_color();
+    const leftColor = this.safeLookupColor("accent_color");
 
     // Because the cairo module isn't real, we have to use these to ignore `any`.
     // We keep them to the minimum possible scope to catch real errors.
@@ -151,9 +146,9 @@ export class APWaveForm extends Gtk.DrawingArea {
     /* eslint-disable @typescript-eslint/no-unsafe-member-access */
     ctx.setLineCap(Cairo.LineCap.SQUARE);
     ctx.setAntialias(Cairo.Antialias.NONE);
-    ctx.setLineWidth(1);
+    ctx.setLineWidth(2);
 
-    this.setSourceRGBA(ctx, dividerColor);
+    this.setSourceRGBA(ctx, leftColor);
 
     ctx.moveTo(horizCenter, vertiCenter - height);
     ctx.lineTo(horizCenter, vertiCenter + height);
@@ -227,6 +222,15 @@ export class APWaveForm extends Gtk.DrawingArea {
     this.peaks.length = 0;
     this.queue_draw();
   }
+
+  private safeLookupColor(color: string) {
+    const styleContext = this.get_style_context();
+
+    const lookupColor = styleContext.lookup_color(color);
+    const ok = lookupColor[0];
+    if (ok) return lookupColor[1];
+    return styleContext.get_color();
+    }
 }
 
 export class APPeaksGenerator extends GObject.Object {
