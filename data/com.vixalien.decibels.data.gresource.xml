@@ -20,6 +20,7 @@
     <file preprocess="xml-stripblanks">icons/scalable/actions/skip-backwards-30-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/skip-forward-10-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/skip-forward-30-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/scalable/actions/speedometer-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/warning-symbolic.svg</file>
   </gresource>
 </gresources>

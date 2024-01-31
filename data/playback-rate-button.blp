@@ -2,8 +2,18 @@ using Gtk 4.0;
 using Adw 1;
 
 template $APPlaybackRateButton : Adw.Bin {
-  MenuButton menu_button {
-    label: "1.0×";
+  MenuButton {
+    Box {
+      spacing: 6;
+
+      Image {
+        icon-name: 'speedometer-symbolic';
+      }
+
+      Label label {
+        label: '× 1.0';
+      }
+    }
     popover: 
     Popover {
       Box {

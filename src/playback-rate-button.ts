@@ -5,8 +5,8 @@ import GObject from "gi://GObject";
 import { Window } from "./window.js";
 
 export class APPlaybackRateButton extends Adw.Bin {
-  private _menu_button!: Gtk.MenuButton;
   private _adjustment!: Gtk.Adjustment;
+  private _label!: Gtk.Label;
 
   static {
     GObject.registerClass(
@@ -15,7 +15,7 @@ export class APPlaybackRateButton extends Adw.Bin {
         Template: "resource:///com/vixalien/decibels/playback-rate-button.ui",
         InternalChildren: [
           "adjustment",
-          "menu_button",
+          "label"
         ],
         Properties: {},
       },
@@ -42,13 +42,25 @@ export class APPlaybackRateButton extends Adw.Bin {
     // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "rate",
-      this._menu_button,
+      this._label,
       "label",
       GObject.BindingFlags.SYNC_CREATE,
       (_binding, from: number) => {
-        // const rounded = (Math.round(from * 10) / 10).toString();
         const rounded = from.toFixed(1);
-        return [true, `${rounded}×`];
+        return [true, `× ${rounded}`];
+      },
+      null,
+    );
+
+    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    window.stream.bind_property_full(
+      "rate",
+      this._label,
+      "visible",
+      GObject.BindingFlags.SYNC_CREATE,
+      (_binding, from: number) => {
+        const rounded  = Math.round(from * 10) / 10
+        return [true, rounded !== 1];
       },
       null,
     );
