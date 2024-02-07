@@ -1,117 +1,316 @@
 # Ukrainian translation for com.vixalien.decibels;
-# Copyright (C) 2023 THE com.vixalien.decibels'S COPYRIGHT HOLDER
+# Copyright (C) 2023-2024 THE com.vixalien.decibels'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.vixalien.decibels package.
-# volkov <volkovissocool@gmail.com>, 2023.
+# volkov <volkovissocool@gmail.com>, 2023-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.vixalien.decibels\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-10-17 18:40+0300\n"
+"Report-Msgid-Bugs-To: https://github.com/vixalien/decibels/issues\n"
+"POT-Creation-Date: 2024-01-31 15:01+0200\n"
+"PO-Revision-Date: 2024-02-06 17:33+0200\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: volkov <volkovissocool@gmail.com>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
-#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
+#: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.blp:9
 msgid "Decibels"
 msgstr "Децибели"
 
+#: data/com.vixalien.decibels.desktop.in.in:4
+msgid "Audio Player"
+msgstr "Аудіо програвач"
+
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.vixalien.decibels.desktop.in.in:11
+#: data/com.vixalien.decibels.desktop.in.in:12
 msgid "music;player;media;audio;"
 msgstr ""
-"music;player;media;audio;музика;аудіо;плеєр;медіа;звук;програвач;трек;музяка;"
+"music;player;media;audio;музика;аудіо;плеєр;медіа;звук;програвач;трек;музяка;відтворювач;плеер;"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:6
-#: data/com.vixalien.decibels.metainfo.xml.in.in:12
 msgid "Play audio files"
-msgstr "Програвач аудіо файлів"
+msgstr "Відтворювач аудіо файлів"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:13
+#. developer_name tag deprecated with Appstream 1.0
+#: data/com.vixalien.decibels.metainfo.xml.in.in:10
+#: data/com.vixalien.decibels.metainfo.xml.in.in:12
+msgid "Angelo Verlain"
+msgstr ""
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:16
 msgid "Current features:"
 msgstr "Поточні можливості:"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:15
+#: data/com.vixalien.decibels.metainfo.xml.in.in:18
 msgid "Shows the waveform of the track"
-msgstr "Показує звукову хвилю трека"
+msgstr "Показує звукову хвилю треку"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:16
+#: data/com.vixalien.decibels.metainfo.xml.in.in:19
 msgid "Adjust playback speed"
 msgstr "Регулювання швидкості відтворення"
 
-#: data/com.vixalien.decibels.metainfo.xml.in.in:17
+#: data/com.vixalien.decibels.metainfo.xml.in.in:20
 msgid "Easy seek controls"
-msgstr "Просте керування позицією програвання трека"
+msgstr "Просте керування позицією відтворення"
 
-#: data/drag-overlay.ui:17
+# https://apps.gnome.org/uk/, тут "Circle Apps" переклали як "Супутні програми"
+#: data/com.vixalien.decibels.metainfo.xml.in.in:38
+msgid "Decibels joined GNOME Circle! 🥳"
+msgstr "Децибели приєднався до супутніх програм GNOME! 🥳"
+
+# Зчитувач екрану який знаходиться у налаштуваннях доступності GNOME для тих хто не може бачити.
+#: data/com.vixalien.decibels.metainfo.xml.in.in:39
+msgid ""
+"Enhanced the accessibility of the app by ensuring that every on-screen "
+"element is screenreader accessible"
+msgstr ""
+"Покращено доступність додатку впевнившись у тому, що усі елементи на екрані "
+"доступні зчитувачу екрану"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:40
+msgid "Added Dutch, Occitan, Belarusian and updated the Italian translations"
+msgstr ""
+"Додано голландський, окситанський, білоруський та оновлено італійський "
+"переклади"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:47
+msgid ""
+"The buttons allowing to skip forwards and backwards 30 seconds were removed"
+msgstr "Видалені кнопки які дозволяли перемотувати вперед і назад на 30 секунд"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:48
+msgid "Some issues in the Brazilian Translation were fixed"
+msgstr "Деякі помилки були виправлені в бразильському перекладі"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:55
+msgid ""
+"The waveform of the track is now reliably generated, and shows volume levels "
+"more distinctly"
+msgstr ""
+"Тепер звукова хвиля треку генерується надійно і показує різницю гучності "
+"краще"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:56
+#: data/com.vixalien.decibels.metainfo.xml.in.in:69
+msgid "A few issues preventing some content from being translated were fixed"
+msgstr "Деякі проблеми через які деякий вміст додатку не міг бути перекладений"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:57
+msgid ""
+"Decibels was translated to Czech, Kinyarwanda, German, Traditional Chinese, "
+"Ukrainian and Brazilian Portuguese"
+msgstr ""
+"Децибели були перекладені чеською, руандійською, німецькою, традиційною "
+"китайською, українською та бразильською португальською мовами"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:63
+msgid "A small bugfix and minor improvements release"
+msgstr "Невеликі виправлення та покращення"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:65
+msgid ""
+"The artist of the currently playing track is shown if the artist is known"
+msgstr "Буде відображатися виконавець поточного треку, якщо виконавець відомий"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:66
+msgid "Fix a minor visual issue when dropping a file"
+msgstr "Невеликі візуальні проблеми при перетягуванні файлів"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:67
+msgid "Pause the track after playback ends"
+msgstr "Зупинити трек після завершення відтворення"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:68
+msgid "The window size is now correctly saved and restored"
+msgstr "Тепер розмір вікна правильно зберігається та відновлюється"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:70
+msgid "Decibels was translated to French, Russian, Italian and Turkish"
+msgstr "Децибели був перекладений французькою, російською та турецькою мовами"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:76
+msgid "A few improvements and papercut fixes"
+msgstr "Невеликі оновлення та виправлення"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:78
+msgid "Support drag and drop"
+msgstr "Підтримка перетягування до вікна додатку"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:79
+msgid "Seek to the start of a track after it ends"
+msgstr "Перемотка до початку треку після того як він завершився"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:80
+msgid "Allow dragging the app window from everywhere (except the waveform)"
+msgstr ""
+"Тепер вікно додатку можна перетягувати схопившись курсором за будь-яку "
+"частину (окрім звукової хвилі)"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:81
+msgid ""
+"Made the playback speed popover look less cluttered by removing the +/- "
+"buttons and mark labels"
+msgstr ""
+"Вспливаюче меню для швидкості відтворення тепер менш захаращене, завдяки "
+"видаленню символів \"+\" та \"-\" з кнопок та написів"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:82
+msgid ""
+"Fix an issue that prevented accessing file metadata from within the Flatpak "
+"sandbox"
+msgstr ""
+"Виправлено помилку, через яку неможливо було отримати доступ до файлу "
+"метаданих всередині пісочниці Flatpak"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:83
+msgid ""
+"Don't try to play files without audio streams (images and videos without "
+"sound)"
+msgstr ""
+"Не намагатися відтворювати файли без аудіо потоків (зображення та відео без "
+"звуку)"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:84
+msgid "Don't try to process video streams even if they were not rendered"
+msgstr ""
+"Не намагатися оброблювати відео потоки, навіть якщо вони не відображаються"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:85
+msgid "Fixed some issues with the Development build of Decibels"
+msgstr "Виправлено певні проблеми з збіркою для розробників"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:86
+msgid "Fixed a minor glitch with the app icon"
+msgstr "Виправлено маленьку помилку у піктограмі додатку"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:92
+msgid "A few bug fixes that polishes up the app"
+msgstr "Виправлено кілька вад"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:94
+msgid ""
+"Differentiate development versions of the app from the stable app by styling "
+"the icon and header differently"
+msgstr ""
+"Відокремлено версію для розробників та стабільну додатку застосувавши "
+"стилювання піктограми та верхнього заголовку по-різному"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:95
+msgid "Added donation link in application metadata"
+msgstr "Додано посилання на пожертвування у метаданих додатку"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:96
+msgid "Fix the About Window being detached from main window"
+msgstr ""
+"Виправлена помилка, через яку \"Про додаток\" вікно могло бути відокремлено "
+"від головного вікна"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:97
+msgid "Fix the About Window showing release notes for an older version"
+msgstr ""
+"Виправлена помилка, через яку у \"Про додаток\" вікні відображалися "
+"застарілі новини про оновлення"
+
+#: data/com.vixalien.decibels.metainfo.xml.in.in:104
+msgid "Initial Release"
+msgstr "Перший реліз"
+
+#: data/drag-overlay.blp:17
 msgid "Drop an audio file to play it"
-msgstr "Перетягніть аудіо файл щоб програти його"
+msgstr "Перетягніть аудіо файл щоб відтворити його"
 
-#: data/empty.ui:13
+#: data/empty.blp:12
 msgid "Open an Audio File"
 msgstr "Відкрийте аудіо файл"
 
-#: data/empty.ui:20
+#: data/empty.blp:19
 msgid "_Open…"
 msgstr "_Відкрити…"
 
-#: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
+#: data/error.blp:12 src/drag-overlay.ts:72 src/window.ts:154 src/window.ts:193
+#: src/window.ts:212 src/window.ts:228
 msgid "File Cannot Be Played"
 msgstr "Неможливо програти файл"
 
-#: data/error.ui:20
+#: data/error.blp:19
 msgid "_Try Again…"
 msgstr "_Спробувати ще раз…"
 
-#: data/header.ui:12
+#: data/header.blp:11
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: data/header.ui:21
+#: data/header.blp:19
 msgid "Open…"
 msgstr "Відкрити…"
 
-#: data/header.ui:27
+#: data/header.blp:26
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: data/header.ui:31
+#: data/header.blp:31
 msgid "_About Decibels"
 msgstr "_Про Децибели"
 
-#: data/gtk/help-overlay.ui:11
+#: data/player.ui:91
+msgid "Adjust Playback Speed"
+msgstr "Регулювання швидкості відтворення"
+
+#: data/player.ui:103
+msgid "Skip back 10s"
+msgstr "Перемотати назад на 10 секунд"
+
+#: data/player.ui:131
+msgid "Skip forward 10s"
+msgstr "Перемотати вперед на 10 секунд"
+
+#: data/gtk/help-overlay.blp:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Загальні"
 
-#: data/gtk/help-overlay.ui:14
+#: data/gtk/help-overlay.blp:14
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Клавіатурні скорочення"
 
-#: data/gtk/help-overlay.ui:20
+#: data/gtk/help-overlay.blp:19
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Вийти"
 
-#: data/gtk/help-overlay.ui:28
+#: data/gtk/help-overlay.blp:25
 msgctxt "shortcut window"
 msgid "Player"
 msgstr "Програвач"
 
-#: data/gtk/help-overlay.ui:31
+#: data/gtk/help-overlay.blp:28
 msgctxt "shortcut window"
 msgid "Open File"
 msgstr "Відкрити файл"
 
+#: data/gtk/help-overlay.blp:33
+msgctxt "shortcut window"
+msgid "Pause/Play"
+msgstr "Відтворити/зупинити"
+
+#: data/gtk/help-overlay.blp:38
+msgctxt "shortcut window"
+msgid "Go back 10 seconds"
+msgstr "Перемотати назад на 10 секунд"
+
+#: data/gtk/help-overlay.blp:43
+msgctxt "shortcut window"
+msgid "Go forward 10 seconds"
+msgstr "Перемотати вперед на 10 секунд"
+
 #. Translators: Replace "translator-credits" with your names, one name per line
-#: src/application.ts:46
+#: src/application.ts:50
 msgid "translator-credits"
 msgstr "volkov <volkovissocool@gmail.com>"
 
@@ -123,38 +322,74 @@ msgstr "Неможливо отримати доступ до перетягну
 msgid "An unknown error happened"
 msgstr "Сталася невідома помилка"
 
-#: src/stream.ts:259
+#: src/stream.ts:264
 msgid ""
 "File uses a format that cannot be played. Additional media codecs may be "
 "required."
 msgstr ""
-"Файл використовує формат який неможливо програти. Можливо, вам потрібно "
+"Файл використовує формат який неможливо відтворити. Можливо, вам потрібно "
 "встановити додаткові медіа-кодеки."
 
-#: src/stream.ts:269
+#: src/stream.ts:274
 msgid ""
 "An error happened while trying to get information about the file. Please try "
 "again."
 msgstr ""
-"Сталася помилка під час спроби отримати інформацію про файл. Будь ласка, "
-"спробуйте ще раз."
+"Сталася помилка під час спроби отримати інформацію про файл. Спробуйте ще "
+"раз."
 
-#: src/stream.ts:393
+# https://uk.wikipedia.org/wiki/%D0%A3%D0%BD%D1%96%D1%84%D1%96%D0%BA%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9_%D1%96%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D1%96%D0%BA%D0%B0%D1%82%D0%BE%D1%80_%D1%80%D0%B5%D1%81%D1%83%D1%80%D1%81%D1%96%D0%B2
+#: src/stream.ts:284
+msgid "File uses an invalid URI"
+msgstr "Файл використовує не правильний УІР (URI)"
+
+#: src/stream.ts:294
+msgid "Reading the file's information timed out. Please try again."
+msgstr "Час читання файлу вичерпано. Спробуйте ще раз."
+
+#: src/stream.ts:408
 msgid "Unknown File"
 msgstr "Невідомий файл"
 
-#: src/stream.ts:619
+#: src/stream.ts:633
 msgid "The selected file doesn't contain any audio"
 msgstr "Обраний файл не містить аудіо даних"
 
-#: src/window.ts:161
+#: src/player.ts:136
+msgid "Pause"
+msgstr "Пауза"
+
+#: src/player.ts:136
+msgid "Play"
+msgstr "Відтворити"
+
+#: src/window.ts:160
 msgid "Audio files"
 msgstr "Аудіо файли"
 
-#: src/window.ts:168
+#: src/window.ts:167
 msgid "Open File"
 msgstr "Відкрити файл"
 
-#: src/window.ts:198
-msgid "The file could not be accessed"
-msgstr "Неможливо отримати доступ до файлу"
+#: src/window.ts:194
+msgid "No available audio file found"
+msgstr "Не вдалося знайти доступний аудіо файл"
+
+#: src/window.ts:206
+msgid "Directories Cannot Be Played"
+msgstr "Не можна програвати теки"
+
+#: src/window.ts:207
+msgid "Please select a file."
+msgstr "Оберіть файл."
+
+#: src/window.ts:213
+msgid "The selected file is not a regular file."
+msgstr "Обраний файл не є звичайним файлом."
+
+#: src/window.ts:229
+msgid "No file was selected"
+msgstr "Не було обрано жодного файлу"
+
+#~ msgid "The file could not be accessed"
+#~ msgstr "Неможливо отримати доступ до файлу"
