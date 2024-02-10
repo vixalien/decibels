@@ -2,7 +2,7 @@
 # Simplified Chinese translation for com.vixalien.decibels.
 # Copyright (C) 2023 THE com.vixalien.decibels'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.vixalien.decibels package.
-# Peter Hsu <hsu@peterdavehello.org>, 2023.
+# GeniusAlray <GeniusAlray@outlook.com>, 2024.
 #
 msgid ""
 msgstr ""
