@@ -58,7 +58,7 @@ msgstr "打开音频文件"
 
 #: data/empty.ui:20
 msgid "_Open…"
-msgstr "_打开…"
+msgstr "打开(_O)…"
 
 #: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
@@ -66,7 +66,7 @@ msgstr "音频无法播放"
 
 #: data/error.ui:20
 msgid "_Try Again…"
-msgstr "_重试…"
+msgstr "重试(_T)…"
 
 #: data/header.ui:12
 msgid "Main Menu"
@@ -78,11 +78,11 @@ msgstr "打开…"
 
 #: data/header.ui:27
 msgid "_Keyboard Shortcuts"
-msgstr "_键盘快捷键"
+msgstr "键盘快捷键(_K)"
 
 #: data/header.ui:31
 msgid "_About Decibels"
-msgstr "_关于 Decibels"
+msgstr "关于 Decibels (_A)"
 
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
