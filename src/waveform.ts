@@ -23,12 +23,9 @@
 
 import Adw from "gi://Adw";
 import GObject from "gi://GObject";
-import Gdk from "gi://Gdk?version=4.0";
 import Gtk from "gi://Gtk?version=4.0";
 import Gst from "gi://Gst";
-
-// @ts-expect-error This module doesn't import nicely
-import Cairo from "cairo";
+import Graphene from "gi://Graphene";
 
 export enum WaveType {
   Recorder,
@@ -36,8 +33,9 @@ export enum WaveType {
 }
 
 const GUTTER = 4;
+const LINE_WIDTH = 1;
 
-export class APWaveForm extends Gtk.DrawingArea {
+export class APWaveForm extends Gtk.Widget {
   private _position: number;
   private dragGesture?: Gtk.GestureDrag;
   private hcId: number;
@@ -93,8 +91,6 @@ export class APWaveForm extends Gtk.DrawingArea {
         this.queue_draw();
       },
     );
-
-    this.set_draw_func(this.drawFunc.bind(this));
   }
 
   get peaks(): number[] {
@@ -122,12 +118,10 @@ export class APWaveForm extends Gtk.DrawingArea {
     this.emit("position-changed", this.position);
   }
 
-  private drawFunc(
-    _: Gtk.DrawingArea,
-    ctx: Cairo.Context,
-    width: number,
-    height: number,
-  ) {
+  vfunc_snapshot(snapshot: Gtk.Snapshot): void {
+    const height = this.get_height();
+    const width = this.get_width();
+
     const peaks = this.peaks;
     const vertiCenter = height / 2;
     const horizCenter = width / 2;
@@ -140,23 +134,17 @@ export class APWaveForm extends Gtk.DrawingArea {
 
     const leftColor = this.safeLookupColor("accent_color");
 
-    // Because the cairo module isn't real, we have to use these to ignore `any`.
-    // We keep them to the minimum possible scope to catch real errors.
-    /* eslint-disable @typescript-eslint/no-unsafe-call */
-    /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-    ctx.setLineCap(Cairo.LineCap.SQUARE);
-    ctx.setAntialias(Cairo.Antialias.NONE);
-    ctx.setLineWidth(2);
+    // Clip the snapshot to the widget area.
+    // Turns out the DrawingArea was automatically doing that for us
+    snapshot.push_clip(
+      new Graphene.Rect({ size: new Graphene.Size({ width, height }) }),
+    );
 
-    this.setSourceRGBA(ctx, leftColor);
-
-    ctx.moveTo(horizCenter, vertiCenter - height);
-    ctx.lineTo(horizCenter, vertiCenter + height);
-    ctx.stroke();
-
-    ctx.setLineWidth(2);
-    /* eslint-enable @typescript-eslint/no-unsafe-call */
-    /* eslint-enable @typescript-eslint/no-unsafe-member-access */
+    const indicator = new Graphene.Rect({
+      origin: new Graphene.Point({ x: horizCenter, y: 0 }),
+      size: new Graphene.Size({ width: LINE_WIDTH, height }),
+    });
+    snapshot.append_color(leftColor, indicator);
 
     // only draw the waveform for peaks inside the view
     let invisible_peaks = 0;
@@ -166,7 +154,9 @@ export class APWaveForm extends Gtk.DrawingArea {
       pointer = pointer + invisible_peaks;
     }
 
-    for (const peak of peaks.slice(invisible_peaks / GUTTER)) {
+    // eslint-disable-next-line @typescript-eslint/no-for-in-array
+    for (const id in peaks.slice(invisible_peaks / GUTTER)) {
+      const peak = peaks.slice(invisible_peaks / GUTTER)[id];
       // this shouldn't happen, but just in case
       if (pointer < 0) {
         pointer += GUTTER;
@@ -177,22 +167,29 @@ export class APWaveForm extends Gtk.DrawingArea {
         break;
       }
 
-      if (pointer > horizCenter) {
-        this.setSourceRGBA(ctx, rightColor);
-      } else {
-        this.setSourceRGBA(ctx, leftColor);
-      }
+      // only show 70% of the peaks. there are usually few peaks that are
+      // over 70% high, and those get clipped so that not much space is empty
+      const line_height = Math.max(peak * height * 0.7, 1);
 
-      /* eslint-disable @typescript-eslint/no-unsafe-call */
-      /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-      ctx.moveTo(pointer, vertiCenter + peak * height);
-      ctx.lineTo(pointer, vertiCenter - peak * height);
-      ctx.stroke();
-      /* eslint-enable @typescript-eslint/no-unsafe-call */
-      /* eslint-enable @typescript-eslint/no-unsafe-member-access */
+      const line = new Graphene.Rect({
+        origin: new Graphene.Point({
+          x: pointer,
+          y: vertiCenter - line_height,
+        }),
+        size: new Graphene.Size({
+          width: LINE_WIDTH,
+          height: line_height * 2,
+        }),
+      });
+      snapshot.append_color(
+        pointer > horizCenter ? rightColor : leftColor,
+        line,
+      );
 
       pointer += GUTTER;
     }
+
+    snapshot.pop();
   }
 
   set position(pos: number) {
@@ -205,14 +202,6 @@ export class APWaveForm extends Gtk.DrawingArea {
 
   get position(): number {
     return this._position;
-  }
-
-  private setSourceRGBA(cr: Cairo.Context, rgba: Gdk.RGBA): void {
-    /* eslint-disable @typescript-eslint/no-unsafe-call */
-    /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-    cr.setSourceRGBA(rgba.red, rgba.green, rgba.blue, rgba.alpha);
-    /* eslint-enable @typescript-eslint/no-unsafe-call */
-    /* eslint-enable @typescript-eslint/no-unsafe-member-access */
   }
 
   public destroy(): void {
