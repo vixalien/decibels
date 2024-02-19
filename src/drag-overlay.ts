@@ -37,10 +37,7 @@ export class APDragOverlay extends Adw.Bin {
       this._notify_current_drop_cb.bind(this),
     );
 
-    this._drop_target.connect(
-      "drop",
-      this._drop_target_drop_cb.bind(this),
-    );
+    this._drop_target.connect("drop", this._drop_target_drop_cb.bind(this));
 
     this.add_controller(this._drop_target);
   }
@@ -75,7 +72,7 @@ export class APDragOverlay extends Adw.Bin {
         return false;
       }
 
-      this.get_window().load_file(file);
+      void this.get_window().load_file(file);
       return true;
     }
 

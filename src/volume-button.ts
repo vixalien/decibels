@@ -11,10 +11,7 @@ export class APVolumeButton extends Adw.Bin {
       {
         GTypeName: "APVolumeButton",
         Template: "resource:///com/vixalien/decibels/volume-button.ui",
-        InternalChildren: [
-          "adjustment",
-          "menu_button",
-        ],
+        InternalChildren: ["adjustment", "menu_button"],
         Properties: {
           value: GObject.param_spec_double(
             "value",
@@ -23,7 +20,8 @@ export class APVolumeButton extends Adw.Bin {
             0,
             1.0,
             0.5,
-            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE |
+            GObject.ParamFlags.READABLE |
+              GObject.ParamFlags.WRITABLE |
               GObject.ParamFlags.EXPLICIT_NOTIFY,
           ),
         },

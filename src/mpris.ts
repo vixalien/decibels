@@ -93,7 +93,10 @@ const MPRIS_XML = `
 export class DBusInterface {
   connection!: Gio.DBusConnection;
 
-  constructor(private name: string, private path: string) {
+  constructor(
+    private name: string,
+    private path: string,
+  ) {
     Gio.bus_get(Gio.BusType.SESSION, null)
       .then(this.got_bus.bind(this))
       .catch((e: GLib.Error) => {
@@ -160,7 +163,7 @@ export class DBusInterface {
     parameters: GLib.Variant,
     invocation: Gio.DBusMethodInvocation,
   ) {
-    const args = parameters.unpack() as any[];
+    const args = parameters.unpack() as unknown[];
 
     this.method_inargs.get(method_name)!.forEach((sig, i) => {
       if (sig === "h") {
@@ -174,8 +177,10 @@ export class DBusInterface {
 
     let result;
 
+    type Method = (...args: unknown[]) => unknown;
+
     try {
-      result = (this[method_snake_name as keyof this] as any)(...args);
+      result = (this[method_snake_name as keyof this] as Method)(...args);
     } catch (error) {
       invocation.return_dbus_error(
         interface_name,
@@ -196,7 +201,7 @@ export class DBusInterface {
     }
   }
 
-  _dbus_emit_signal(signal_name: string, values: Record<string, any>) {
+  _dbus_emit_signal(signal_name: string, values: Record<string, unknown>) {
     if (this.signals.size === 0) return;
 
     const signal = this.signals.get(signal_name)!;
@@ -208,6 +213,8 @@ export class DBusInterface {
       parameters.push(GLib.Variant.new(signature, value));
     }
 
+    // TODO: the type is incorrect
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const variant = GLib.Variant.new_tuple(parameters as any);
 
     this.connection.emit_signal(
@@ -259,7 +266,7 @@ export class MPRIS extends DBusInterface {
 
     this.stream.connect("notify::seeking", () => {
       if (!this.stream.seeking) {
-        this._on_seek_finished(this as any, this.stream.timestamp);
+        this._on_seek_finished(this, this.stream.timestamp);
       }
     });
   }
@@ -340,7 +347,7 @@ export class MPRIS extends DBusInterface {
     );
   }
 
-  private _on_seek_finished(_: Gtk.Widget, position: number) {
+  private _on_seek_finished(_: unknown, position: number) {
     this._seeked(Math.trunc(position));
   }
 
@@ -437,7 +444,7 @@ export class MPRIS extends DBusInterface {
    *
    * Not implemented
    */
-  open_uri(_uri: string) {
+  open_uri() {
     return;
   }
 
@@ -471,7 +478,7 @@ export class MPRIS extends DBusInterface {
     const iface = interface_name.get_string()[0];
 
     switch (iface) {
-      case this.MEDIA_PLAYER2_IFACE:
+      case this.MEDIA_PLAYER2_IFACE: {
         const application_id = this.app.get_application_id() ?? "";
 
         return {
@@ -485,7 +492,8 @@ export class MPRIS extends DBusInterface {
           SupportedUriSchemes: GLib.Variant.new_strv([]),
           SupportedMimeTypes: GLib.Variant.new_strv([]),
         };
-      case this.MEDIA_PLAYER2_PLAYER_IFACE:
+      }
+      case this.MEDIA_PLAYER2_PLAYER_IFACE: {
         const position_msecond = Math.trunc(this.stream.timestamp);
         const playback_status = this._get_playback_status();
 
@@ -505,6 +513,7 @@ export class MPRIS extends DBusInterface {
           CanSeek: GLib.Variant.new_boolean(true),
           CanControl: GLib.Variant.new_boolean(true),
         };
+      }
       case "org.freedesktop.DBus.Properties":
         return {};
       case "org.freedesktop.DBus.Introspectable":
@@ -550,14 +559,16 @@ export class MPRIS extends DBusInterface {
         break;
       default:
         console.warn(
-          `MPRIS can not set, as it does not implement ${interface_name}`,
+          `MPRIS can not set, as it does not implement ${
+            interface_name.get_string()[0]
+          }`,
         );
     }
   }
 
   _properties_changed(
     interface_name: string,
-    changed_properties: Record<string, GLib.Variant<any>>,
+    changed_properties: Record<string, GLib.Variant>,
     invalidated_properties: string[],
   ) {
     this._dbus_emit_signal("PropertiesChanged", {
@@ -570,16 +581,4 @@ export class MPRIS extends DBusInterface {
   _introspect() {
     return MPRIS_XML;
   }
-}
-
-function hex_encode(string: string) {
-  var hex, i;
-
-  var result = "";
-  for (i = 0; i < string.length; i++) {
-    hex = string.charCodeAt(i).toString(16);
-    result += ("000" + hex).slice(-4);
-  }
-
-  return result;
 }

@@ -70,13 +70,13 @@ export class Application extends Adw.Application {
     this.present_main_window();
   }
 
-  vfunc_open(files: Gio.FilePrototype[], hint: string): void {
+  vfunc_open(files: Gio.FilePrototype[]): void {
     this.present_main_window();
 
     const window = this.get_active_window();
 
     if (window && window instanceof Window && files.length > 0) {
-      window.load_file(files[0]);
+      void window.load_file(files[0]);
     }
   }
 }

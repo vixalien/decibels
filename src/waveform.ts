@@ -61,7 +61,7 @@ export class APWaveForm extends Gtk.DrawingArea {
             "peaks",
             "Peaks",
             "The peaks of the currently playing song",
-            (Object as any).$gtype,
+            Object.$gtype,
             GObject.ParamFlags.READWRITE,
           ),
         },
@@ -109,8 +109,8 @@ export class APWaveForm extends Gtk.DrawingArea {
 
   private dragUpdate(_gesture: Gtk.GestureDrag, offset_x: number): void {
     if (this.drag_start_position != null) {
-      const after = this.drag_start_position -
-        (offset_x / (this.peaks.length * GUTTER));
+      const after =
+        this.drag_start_position - offset_x / (this.peaks.length * GUTTER);
 
       this._position = Math.max(Math.min(after, 1), 0);
       this.queue_draw();
@@ -132,7 +132,7 @@ export class APWaveForm extends Gtk.DrawingArea {
     const vertiCenter = height / 2;
     const horizCenter = width / 2;
 
-    let pointer = horizCenter - (this._position * peaks.length * GUTTER);
+    let pointer = horizCenter - this._position * peaks.length * GUTTER;
 
     const styleContext = this.get_style_context();
 
@@ -166,9 +166,7 @@ export class APWaveForm extends Gtk.DrawingArea {
       pointer = pointer + invisible_peaks;
     }
 
-    for (
-      const peak of peaks.slice(invisible_peaks / GUTTER)
-    ) {
+    for (const peak of peaks.slice(invisible_peaks / GUTTER)) {
       // this shouldn't happen, but just in case
       if (pointer < 0) {
         pointer += GUTTER;
@@ -230,7 +228,7 @@ export class APWaveForm extends Gtk.DrawingArea {
     const ok = lookupColor[0];
     if (ok) return lookupColor[1];
     return styleContext.get_color();
-    }
+  }
 }
 
 export class APPeaksGenerator extends GObject.Object {
@@ -245,7 +243,7 @@ export class APPeaksGenerator extends GObject.Object {
             "peaks",
             "Peaks",
             "The peaks of the currently playing song",
-            (Object as any).$gtype,
+            Object.$gtype,
             GObject.ParamFlags.READABLE,
           ),
         },
@@ -299,9 +297,7 @@ export class APPeaksGenerator extends GObject.Object {
         case Gst.MessageType.ELEMENT: {
           const s = message.get_structure();
           if (s && s.has_name("level")) {
-            const peakVal = s.get_value(
-              "rms",
-            ) as unknown as GObject.ValueArray;
+            const peakVal = s.get_value("rms") as unknown as GObject.ValueArray;
 
             if (peakVal) {
               const peak = peakVal.get_nth(0) as number;

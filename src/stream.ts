@@ -16,7 +16,8 @@ if (!Gst.is_initialized()) {
   Gst.init(null);
 }
 
-type GTypeToType<Y extends GObject.GType> = Y extends GObject.GType<infer T> ? T
+type GTypeToType<Y extends GObject.GType> = Y extends GObject.GType<infer T>
+  ? T
   : never;
 
 type GTypeArrayToTypeArray<Y extends readonly GObject.GType[]> = {
@@ -115,16 +116,18 @@ class APPlaySignalAdapter extends GObject.Object {
       case GstPlay.PlayMessage.END_OF_STREAM:
         this.emit_message("end-of-stream", []);
         break;
-      case GstPlay.PlayMessage.ERROR:
+      case GstPlay.PlayMessage.ERROR: {
         const error = GstPlay.play_message_parse_error(message);
 
         this.emit_message("error", [error[0]!, error[1]!]);
         break;
-      case GstPlay.PlayMessage.WARNING:
+      }
+      case GstPlay.PlayMessage.WARNING: {
         const warning = GstPlay.play_message_parse_warning(message);
 
         this.emit_message("warning", [warning[0]!, warning[1]!]);
         break;
+      }
       case GstPlay.PlayMessage.VIDEO_DIMENSIONS_CHANGED:
         this.emit_message(
           "video-dimensions-changed",
@@ -251,17 +254,20 @@ export class APMediaStream extends Gtk.MediaStream {
       this.tags = info.get_tags();
 
       switch (info.get_result()) {
-        case GstPbUtils.DiscovererResult.OK:
+        case GstPbUtils.DiscovererResult.OK: {
           const uri = info.get_uri();
           this._play.set_uri(uri);
           this.peaks_generator.generate_peaks_async(uri);
           return;
+        }
         case GstPbUtils.DiscovererResult.MISSING_PLUGINS:
           this.gerror(
             GLib.Error.new_literal(
               GstPlay.PlayError,
               GstPlay.PlayError.FAILED,
-              _("File uses a format that cannot be played. Additional media codecs may be required."),
+              _(
+                "File uses a format that cannot be played. Additional media codecs may be required.",
+              ),
             ),
           );
           return;
@@ -271,7 +277,9 @@ export class APMediaStream extends Gtk.MediaStream {
               GLib.Error.new_literal(
                 GstPlay.PlayError,
                 GstPlay.PlayError.FAILED,
-                _("An error happened while trying to get information about the file. Please try again."),
+                _(
+                  "An error happened while trying to get information about the file. Please try again.",
+                ),
               ),
           );
           return;
@@ -291,7 +299,9 @@ export class APMediaStream extends Gtk.MediaStream {
               GLib.Error.new_literal(
                 GstPlay.PlayError,
                 GstPlay.PlayError.FAILED,
-                _("Reading the file's information timed out. Please try again."),
+                _(
+                  "Reading the file's information timed out. Please try again.",
+                ),
               ),
           );
           return;
@@ -473,7 +483,9 @@ export class APMediaStream extends Gtk.MediaStream {
   get_duration() {
     if (!this._play.media_info) return 0;
 
-    return get_safe_duration(this._play.media_info.get_duration()) / Gst.USECOND;
+    return (
+      get_safe_duration(this._play.media_info.get_duration()) / Gst.USECOND
+    );
   }
 
   // property: error
@@ -549,7 +561,7 @@ export class APMediaStream extends Gtk.MediaStream {
 
   // handlers
 
-  private uri_loaded_cb(_play: GstPlay.Play, uri: string): void {
+  private uri_loaded_cb(): void {
     this.emit("loaded");
     this.notify("rate");
     this.play();
@@ -581,7 +593,7 @@ export class APMediaStream extends Gtk.MediaStream {
     }
   }
 
-  private duration_changed_cb(_play: GstPlay.Play): void {
+  private duration_changed_cb(): void {
     this.notify("duration");
   }
 
@@ -602,7 +614,7 @@ export class APMediaStream extends Gtk.MediaStream {
     this.gerror(error);
   }
 
-  protected eos_cb(_play: GstPlay.Play): void {
+  protected eos_cb(): void {
     this.pause();
     this.seek(0);
 
@@ -639,12 +651,12 @@ export class APMediaStream extends Gtk.MediaStream {
     }
   }
 
-  private volume_changed_cb(_play: GstPlay.Play): void {
+  private volume_changed_cb(): void {
     this.notify("volume");
     this.notify("cubic-volume");
   }
 
-  private mute_changed_cb(_play: GstPlay.Play): void {
+  private mute_changed_cb(): void {
     this.notify("muted");
   }
 
@@ -697,9 +709,7 @@ export class APMediaStream extends Gtk.MediaStream {
   }
 
   skip_seconds(seconds: number) {
-    this.seek(
-      Math.max(this.timestamp + seconds * Gst.MSECOND, 0),
-    );
+    this.seek(Math.max(this.timestamp + seconds * Gst.MSECOND, 0));
   }
 
   get_action_group() {
@@ -741,11 +751,6 @@ export class APMediaStream extends Gtk.MediaStream {
 
     return action_group;
   }
-}
-
-// compare numbers of different precisions
-function compare_numbers(a: number, b: number): boolean {
-  return Math.abs(Math.fround(a) - Math.fround(b)) < 0.00001;
 }
 
 export function get_linear_volume(value: number) {

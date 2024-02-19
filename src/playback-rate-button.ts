@@ -13,10 +13,7 @@ export class APPlaybackRateButton extends Adw.Bin {
       {
         GTypeName: "APPlaybackRateButton",
         Template: "resource:///com/vixalien/decibels/playback-rate-button.ui",
-        InternalChildren: [
-          "adjustment",
-          "label"
-        ],
+        InternalChildren: ["adjustment", "label"],
         Properties: {},
       },
       this,
@@ -39,7 +36,7 @@ export class APPlaybackRateButton extends Adw.Bin {
       GObject.BindingFlags.SYNC_CREATE,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "rate",
       this._label,
@@ -52,14 +49,14 @@ export class APPlaybackRateButton extends Adw.Bin {
       null,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "rate",
       this._label,
       "visible",
       GObject.BindingFlags.SYNC_CREATE,
       (_binding, from: number) => {
-        const rounded  = Math.round(from * 10) / 10
+        const rounded = Math.round(from * 10) / 10;
         return [true, rounded !== 1];
       },
       null,

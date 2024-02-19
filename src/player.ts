@@ -39,9 +39,7 @@ export class APPlayerState extends Adw.Bin {
           "waveform",
           "scale",
         ],
-        Children: [
-          "headerbar",
-        ],
+        Children: ["headerbar"],
       },
       this,
     );
@@ -63,7 +61,7 @@ export class APPlayerState extends Adw.Bin {
       GObject.BindingFlags.SYNC_CREATE,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "duration",
       this._duration_label,
@@ -76,13 +74,13 @@ export class APPlayerState extends Adw.Bin {
       null,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "timestamp",
       this._scale_adjustment,
       "value",
       GObject.BindingFlags.SYNC_CREATE,
-      (_binding, from: number) => {
+      () => {
         if ((this._scale.get_state_flags() & Gtk.StateFlags.ACTIVE) != 0) {
           return [false, null];
         }
@@ -92,7 +90,7 @@ export class APPlayerState extends Adw.Bin {
       null,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "timestamp",
       this._timestamp_label,
@@ -111,24 +109,19 @@ export class APPlayerState extends Adw.Bin {
       GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.BIDIRECTIONAL,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "playing",
       this._playback_image,
       "icon-name",
       GObject.BindingFlags.SYNC_CREATE,
       (_binding, from: boolean) => {
-        return [
-          true,
-          from
-            ? "pause-symbolic"
-            : "play-symbolic",
-        ];
+        return [true, from ? "pause-symbolic" : "play-symbolic"];
       },
       null,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "playing",
       this._playback_button,
@@ -140,7 +133,7 @@ export class APPlayerState extends Adw.Bin {
       null,
     );
 
-    // @ts-ignore GObject.BindingTransformFunc return arguments are not correctly typed
+    // @ts-expect-error GObject.BindingTransformFunc return arguments are not correctly typed
     window.stream.bind_property_full(
       "timestamp",
       this._waveform,
@@ -191,11 +184,7 @@ export class APPlayerState extends Adw.Bin {
     });
   }
 
-  private scale_change_value_cb(
-    _scale: Gtk.Scale,
-    _scroll: Gtk.ScrollType,
-    _value: number,
-  ) {
+  private scale_change_value_cb() {
     const window = this.get_root() as Window;
     const stream = window?.stream;
 
@@ -229,8 +218,6 @@ export class APPlayerState extends Adw.Bin {
   private key_pressed_cb(
     _controller: Gtk.EventControllerKey,
     keyval: number,
-    _keycode: number,
-    _modifier: Gdk.ModifierType,
   ): boolean {
     const window = this.get_root() as Window;
     const stream = window?.stream;
@@ -270,10 +257,6 @@ export class APPlayerState extends Adw.Bin {
       listener = null;
     });
   }
-}
-
-function get_window() {
-  return (Gtk.Application.get_default() as Gtk.Application).get_active_window();
 }
 
 function seconds_to_string(seconds: number) {

@@ -142,7 +142,7 @@ export class Window extends Adw.ApplicationWindow {
 
     this.mpris = new MPRIS(this.stream);
 
-    this.stream.connect("error", (_source, error) => {
+    this.stream.connect("error", (_source, error: GLib.Error) => {
       console.error(
         "error during playback",
         error.toString(),
@@ -171,7 +171,7 @@ export class Window extends Adw.ApplicationWindow {
     (this.add_action_entries as AddActionEntries)([
       {
         name: "open-file",
-        activate: (_source, _param) => {
+        activate: () => {
           this.open_file();
         },
       },
@@ -183,18 +183,20 @@ export class Window extends Adw.ApplicationWindow {
   }
 
   async load_file(file: Gio.File) {
-    const fileInfo = await file.query_info_async(
-      "standard::*",
-      Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
-      GLib.PRIORITY_DEFAULT,
-      null,
-    ).catch(() => {
-      this.show_error(
-        _("File Cannot Be Played"),
-        _("No available audio file found"),
-      );
-      return null;
-    });
+    const fileInfo = await file
+      .query_info_async(
+        "standard::*",
+        Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS,
+        GLib.PRIORITY_DEFAULT,
+        null,
+      )
+      .catch(() => {
+        this.show_error(
+          _("File Cannot Be Played"),
+          _("No available audio file found"),
+        );
+        return null;
+      });
 
     if (!fileInfo) return;
 
@@ -222,7 +224,7 @@ export class Window extends Adw.ApplicationWindow {
     (this.file_dialog.open(this, null) as unknown as Promise<Gio.File>)
       .then((file) => {
         if (file) {
-          this.load_file(file);
+          void this.load_file(file);
         } else {
           this.show_error(
             _("File Cannot Be Played"),
@@ -246,7 +248,7 @@ export class Window extends Adw.ApplicationWindow {
     this._stack.visible_child_name = page;
   }
 
-  show_error(title: string, error: any) {
+  show_error(title: string, error: unknown) {
     this.stream.stop();
 
     this.show_stack_page("error");

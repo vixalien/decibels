@@ -29,7 +29,7 @@ export class APErrorState extends Adw.Bin {
     this._statusPage.set_description(message);
   }
 
-  show_error(title: string, error: any) {
+  show_error(title: string, error: unknown) {
     this._statusPage.title = title;
 
     if (error instanceof Error) {
@@ -39,7 +39,7 @@ export class APErrorState extends Adw.Bin {
     } else {
       console.error("error: ", error);
       this.show_message(
-        error ? error.toString() : _("An unknown error happened"),
+        error ? (error as Error).toString() : _("An unknown error happened"),
       );
     }
   }

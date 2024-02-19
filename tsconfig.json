@@ -28,5 +28,5 @@
     "gi-types/gi.d.ts",
     "types/ambient.d.ts",
     "src"
-  ]
+  ],
 }
