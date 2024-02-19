@@ -165,7 +165,7 @@ export class Window extends Adw.ApplicationWindow {
     this.file_dialog = new Gtk.FileDialog({
       modal: true,
       title: _("Open File"),
-      // filters,
+      filters,
     });
 
     (this.add_action_entries as AddActionEntries)([
