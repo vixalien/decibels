@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2023 Angelo Verlain -->
 <component type="desktop">
-  <id>@app-id@.desktop</id>
+  <id>@app-id@</id>
   <name>Decibels</name>
   <summary>Play audio files</summary>
   <metadata_license>CC0-1.0</metadata_license>
