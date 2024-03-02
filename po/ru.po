@@ -1,60 +1,64 @@
-# Russian translation for Decibels.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the decibels package.
+# Локализация Децибел
+# Copyright (C) 2024 THE com.vixalien.decibels'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.vixalien.decibels package.
 # Сергей Ворон <voron@duck.com>, 2023.
+# rthrejheytjyrtj545 <130095917+rthrejheytjyrtj545@users.noreply.github.com>, 2024.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: decibels\n"
+"Project-Id-Version: com.vixalien.decibels\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 19:43+0200\n"
-"PO-Revision-Date: 2023-10-03 22:19+0300\n"
-"Last-Translator: Сергей Ворон <voron@duck.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2023-11-19 17:52+0200\n"
+"PO-Revision-Date: 2023-11-19 17:52+0200\n"
+"Last-Translator: rthrejheytjyrtj545 <130095917+rthrejheytjyrtj545@users.noreply.github.com>\n"
+"Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.2\n"
 
 #: data/com.vixalien.decibels.desktop.in.in:3
 #: data/com.vixalien.decibels.metainfo.xml.in.in:5 data/window.ui:9
 msgid "Decibels"
 msgstr "Децибелы"
 
+#: data/com.vixalien.decibels.desktop.in.in:4
+msgid "Audio Player"
+msgstr "Аудиопроигрыватель"
+
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.vixalien.decibels.desktop.in.in:11
+#: data/com.vixalien.decibels.desktop.in.in:12
 msgid "music;player;media;audio;"
 msgstr "music;player;media;audio;музыка;плеер;медиа;аудио;"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:6
 #: data/com.vixalien.decibels.metainfo.xml.in.in:12
 msgid "Play audio files"
-msgstr "Воспроизведение аудио файлов"
+msgstr "Воспроизводите аудиофайлы"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:13
 msgid "Current features:"
-msgstr "Текущие возможности:"
+msgstr "Функциональность:"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:15
 msgid "Shows the waveform of the track"
-msgstr "Отображение волны трека"
+msgstr "Визуализирует форму волн записи"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:16
 msgid "Adjust playback speed"
-msgstr "Настройка скорости воспроизведения"
+msgstr "Регулируйте скорость проигрывания"
 
 #: data/com.vixalien.decibels.metainfo.xml.in.in:17
 msgid "Easy seek controls"
-msgstr "Простое управление поиском"
+msgstr "Лёгко контролируйте перемотку"
 
 #: data/drag-overlay.ui:17
 msgid "Drop an audio file to play it"
-msgstr ""
+msgstr "Отпустите аудифайл для его исполнения"
 
 #: data/empty.ui:13
 msgid "Open an Audio File"
-msgstr "Открыть аудио файл"
+msgstr "Открыть аудиофайл"
 
 #: data/empty.ui:20
 msgid "_Open…"
@@ -62,11 +66,11 @@ msgstr "_Открыть…"
 
 #: data/error.ui:13 src/drag-overlay.ts:72 src/window.ts:155 src/window.ts:197
 msgid "File Cannot Be Played"
-msgstr "Невозможно воспроизвести файл"
+msgstr "Файл не может воспроизводиться"
 
 #: data/error.ui:20
 msgid "_Try Again…"
-msgstr "_Попробуйте еще раз…"
+msgstr "_Попробуйте ещё раз…"
 
 #: data/header.ui:12
 msgid "Main Menu"
@@ -82,28 +86,40 @@ msgstr "_Комбинации клавиш"
 
 #: data/header.ui:31
 msgid "_About Decibels"
-msgstr "_О приложении"
+msgstr "О _Децибелах"
+
+#: data/player.ui:77
+msgid "Adjust Playback Speed"
+msgstr "Регулировка скорости"
+
+#: data/player.ui:89
+msgid "Skip back 10s"
+msgstr "Перемотать вперёд на 10 с."
+
+#: data/player.ui:117
+msgid "Skip forward 10s"
+msgstr "Перемотать назад на 10 с."
 
 #: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
-msgstr ""
+msgstr "Общее"
 
 #: data/gtk/help-overlay.ui:14
 #, fuzzy
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
-msgstr "_Комбинации клавиш"
+msgstr "Комбинации клавиш"
 
 #: data/gtk/help-overlay.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Выйти"
 
 #: data/gtk/help-overlay.ui:28
 msgctxt "shortcut window"
 msgid "Player"
-msgstr ""
+msgstr "Проигрывание"
 
 #: data/gtk/help-overlay.ui:31
 #, fuzzy
@@ -115,42 +131,48 @@ msgstr "Открыть файл"
 #: src/application.ts:46
 msgid "translator-credits"
 msgstr ""
+"rthrejheytjyrtj545\n"
+"Сергей Ворон\n"
 
 #: src/drag-overlay.ts:73
 msgid "Unable to access dropped files"
-msgstr "Невозможно получить доступ к удаленным файлам"
+msgstr "Не удаётся получить доступ к сброшенным файлам"
 
 #: src/error.ts:42
 msgid "An unknown error happened"
-msgstr "Произошла неизвестная ошибка"
+msgstr "Неизвестная ошибка"
 
 #: src/stream.ts:259
 msgid ""
 "File uses a format that cannot be played. Additional media codecs may be "
 "required."
-msgstr ""
-"Файл использует формат, который невозможно воспроизвести. Возможно, "
-"потребуются дополнительные медиа кодеки."
+msgstr "У файла непроигрываемый формат. Перед продолжением могут понадобиться дополнительные медиакодеки"
 
 #: src/stream.ts:269
 msgid ""
 "An error happened while trying to get information about the file. Please try "
 "again."
-msgstr ""
-"Произошла ошибка при попытке получить информацию о файле. Пожалуйста, "
-"попробуйте еще раз."
+msgstr "Не удалось получить информацию о файле"
 
-#: src/stream.ts:393
+#: src/stream.ts:383
 msgid "Unknown File"
 msgstr "Неизвестный файл"
 
-#: src/stream.ts:619
+#: src/stream.ts:609
 msgid "The selected file doesn't contain any audio"
-msgstr "Выбранный файл не содержит аудио"
+msgstr "В выбранном файле нет аудио"
+
+#: src/player.ts:134
+msgid "Pause"
+msgstr "Пауза"
+
+#: src/player.ts:134
+msgid "Play"
+msgstr "Произведение"
 
 #: src/window.ts:161
 msgid "Audio files"
-msgstr "Аудио файлы"
+msgstr "Аудиофайлы"
 
 #: src/window.ts:168
 msgid "Open File"
@@ -158,84 +180,4 @@ msgstr "Открыть файл"
 
 #: src/window.ts:198
 msgid "The file could not be accessed"
-msgstr "Не удалось получить доступ к файлу"
-
-#~ msgid "Angelo Verlain"
-#~ msgstr "Angelo Verlain"
-
-#~ msgid "A few improvements and papercut fixes"
-#~ msgstr "Несколько улучшений и исправлений"
-
-#~ msgid "Support drag and drop"
-#~ msgstr "Поддержка перетаскивания"
-
-#~ msgid "Seek to the start of a track after it ends"
-#~ msgstr "Переход к началу дорожки после ее окончания"
-
-#~ msgid "Allow dragging the app window from everywhere (except the waveform)"
-#~ msgstr ""
-#~ "Разрешить перетаскивание окна приложения отовсюду (кроме волны трека)"
-
-#~ msgid ""
-#~ "Made the playback speed popover look less cluttered by removing the +/- "
-#~ "buttons and mark labels"
-#~ msgstr ""
-#~ "Всплывающее окно скорости воспроизведения стало менее загроможденным, "
-#~ "удалив кнопки +/- и метки"
-
-#~ msgid ""
-#~ "Fix an issue that prevented accessing file metadata from within the "
-#~ "Flatpak sandbox"
-#~ msgstr ""
-#~ "Устранена проблема, из-за которой невозможно было получить доступ к "
-#~ "метаданным файла из песочницы Flatpak"
-
-#~ msgid ""
-#~ "Don't try to play files without audio streams (images and videos without "
-#~ "sound)"
-#~ msgstr ""
-#~ "Не пытайтесь воспроизвести файлы без аудио потоков (изображения и видео "
-#~ "без звука)"
-
-#~ msgid "Don't try to process video streams even if they were not rendered"
-#~ msgstr ""
-#~ "Не пытайтесь обрабатывать видео потоки, даже если они не были отрендерены"
-
-#~ msgid "Fixed some issues with the Development build of Decibels"
-#~ msgstr "Исправлены некоторые проблемы со сборкой для разработчиков"
-
-#~ msgid "Fixed a minor glitch with the app icon"
-#~ msgstr "Исправлен небольшой сбой с иконкой приложения"
-
-#~ msgid "A few bug fixes that polishes up the app"
-#~ msgstr "Несколько исправлений ошибок, улучшающих приложение"
-
-#~ msgid ""
-#~ "Differentiate development versions of the app from the stable app by "
-#~ "styling the icon and header differently"
-#~ msgstr ""
-#~ "Отличайте разрабатываемые версии приложения от стабильной версии, "
-#~ "используя разные стили иконки и заголовка"
-
-#~ msgid "Added donation link in application metadata"
-#~ msgstr "Добавлена ссылка на пожертвования в метаданные приложения"
-
-#~ msgid "Fix the About Window being detached from main window"
-#~ msgstr "Исправлено отделение окна «О программе» от главного окна"
-
-#~ msgid "Fix the About Window showing release notes for an older version"
-#~ msgstr ""
-#~ "Исправлено окно «О программе», показывающее примечания к выпуску для "
-#~ "более старой версии"
-
-#~ msgid "Initial Release"
-#~ msgstr "Первоначальный выпуск"
-
-#~ msgid "File Cannot be Played"
-#~ msgstr "Невозможно воспроизвести файл"
-
-#~ msgid "Last width & height of window"
-#~ msgstr "Последняя ширина и высота окна"
-
-#~ msgid "The saved last size of the window (to be restored)"
-#~ msgstr "Сохраненный последний размер окна (будет восстановлен)"
+msgstr "Не удаётся получить доступ к файлу"
