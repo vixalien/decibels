@@ -14,20 +14,18 @@
   <update_contact>hey@vixalien.com</update_contact>
   <description>
     <p>Current features:</p>
-		<ul>
-			<li>Shows the waveform of the track</li>
-			<li>Adjust playback speed</li>
-			<li>Easy seek controls</li>
-		</ul>
+    <ul>
+      <li>Shows the waveform of the track</li>
+      <li>Adjust playback speed</li>
+      <li>Easy seek controls</li>
+    </ul>
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>
-        https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-1.png</image>
+      <image>https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-1.png</image>
     </screenshot>
     <screenshot>
-      <image>
-        https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-2.png</image>
+      <image>https://github.com/vixalien/decibels/raw/HEAD/data/screenshots/screenshot-2.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
@@ -39,7 +37,7 @@
           <li>Enhanced the accessibility of the app by ensuring that every on-screen element is screenreader accessible</li>
           <li>Added Dutch, Occitan, Belarusian and updated the Italian translations</li>
         </ul>
-			</description>
+      </description>
     </release>
     <release version="0.1.6" date="2023-11-08">
       <description translatable="no">
@@ -47,7 +45,7 @@
           <li>The buttons allowing to skip forwards and backwards 30 seconds were removed</li>
           <li>Some issues in the Brazilian Translation were fixed</li>
         </ul>
-			</description>
+      </description>
     </release>
     <release version="0.1.5" date="2023-11-02">
       <description translatable="no">
@@ -56,11 +54,11 @@
           <li>A few issues preventing some content from being translated were fixed</li>
           <li>Decibels was translated to Czech, Kinyarwanda, German, Traditional Chinese, Ukrainian and Brazilian Portuguese</li>
         </ul>
-			</description>
+      </description>
     </release>
     <release version="0.1.4" date="2023-10-06">
       <description translatable="no">
-				<p>A small bugfix and minor improvements release</p>
+        <p>A small bugfix and minor improvements release</p>
         <ul>
           <li>The artist of the currently playing track is shown if the artist is known</li>
           <li>Fix a minor visual issue when dropping a file</li>
@@ -69,11 +67,11 @@
           <li>A few issues preventing some content from being translated were fixed</li>
           <li>Decibels was translated to French, Russian, Italian and Turkish</li>
         </ul>
-			</description>
+      </description>
     </release>
     <release version="0.1.3" date="2023-09-24">
       <description translatable="no">
-				<p>A few improvements and papercut fixes</p>
+        <p>A few improvements and papercut fixes</p>
         <ul>
           <li>Support drag and drop</li>
           <li>Seek to the start of a track after it ends</li>
@@ -85,24 +83,24 @@
           <li>Fixed some issues with the Development build of Decibels</li>
           <li>Fixed a minor glitch with the app icon</li>
         </ul>
-			</description>
+      </description>
     </release>
     <release version="0.1.2" date="2023-09-21">
       <description translatable="no">
-				<p>A few bug fixes that polishes up the app</p>
+        <p>A few bug fixes that polishes up the app</p>
         <ul>
           <li>Differentiate development versions of the app from the stable app by styling the icon and header differently</li>
           <li>Added donation link in application metadata</li>
           <li>Fix the About Window being detached from main window</li>
           <li>Fix the About Window showing release notes for an older version</li>
         </ul>
-			</description>
+      </description>
     </release>
     <release version="0.1.1" date="2023-09-21"/>
     <release version="0.1.0" date="2023-09-20">
       <description translatable="no">
-				<p>Initial Release</p>
-			</description>
+        <p>Initial Release</p>
+      </description>
     </release>
   </releases>
   <launchable type="desktop-id">@app-id@.desktop</launchable>
@@ -113,15 +111,15 @@
   <url type="vcs-browser">https://github.com/vixalien/decibels</url>
   <translation type="gettext">@gettext-package@</translation>
   <custom>
-		<value key="Purism::form_factor">mobile</value>
-	</custom>
-	<requires>
-		<display_length compare="ge">360</display_length>
-	</requires>
-	<recommends>
-		<control>pointing</control>
-		<control>keyboard</control>
-		<control>touch</control>
-		<control>tablet</control>
-	</recommends>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+    <control>tablet</control>
+  </recommends>
 </component>
