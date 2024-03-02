@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Decibels
 GenericName=Audio Player
+Comment=Play audio files
 TryExec=@app-id@
 Exec=@app-id@ %U
 Icon=@app-id@
