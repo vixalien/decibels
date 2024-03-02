@@ -238,7 +238,7 @@ export class MPRIS extends DBusInterface {
   private app = Gtk.Application.get_default()!;
 
   constructor(public stream: APMediaStream) {
-    super("org.mpris.MediaPlayer2.Decibels", "/org/mpris/MediaPlayer2");
+    super(`org.mpris.MediaPlayer2.${pkg.name}`, "/org/mpris/MediaPlayer2");
 
     this.stream.connect(
       "notify::title",
