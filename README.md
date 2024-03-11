@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This project was migrated to [GNOME Gitlab][gnome-gitlab].
+
 <div align="center">
 <img src="data/icons/hicolor/scalable/apps/com.vixalien.decibels.svg" height="64">
 
@@ -54,3 +57,4 @@ Decibels follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
 - [Audio Player mockups](https://gitlab.gnome.org/Teams/Design/app-mockups/-/blob/master/audio-player/audio-player.png?ref_type=heads)
 
 [artifact]: https://github.com/vixalien/decibels/actions/workflows/build-nightly.yml
+[gnome-gitlab]: https://gitlab.gnome.org/vixalien/decibels
