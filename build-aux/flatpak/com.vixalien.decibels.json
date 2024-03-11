@@ -22,8 +22,7 @@
     "--socket=fallback-x11",
     "--socket=wayland",
     "--socket=pulseaudio",
-    "--env=GJS_DISABLE_JIT=1",
-    "--own-name=org.mpris.MediaPlayer2.Decibels"
+    "--env=GJS_DISABLE_JIT=1"
   ],
   "cleanup": [
     "/include",
